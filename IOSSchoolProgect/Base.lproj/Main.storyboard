@@ -92,49 +92,53 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Зарегистрироваться" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DqJ-m1-PBD">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDc-sq-mr5">
                                 <rect key="frame" x="0.0" y="807" width="414" height="51"/>
                                 <color key="backgroundColor" red="0.19215686269999999" green="0.40784313729999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="pig-Zb-2XE"/>
+                                    <constraint firstAttribute="height" constant="51" id="E4Y-Lp-UBt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Войти" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFt-zi-IGH">
+                                <color key="tintColor" systemColor="linkColor"/>
+                                <state key="normal" title="Зарегистрироваться">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YwM-CC-wtA">
                                 <rect key="frame" x="0.0" y="741" width="414" height="51"/>
                                 <color key="backgroundColor" red="0.19215686269999999" green="0.40784313729999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="oOd-Bp-Ko0"/>
+                                    <constraint firstAttribute="height" constant="51" id="sjI-zz-B1R"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="tintColor" systemColor="linkColor"/>
+                                <state key="normal" title="Войти">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.44705882352941173" green="0.44705882352941173" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="DqJ-m1-PBD" firstAttribute="top" secondItem="PFt-zi-IGH" secondAttribute="bottom" constant="15" id="8Jo-72-QQe"/>
+                            <constraint firstItem="IDc-sq-mr5" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5O9-CA-KKM"/>
                             <constraint firstItem="Jum-Jr-Cmd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="8bK-38-Rlc"/>
+                            <constraint firstItem="YwM-CC-wtA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9x4-Fj-WKF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jum-Jr-Cmd" secondAttribute="trailing" constant="16" id="BOx-G0-oIg"/>
                             <constraint firstItem="Jum-Jr-Cmd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="135" id="CL1-Gd-oSg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Lb7-C2-FO3" secondAttribute="trailing" constant="16" id="Gp3-Ov-xNB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ncg-o4-b45" secondAttribute="trailing" constant="16" id="NLJ-gg-ehS"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="DqJ-m1-PBD" secondAttribute="trailing" id="Oyi-AO-mxB"/>
+                            <constraint firstItem="IDc-sq-mr5" firstAttribute="top" secondItem="YwM-CC-wtA" secondAttribute="bottom" constant="15" id="PHI-xU-A8o"/>
                             <constraint firstItem="Lb7-C2-FO3" firstAttribute="top" secondItem="Jum-Jr-Cmd" secondAttribute="bottom" constant="26" id="U2l-RF-vmh"/>
-                            <constraint firstAttribute="bottom" secondItem="DqJ-m1-PBD" secondAttribute="bottom" constant="38" id="Uac-Yk-iz9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="E3J-m4-vUz" secondAttribute="trailing" constant="16" id="UfD-CD-3JY"/>
-                            <constraint firstItem="PFt-zi-IGH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bkt-QV-eBH"/>
-                            <constraint firstItem="DqJ-m1-PBD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eRU-Dq-eaY"/>
                             <constraint firstItem="ncg-o4-b45" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="idt-5q-w3U"/>
                             <constraint firstItem="ncg-o4-b45" firstAttribute="top" secondItem="E3J-m4-vUz" secondAttribute="bottom" constant="18" id="izB-Lz-TMe"/>
+                            <constraint firstItem="IDc-sq-mr5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jvo-Us-6N3"/>
                             <constraint firstItem="Lb7-C2-FO3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="kN3-KX-OYo"/>
                             <constraint firstItem="E3J-m4-vUz" firstAttribute="top" secondItem="Lb7-C2-FO3" secondAttribute="bottom" constant="76" id="nPx-yC-4Nd"/>
                             <constraint firstItem="E3J-m4-vUz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="osd-Dw-3yJ"/>
-                            <constraint firstItem="PFt-zi-IGH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rMn-Pe-loN"/>
+                            <constraint firstItem="YwM-CC-wtA" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="xbZ-4X-DW9"/>
+                            <constraint firstAttribute="bottom" secondItem="IDc-sq-mr5" secondAttribute="bottom" constant="38" id="xpw-Mw-GEy"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="0AS-Lo-smb" appends="YES" id="KUQ-Hi-slG"/>
