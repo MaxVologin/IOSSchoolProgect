@@ -76,13 +76,13 @@
 				8684A30327FDF7BF00FB2465 /* AppDelegate.swift */,
 				8684A30527FDF7BF00FB2465 /* SceneDelegate.swift */,
 				8684A30727FDF7BF00FB2465 /* AuthorizationViewController.swift */,
+				86B8894A280B12C40089B609 /* RegistrationViewController.swift */,
 				86B889392808B9360089B609 /* CustomButton.swift */,
 				8684A30927FDF7BF00FB2465 /* Main.storyboard */,
 				8636506527FF15200084BFF6 /* Extensions */,
 				8684A30C27FDF7CB00FB2465 /* Assets.xcassets */,
 				8684A30E27FDF7CB00FB2465 /* LaunchScreen.storyboard */,
 				8684A31127FDF7CB00FB2465 /* Info.plist */,
-				86B8894A280B12C40089B609 /* RegistrationViewController.swift */,
 			);
 			path = IOSSchoolProgect;
 			sourceTree = "<group>";

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dsL-o3-zme">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -136,10 +136,10 @@
             </objects>
             <point key="canvasLocation" x="140.57971014492756" y="61.607142857142854"/>
         </scene>
-        <!--View Controller-->
+        <!--Registration View Controller-->
         <scene sceneID="Ree-f4-eB6">
             <objects>
-                <viewController id="dsL-o3-zme" sceneMemberID="viewController">
+                <viewController id="dsL-o3-zme" customClass="RegistrationViewController" customModule="IOSSchoolProgect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FOj-rY-6bT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -203,7 +203,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ST5-mq-8YZ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ST5-mq-8YZ" customClass="CustomButton" customModule="IOSSchoolProgect" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="807" width="414" height="51"/>
                                 <color key="backgroundColor" red="0.19215686274509802" green="0.40784313725490196" blue="0.95686274509803915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -239,6 +239,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="suE-at-nVx"/>
                         <color key="backgroundColor" red="0.44701892139999999" green="0.44708532090000003" blue="0.44699788089999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Qow-GM-5FF" firstAttribute="leading" secondItem="ZkJ-oC-FWb" secondAttribute="trailing" constant="11" id="5ck-3E-0Vd"/>
                             <constraint firstItem="suE-at-nVx" firstAttribute="trailing" secondItem="zkq-Ku-6QX" secondAttribute="trailing" constant="16" id="92R-a0-1Jq"/>
@@ -258,9 +259,19 @@
                             <constraint firstItem="Bbp-Mm-dBi" firstAttribute="leading" secondItem="suE-at-nVx" secondAttribute="leading" constant="16" id="qB4-CT-d7w"/>
                             <constraint firstItem="suE-at-nVx" firstAttribute="trailing" secondItem="ST5-mq-8YZ" secondAttribute="trailing" id="ykA-AW-bhd"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="kEo-Cx-IXF" appends="YES" id="wHK-Av-ian"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="loginTextField" destination="zkq-Ku-6QX" id="JRQ-BR-61I"/>
+                        <outlet property="passwordTextField" destination="X4a-ei-Qhz" id="jEA-pc-Vn3"/>
+                        <outlet property="repeatPasswordTextField" destination="Bbp-Mm-dBi" id="mcZ-tP-a1B"/>
+                        <outlet property="tapGestureRecognizer" destination="kEo-Cx-IXF" id="KDl-p1-6YS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nNj-th-e3K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="kEo-Cx-IXF"/>
             </objects>
             <point key="canvasLocation" x="888" y="62"/>
         </scene>
