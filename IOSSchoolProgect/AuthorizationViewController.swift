@@ -9,6 +9,7 @@ import UIKit
 
 class AuthorizationViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var tapGestureRecognizer: UITapGestureRecognizer!
@@ -17,9 +18,21 @@ class AuthorizationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.delegate = self
         settingInputTextFields(textFields: loginTextField, passwordTextField)
         tapGestureRecognizer.addTarget(self, action: #selector(hideKeyboard))
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange), name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        }
+        
+        override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+            NotificationCenter.default.removeObserver(self)
+        }
     
     func settingInputTextFields(textFields: UITextField...) {
         for textField in textFields {
@@ -27,6 +40,19 @@ class AuthorizationViewController: UIViewController {
             textField.indent(size: 24)
             inputTextFields.append(textField)
         }
+    }
+    
+    @objc func keyboardDidChange(sender: Notification) {
+        guard let keyboardFrame: NSValue = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
+            return
+        }
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height
+        scrollView.contentInset = .init(top: 0, left: 0, bottom: keyboardHeight, right: 0)
+    }
+    
+    @objc func keyboardDidHide() {
+        scrollView.contentInset = .zero
     }
     
     @objc func hideKeyboard() {
@@ -48,4 +74,8 @@ extension AuthorizationViewController: UITextFieldDelegate {
         }
         return true
     }
+}
+
+extension AuthorizationViewController: UIScrollViewDelegate {
+    
 }
