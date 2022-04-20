@@ -10,6 +10,9 @@ import UIKit
 class AuthorizationViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var authorizationLabel: UILabel!
+    @IBOutlet weak var authorizationDescriptionLabel: UILabel!
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var tapGestureRecognizer: UITapGestureRecognizer!
@@ -20,6 +23,7 @@ class AuthorizationViewController: UIViewController {
         super.viewDidLoad()
         settingInputTextFields(textFields: loginTextField, passwordTextField)
         tapGestureRecognizer.addTarget(self, action: #selector(hideKeyboard))
+        settingStackView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,6 +34,11 @@ class AuthorizationViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         removeKeyboardNotifications()
+    }
+    
+    func settingStackView() {
+        stackView.setCustomSpacing(26, after: authorizationLabel)
+        stackView.setCustomSpacing(76, after: authorizationDescriptionLabel)
     }
     
     func settingInputTextFields(textFields: UITextField...) {
