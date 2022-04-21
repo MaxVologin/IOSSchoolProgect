@@ -59,6 +59,18 @@ class RegistrationViewController: UIViewController {
         let keyboardRectangle = keyboardFrame.cgRectValue
         let keyboardHeight = keyboardRectangle.height
         scrollView.contentInset.bottom = keyboardHeight
+        
+        for textField in inputTextFields {
+            if textField.isFirstResponder {
+                UIView.animate(withDuration: 0.25) {
+                    let viewHeight = self.view.frame.height
+                    let textFieldHeight = textField.frame.height
+                    let halfHeightViewWithoutKeyboard = viewHeight - keyboardHeight
+                    let textFieldY = textField.frame.origin.y
+                    self.scrollView.contentOffset.y = textFieldY - halfHeightViewWithoutKeyboard / 2 + textFieldHeight / 2
+                }
+            }
+        }
     }
     
     @objc func keyboardDidHide() {
