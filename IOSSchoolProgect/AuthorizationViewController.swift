@@ -21,9 +21,10 @@ class AuthorizationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.delegate = self
         settingInputTextFields(textFields: loginTextField, passwordTextField)
         tapGestureRecognizer.addTarget(self, action: #selector(hideKeyboard))
-        settingStackView()
+        settingCustomSpacingsInStackView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +37,7 @@ class AuthorizationViewController: UIViewController {
         removeKeyboardNotifications()
     }
     
-    func settingStackView() {
+    func settingCustomSpacingsInStackView() {
         stackView.setCustomSpacing(26, after: authorizationLabel)
         stackView.setCustomSpacing(76, after: authorizationDescriptionLabel)
     }
@@ -89,5 +90,16 @@ extension AuthorizationViewController: UITextFieldDelegate {
             inputTextFields[index+1].becomeFirstResponder()
         }
         return true
+    }
+}
+
+extension AuthorizationViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let topOffset = scrollView.contentOffset.y
+        if topOffset <= 0 {
+            let initialTextSize: CGFloat = 36
+            let sizeScaling = 1 + (-topOffset / 1000)
+            authorizationLabel.font = .systemFont(ofSize: initialTextSize * sizeScaling)
+        }
     }
 }

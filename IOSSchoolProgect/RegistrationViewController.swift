@@ -10,6 +10,7 @@ import UIKit
 class RegistrationViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var registrationLabel: UILabel!
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var repeatPasswordTextField: UITextField!
@@ -19,6 +20,7 @@ class RegistrationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.delegate = self
         settingInputTextFields(textFields: loginTextField, passwordTextField, repeatPasswordTextField)
         tapGestureRecognizer.addTarget(self, action: #selector(hideKeyboard))
     }
@@ -81,5 +83,16 @@ extension RegistrationViewController: UITextFieldDelegate {
             inputTextFields[index+1].becomeFirstResponder()
         }
         return true
+    }
+}
+
+extension RegistrationViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let topOffset = scrollView.contentOffset.y
+        if topOffset <= 0 {
+            let initialTextSize: CGFloat = 36
+            let sizeScaling = 1 + (-topOffset / 1000)
+            registrationLabel.font = .systemFont(ofSize: initialTextSize * sizeScaling)
+        }
     }
 }
