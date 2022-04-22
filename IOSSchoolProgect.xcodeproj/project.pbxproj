@@ -17,6 +17,13 @@
 		86B8893A2808B9370089B609 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B889392808B9360089B609 /* CustomButton.swift */; };
 		86B889472809C6860089B609 /* UITextField+indent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B889462809C6860089B609 /* UITextField+indent.swift */; };
 		86B8894B280B12C40089B609 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8894A280B12C40089B609 /* RegistrationViewController.swift */; };
+		86F0BA992812A03A00F5F466 /* UITableViewCell+NibName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F0BA982812A03A00F5F466 /* UITableViewCell+NibName.swift */; };
+		86F0BA9E2812A07C00F5F466 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F0BA9C2812A07B00F5F466 /* LocationTableViewCell.swift */; };
+		86F0BA9F2812A07C00F5F466 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86F0BA9D2812A07B00F5F466 /* LocationTableViewCell.xib */; };
+		86F0BAA22812A19800F5F466 /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F0BAA12812A19800F5F466 /* LocationTableViewController.swift */; };
+		86F0BAA82812A5BF00F5F466 /* PlanetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F0BAA62812A5BF00F5F466 /* PlanetTableViewCell.swift */; };
+		86F0BAA92812A5BF00F5F466 /* PlanetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86F0BAA72812A5BF00F5F466 /* PlanetTableViewCell.xib */; };
+		86F0BAAE2812A66D00F5F466 /* PlanetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F0BAAD2812A66D00F5F466 /* PlanetTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +39,13 @@
 		86B889392808B9360089B609 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		86B889462809C6860089B609 /* UITextField+indent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+indent.swift"; sourceTree = "<group>"; };
 		86B8894A280B12C40089B609 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		86F0BA982812A03A00F5F466 /* UITableViewCell+NibName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+NibName.swift"; sourceTree = "<group>"; };
+		86F0BA9C2812A07B00F5F466 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		86F0BA9D2812A07B00F5F466 /* LocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
+		86F0BAA12812A19800F5F466 /* LocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
+		86F0BAA62812A5BF00F5F466 /* PlanetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetTableViewCell.swift; sourceTree = "<group>"; };
+		86F0BAA72812A5BF00F5F466 /* PlanetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanetTableViewCell.xib; sourceTree = "<group>"; };
+		86F0BAAD2812A66D00F5F466 /* PlanetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +87,8 @@
 		8684A30227FDF7BF00FB2465 /* IOSSchoolProgect */ = {
 			isa = PBXGroup;
 			children = (
+				86F0BAAC2812A62D00F5F466 /* TableViewController */,
+				86F0BA9628129FF000F5F466 /* Rows */,
 				8684A30327FDF7BF00FB2465 /* AppDelegate.swift */,
 				8684A30527FDF7BF00FB2465 /* SceneDelegate.swift */,
 				8684A30727FDF7BF00FB2465 /* AuthorizationViewController.swift */,
@@ -85,6 +101,43 @@
 				8684A31127FDF7CB00FB2465 /* Info.plist */,
 			);
 			path = IOSSchoolProgect;
+			sourceTree = "<group>";
+		};
+		86F0BA9628129FF000F5F466 /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				86F0BAA52812A59800F5F466 /* PlanetTableViewCell */,
+				86F0BA9728129FF700F5F466 /* LocationTableViewCell */,
+				86F0BA982812A03A00F5F466 /* UITableViewCell+NibName.swift */,
+			);
+			path = Rows;
+			sourceTree = "<group>";
+		};
+		86F0BA9728129FF700F5F466 /* LocationTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				86F0BA9C2812A07B00F5F466 /* LocationTableViewCell.swift */,
+				86F0BA9D2812A07B00F5F466 /* LocationTableViewCell.xib */,
+			);
+			path = LocationTableViewCell;
+			sourceTree = "<group>";
+		};
+		86F0BAA52812A59800F5F466 /* PlanetTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				86F0BAA62812A5BF00F5F466 /* PlanetTableViewCell.swift */,
+				86F0BAA72812A5BF00F5F466 /* PlanetTableViewCell.xib */,
+			);
+			path = PlanetTableViewCell;
+			sourceTree = "<group>";
+		};
+		86F0BAAC2812A62D00F5F466 /* TableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				86F0BAA12812A19800F5F466 /* LocationTableViewController.swift */,
+				86F0BAAD2812A66D00F5F466 /* PlanetTableViewController.swift */,
+			);
+			path = TableViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,8 +197,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86F0BAA92812A5BF00F5F466 /* PlanetTableViewCell.xib in Resources */,
 				8684A31027FDF7CB00FB2465 /* LaunchScreen.storyboard in Resources */,
 				8684A30D27FDF7CB00FB2465 /* Assets.xcassets in Resources */,
+				86F0BA9F2812A07C00F5F466 /* LocationTableViewCell.xib in Resources */,
 				8684A30B27FDF7BF00FB2465 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,9 +215,14 @@
 				8684A30827FDF7BF00FB2465 /* AuthorizationViewController.swift in Sources */,
 				86B889472809C6860089B609 /* UITextField+indent.swift in Sources */,
 				8684A30427FDF7BF00FB2465 /* AppDelegate.swift in Sources */,
+				86F0BAA82812A5BF00F5F466 /* PlanetTableViewCell.swift in Sources */,
+				86F0BA9E2812A07C00F5F466 /* LocationTableViewCell.swift in Sources */,
 				8636506727FF159E0084BFF6 /* UIView+storyobardProperties.swift in Sources */,
 				86B8894B280B12C40089B609 /* RegistrationViewController.swift in Sources */,
 				8684A30627FDF7BF00FB2465 /* SceneDelegate.swift in Sources */,
+				86F0BA992812A03A00F5F466 /* UITableViewCell+NibName.swift in Sources */,
+				86F0BAAE2812A66D00F5F466 /* PlanetTableViewController.swift in Sources */,
+				86F0BAA22812A19800F5F466 /* LocationTableViewController.swift in Sources */,
 				86B8893A2808B9370089B609 /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
