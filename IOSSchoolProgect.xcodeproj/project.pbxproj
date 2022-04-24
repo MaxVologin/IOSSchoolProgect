@@ -24,6 +24,12 @@
 		86F0BAA82812A5BF00F5F466 /* PlanetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F0BAA62812A5BF00F5F466 /* PlanetTableViewCell.swift */; };
 		86F0BAA92812A5BF00F5F466 /* PlanetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86F0BAA72812A5BF00F5F466 /* PlanetTableViewCell.xib */; };
 		86F0BAAE2812A66D00F5F466 /* PlanetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F0BAAD2812A66D00F5F466 /* PlanetTableViewController.swift */; };
+		86F0BAB42812DECA00F5F466 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F0BAB32812DECA00F5F466 /* CollectionViewController.swift */; };
+		86F0BABA2812E25700F5F466 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F0BAB82812E25700F5F466 /* TestCollectionViewCell.swift */; };
+		86F0BABB2812E25700F5F466 /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86F0BAB92812E25700F5F466 /* TestCollectionViewCell.xib */; };
+		86F0BABF2812E2AB00F5F466 /* PLCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F0BABE2812E2AB00F5F466 /* PLCollectionViewCell.swift */; };
+		86F0BAC42812E7CE00F5F466 /* NSObject+ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F0BAC32812E7CE00F5F466 /* NSObject+ClassName.swift */; };
+		86F0BACB2812F2D500F5F466 /* CompositionalCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F0BACA2812F2D500F5F466 /* CompositionalCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +52,12 @@
 		86F0BAA62812A5BF00F5F466 /* PlanetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetTableViewCell.swift; sourceTree = "<group>"; };
 		86F0BAA72812A5BF00F5F466 /* PlanetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanetTableViewCell.xib; sourceTree = "<group>"; };
 		86F0BAAD2812A66D00F5F466 /* PlanetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetTableViewController.swift; sourceTree = "<group>"; };
+		86F0BAB32812DECA00F5F466 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		86F0BAB82812E25700F5F466 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
+		86F0BAB92812E25700F5F466 /* TestCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCollectionViewCell.xib; sourceTree = "<group>"; };
+		86F0BABE2812E2AB00F5F466 /* PLCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PLCollectionViewCell.swift; sourceTree = "<group>"; };
+		86F0BAC32812E7CE00F5F466 /* NSObject+ClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassName.swift"; sourceTree = "<group>"; };
+		86F0BACA2812F2D500F5F466 /* CompositionalCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +105,10 @@
 				8684A30527FDF7BF00FB2465 /* SceneDelegate.swift */,
 				8684A30727FDF7BF00FB2465 /* AuthorizationViewController.swift */,
 				86B8894A280B12C40089B609 /* RegistrationViewController.swift */,
+				86F0BAB32812DECA00F5F466 /* CollectionViewController.swift */,
+				86F0BACA2812F2D500F5F466 /* CompositionalCollectionViewController.swift */,
 				86B889392808B9360089B609 /* CustomButton.swift */,
+				86F0BAC32812E7CE00F5F466 /* NSObject+ClassName.swift */,
 				8684A30927FDF7BF00FB2465 /* Main.storyboard */,
 				8636506527FF15200084BFF6 /* Extensions */,
 				8684A30C27FDF7CB00FB2465 /* Assets.xcassets */,
@@ -106,6 +121,8 @@
 		86F0BA9628129FF000F5F466 /* Rows */ = {
 			isa = PBXGroup;
 			children = (
+				86F0BABD2812E28400F5F466 /* PlColletcionViewCell */,
+				86F0BAB72812E22E00F5F466 /* TestCollectionViewCell */,
 				86F0BAA52812A59800F5F466 /* PlanetTableViewCell */,
 				86F0BA9728129FF700F5F466 /* LocationTableViewCell */,
 				86F0BA982812A03A00F5F466 /* UITableViewCell+NibName.swift */,
@@ -138,6 +155,23 @@
 				86F0BAAD2812A66D00F5F466 /* PlanetTableViewController.swift */,
 			);
 			path = TableViewController;
+			sourceTree = "<group>";
+		};
+		86F0BAB72812E22E00F5F466 /* TestCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				86F0BAB82812E25700F5F466 /* TestCollectionViewCell.swift */,
+				86F0BAB92812E25700F5F466 /* TestCollectionViewCell.xib */,
+			);
+			path = TestCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		86F0BABD2812E28400F5F466 /* PlColletcionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				86F0BABE2812E2AB00F5F466 /* PLCollectionViewCell.swift */,
+			);
+			path = PlColletcionViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +233,7 @@
 			files = (
 				86F0BAA92812A5BF00F5F466 /* PlanetTableViewCell.xib in Resources */,
 				8684A31027FDF7CB00FB2465 /* LaunchScreen.storyboard in Resources */,
+				86F0BABB2812E25700F5F466 /* TestCollectionViewCell.xib in Resources */,
 				8684A30D27FDF7CB00FB2465 /* Assets.xcassets in Resources */,
 				86F0BA9F2812A07C00F5F466 /* LocationTableViewCell.xib in Resources */,
 				8684A30B27FDF7BF00FB2465 /* Main.storyboard in Resources */,
@@ -212,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86F0BAB42812DECA00F5F466 /* CollectionViewController.swift in Sources */,
 				8684A30827FDF7BF00FB2465 /* AuthorizationViewController.swift in Sources */,
 				86B889472809C6860089B609 /* UITextField+indent.swift in Sources */,
 				8684A30427FDF7BF00FB2465 /* AppDelegate.swift in Sources */,
@@ -220,9 +256,13 @@
 				8636506727FF159E0084BFF6 /* UIView+storyobardProperties.swift in Sources */,
 				86B8894B280B12C40089B609 /* RegistrationViewController.swift in Sources */,
 				8684A30627FDF7BF00FB2465 /* SceneDelegate.swift in Sources */,
+				86F0BABF2812E2AB00F5F466 /* PLCollectionViewCell.swift in Sources */,
 				86F0BA992812A03A00F5F466 /* UITableViewCell+NibName.swift in Sources */,
+				86F0BABA2812E25700F5F466 /* TestCollectionViewCell.swift in Sources */,
 				86F0BAAE2812A66D00F5F466 /* PlanetTableViewController.swift in Sources */,
+				86F0BAC42812E7CE00F5F466 /* NSObject+ClassName.swift in Sources */,
 				86F0BAA22812A19800F5F466 /* LocationTableViewController.swift in Sources */,
+				86F0BACB2812F2D500F5F466 /* CompositionalCollectionViewController.swift in Sources */,
 				86B8893A2808B9370089B609 /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

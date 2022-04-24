@@ -50,3 +50,7 @@ extension RegistrationViewController: UITextFieldDelegate {
         return true
     }
 }
+
+// UICollectionViewFlouLayout стандартные лейауты позволяет сказать в какую сторону листать
+// UI CollectionViewTransitionekLayout - позволяет переходить от одного лейаута к другому
+// UICollectionViewCompositionalLayout - кастомные ячейки одна в дрйгой

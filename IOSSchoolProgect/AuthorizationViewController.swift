@@ -21,6 +21,10 @@ class AuthorizationViewController: UIViewController {
         tapGestureRecognizer.addTarget(self, action: #selector(hideKeyboard))
     }
     
+    func printString(_ string: String) {
+        print(string)
+    }
+    
     func settingInputTextFields(textFields: UITextField...) {
         for textField in textFields {
             textField.delegate = self
