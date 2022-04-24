@@ -44,15 +44,15 @@ class RegistrationViewController: UIViewController {
     }
     
     func registerForKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChange), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     func removeKeyboardNotifications() {
         NotificationCenter.default.removeObserver(self)
     }
     
-    @objc func keyboardDidChange(sender: Notification) {
+    @objc func keyboardWillShow(sender: Notification) {
         guard let keyboardFrame: NSValue = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
             return
         }
@@ -72,7 +72,7 @@ class RegistrationViewController: UIViewController {
         }
     }
     
-    @objc func keyboardDidHide() {
+    @objc func keyboardWillHide() {
         scrollView.contentInset = .zero
     }
     
