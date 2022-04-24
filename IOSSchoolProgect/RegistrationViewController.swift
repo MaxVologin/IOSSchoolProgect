@@ -62,12 +62,14 @@ class RegistrationViewController: UIViewController {
         
         for textField in inputTextFields {
             if textField.isFirstResponder {
-                let viewHeight = self.view.frame.height
-                let textFieldHeight = textField.frame.height
-                let heightViewWithoutKeyboard = viewHeight - keyboardHeight
-                let textFieldY = textField.frame.origin.y
-                let textFieldPosition = CGPoint(x: 1, y: textFieldY - heightViewWithoutKeyboard / 2 + textFieldHeight / 2)
-                self.scrollView.setContentOffset(textFieldPosition, animated: true)
+                UIView.animate(withDuration: 0.25) {
+                    let viewHeight = self.view.frame.height
+                    let textFieldHeight = textField.frame.height
+                    let heightViewWithoutKeyboard = viewHeight - keyboardHeight
+                    let textFieldY = textField.frame.origin.y
+                    let textFieldPosition = CGPoint(x: 1, y: textFieldY - heightViewWithoutKeyboard / 2 + textFieldHeight / 2)
+                    self.scrollView.contentOffset = textFieldPosition
+                }
             }
         }
     }
