@@ -11,7 +11,7 @@
         <!--Authorization View Controller-->
         <scene sceneID="jJJ-en-DnE">
             <objects>
-                <viewController id="CMg-I4-yjR" customClass="AuthorizationViewController" customModule="IOSSchoolProgect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthorizationViewController" id="CMg-I4-yjR" customClass="AuthorizationViewController" customModule="IOSSchoolProgect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="its-md-3AV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -166,7 +166,7 @@
         <!--Registration View Controller-->
         <scene sceneID="1qk-kq-D6L">
             <objects>
-                <viewController id="0c7-t2-uMK" customClass="RegistrationViewController" customModule="IOSSchoolProgect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegistrationViewController" id="0c7-t2-uMK" customClass="RegistrationViewController" customModule="IOSSchoolProgect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qM9-lX-wwS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -331,10 +331,10 @@
             </objects>
             <point key="canvasLocation" x="387" y="258"/>
         </scene>
-        <!--Profile Table View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="gWe-yg-WBj">
             <objects>
-                <viewController id="2z7-TM-f7X" customClass="ProfileTableViewController" customModule="IOSSchoolProgect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileTableViewController" id="2z7-TM-f7X" customClass="ProfileViewController" customModule="IOSSchoolProgect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QWM-pY-cUK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -24,7 +24,7 @@
 		86C78266281678E200A20DEF /* RegistrationDateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C78264281678E200A20DEF /* RegistrationDateTableViewCell.xib */; };
 		86C7826B28167ADD00A20DEF /* ProfileColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C7826928167ADD00A20DEF /* ProfileColorTableViewCell.swift */; };
 		86C7826C28167ADD00A20DEF /* ProfileColorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C7826A28167ADD00A20DEF /* ProfileColorTableViewCell.xib */; };
-		86C7827028167C9900A20DEF /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C7826F28167C9900A20DEF /* ProfileTableViewController.swift */; };
+		86C7827028167C9900A20DEF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C7826F28167C9900A20DEF /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +47,7 @@
 		86C78264281678E200A20DEF /* RegistrationDateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationDateTableViewCell.xib; sourceTree = "<group>"; };
 		86C7826928167ADD00A20DEF /* ProfileColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileColorTableViewCell.swift; sourceTree = "<group>"; };
 		86C7826A28167ADD00A20DEF /* ProfileColorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileColorTableViewCell.xib; sourceTree = "<group>"; };
-		86C7826F28167C9900A20DEF /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		86C7826F28167C9900A20DEF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +95,7 @@
 				8684A30527FDF7BF00FB2465 /* SceneDelegate.swift */,
 				8684A30727FDF7BF00FB2465 /* AuthorizationViewController.swift */,
 				86B8894A280B12C40089B609 /* RegistrationViewController.swift */,
-				86C7826F28167C9900A20DEF /* ProfileTableViewController.swift */,
+				86C7826F28167C9900A20DEF /* ProfileViewController.swift */,
 				86B889392808B9360089B609 /* CustomButton.swift */,
 				8684A30927FDF7BF00FB2465 /* Main.storyboard */,
 				8636506527FF15200084BFF6 /* Extensions */,
@@ -226,7 +226,7 @@
 				8684A30627FDF7BF00FB2465 /* SceneDelegate.swift in Sources */,
 				86C7825E2816776100A20DEF /* UserLoginTableViewCell.swift in Sources */,
 				86C78265281678E200A20DEF /* RegistrationDateTableViewCell.swift in Sources */,
-				86C7827028167C9900A20DEF /* ProfileTableViewController.swift in Sources */,
+				86C7827028167C9900A20DEF /* ProfileViewController.swift in Sources */,
 				86B8893A2808B9370089B609 /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
