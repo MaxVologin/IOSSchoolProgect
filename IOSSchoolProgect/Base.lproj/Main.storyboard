@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CMg-I4-yjR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2z7-TM-f7X">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -330,6 +330,87 @@
                 <tapGestureRecognizer id="wBH-IF-AIN"/>
             </objects>
             <point key="canvasLocation" x="387" y="258"/>
+        </scene>
+        <!--Profile Table View Controller-->
+        <scene sceneID="gWe-yg-WBj">
+            <objects>
+                <viewController id="2z7-TM-f7X" customClass="ProfileTableViewController" customModule="IOSSchoolProgect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QWM-pY-cUK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SCM-bR-CAc">
+                                <rect key="frame" x="0.0" y="207" width="414" height="600"/>
+                                <color key="backgroundColor" red="0.40780633690000001" green="0.40786755079999998" blue="0.40778696539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7kV-s6-ZcP">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="207"/>
+                                <color key="backgroundColor" red="0.49411764705882355" green="0.53333333333333333" blue="0.91764705882352937" alpha="0.51000000000000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="207" id="GJ8-EU-tcg"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MUL-Li-JQN">
+                                <rect key="frame" x="120" y="103" width="174" height="174"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="BF6-bg-MJu">
+                                        <rect key="frame" x="-22" y="-25.333333333333329" width="213" height="225"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="225" id="Qn3-7a-DdG"/>
+                                            <constraint firstAttribute="width" constant="213" id="nnS-a3-Ic6"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.76862745098039209" green="0.76862745098039209" blue="0.76862745098039209" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="174" id="A0X-JC-Tfq"/>
+                                    <constraint firstAttribute="height" constant="174" id="Di6-IE-s7o"/>
+                                    <constraint firstItem="BF6-bg-MJu" firstAttribute="centerX" secondItem="MUL-Li-JQN" secondAttribute="centerX" constant="-2.5" id="Sih-e9-Dng"/>
+                                    <constraint firstItem="BF6-bg-MJu" firstAttribute="centerY" secondItem="MUL-Li-JQN" secondAttribute="centerY" id="TKM-WF-5tG"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="87"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJ6-sz-BKr" customClass="CustomButton" customModule="IOSSchoolProgect" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="807" width="414" height="51"/>
+                                <color key="backgroundColor" red="0.19215686269999999" green="0.40784313729999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="JS2-nR-7Yv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="tintColor" systemColor="linkColor"/>
+                                <state key="normal" title="Выйти">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="epx-DL-M9I"/>
+                        <color key="backgroundColor" red="0.40780633690000001" green="0.40786755079999998" blue="0.40778696539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gJ6-sz-BKr" firstAttribute="trailing" secondItem="epx-DL-M9I" secondAttribute="trailing" id="7FG-MM-Fe3"/>
+                            <constraint firstItem="MUL-Li-JQN" firstAttribute="top" secondItem="QWM-pY-cUK" secondAttribute="top" constant="103" id="7oG-et-olM"/>
+                            <constraint firstItem="SCM-bR-CAc" firstAttribute="leading" secondItem="epx-DL-M9I" secondAttribute="leading" id="8nC-dT-JYC"/>
+                            <constraint firstItem="epx-DL-M9I" firstAttribute="trailing" secondItem="SCM-bR-CAc" secondAttribute="trailing" id="DES-E4-r1J"/>
+                            <constraint firstAttribute="bottom" secondItem="gJ6-sz-BKr" secondAttribute="bottom" constant="38" id="E6J-YV-eVN"/>
+                            <constraint firstItem="epx-DL-M9I" firstAttribute="trailing" secondItem="7kV-s6-ZcP" secondAttribute="trailing" id="PLr-YL-mVF"/>
+                            <constraint firstItem="7kV-s6-ZcP" firstAttribute="top" secondItem="QWM-pY-cUK" secondAttribute="top" id="SU8-7E-qhh"/>
+                            <constraint firstItem="MUL-Li-JQN" firstAttribute="centerX" secondItem="epx-DL-M9I" secondAttribute="centerX" id="Shf-Py-uB2"/>
+                            <constraint firstItem="gJ6-sz-BKr" firstAttribute="top" secondItem="SCM-bR-CAc" secondAttribute="bottom" id="bcc-TT-IE3"/>
+                            <constraint firstItem="gJ6-sz-BKr" firstAttribute="leading" secondItem="epx-DL-M9I" secondAttribute="leading" id="cGA-tY-ACV"/>
+                            <constraint firstItem="7kV-s6-ZcP" firstAttribute="leading" secondItem="epx-DL-M9I" secondAttribute="leading" id="gJv-7j-aT0"/>
+                            <constraint firstItem="SCM-bR-CAc" firstAttribute="top" secondItem="7kV-s6-ZcP" secondAttribute="bottom" id="lDW-39-z7R"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="SCM-bR-CAc" id="e68-ow-Vrw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ydl-xx-cEB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1227.536231884058" y="257.8125"/>
         </scene>
     </scenes>
     <resources>
