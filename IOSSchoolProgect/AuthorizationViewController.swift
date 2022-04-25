@@ -17,6 +17,20 @@ class AuthorizationViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var tapGestureRecognizer: UITapGestureRecognizer!
     
+    @IBAction func onClickLoginButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let profileViewController = storyboard.instantiateViewController(withIdentifier: ProfileViewController.className) as? ProfileViewController {
+            navigationController?.show(profileViewController, sender: nil)
+        }
+    }
+    
+    @IBAction func onClickRegistrationButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let registrationViewController = storyboard.instantiateViewController(withIdentifier: RegistrationViewController.className) as? RegistrationViewController {
+            navigationController?.show(registrationViewController, sender: nil)
+        }
+    }
+    
     var inputTextFields: [UITextField] = []
     
     override func viewDidLoad() {

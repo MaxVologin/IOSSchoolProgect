@@ -1,5 +1,5 @@
 //
-//  UserLoginTableViewController.swift
+//  UserLoginViewController.swift
 //  IOSSchoolProgect
 //
 //  Created by maxvologin on 25.04.2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileTableViewController: UIViewController {
+class ProfileViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
         
@@ -29,7 +29,7 @@ class ProfileTableViewController: UIViewController {
     }
 }
 
-extension ProfileTableViewController: UITableViewDataSource {
+extension ProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         3

@@ -16,6 +16,13 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var repeatPasswordTextField: UITextField!
     @IBOutlet weak var tapGestureRecognizer: UITapGestureRecognizer!
     
+    @IBAction func onClickDoneButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let profileViewController = storyboard.instantiateViewController(withIdentifier: ProfileViewController.className) as? ProfileViewController {
+            navigationController?.show(profileViewController, sender: nil)
+        }
+    }
+    
     var inputTextFields: [UITextField] = []
 
     override func viewDidLoad() {
