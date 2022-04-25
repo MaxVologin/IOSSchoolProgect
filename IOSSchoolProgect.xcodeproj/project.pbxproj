@@ -25,6 +25,7 @@
 		86C7826B28167ADD00A20DEF /* ProfileColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C7826928167ADD00A20DEF /* ProfileColorTableViewCell.swift */; };
 		86C7826C28167ADD00A20DEF /* ProfileColorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C7826A28167ADD00A20DEF /* ProfileColorTableViewCell.xib */; };
 		86C7827028167C9900A20DEF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C7826F28167C9900A20DEF /* ProfileViewController.swift */; };
+		86C782802817267B00A20DEF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C7827F2817267B00A20DEF /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		86C7826928167ADD00A20DEF /* ProfileColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileColorTableViewCell.swift; sourceTree = "<group>"; };
 		86C7826A28167ADD00A20DEF /* ProfileColorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileColorTableViewCell.xib; sourceTree = "<group>"; };
 		86C7826F28167C9900A20DEF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		86C7827F2817267B00A20DEF /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				8684A30727FDF7BF00FB2465 /* AuthorizationViewController.swift */,
 				86B8894A280B12C40089B609 /* RegistrationViewController.swift */,
 				86C7826F28167C9900A20DEF /* ProfileViewController.swift */,
+				86C7827F2817267B00A20DEF /* TabBarController.swift */,
 				86B889392808B9360089B609 /* CustomButton.swift */,
 				8684A30927FDF7BF00FB2465 /* Main.storyboard */,
 				8636506527FF15200084BFF6 /* Extensions */,
@@ -217,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8684A30827FDF7BF00FB2465 /* AuthorizationViewController.swift in Sources */,
+				86C782802817267B00A20DEF /* TabBarController.swift in Sources */,
 				86B889472809C6860089B609 /* UITextField+indent.swift in Sources */,
 				8684A30427FDF7BF00FB2465 /* AppDelegate.swift in Sources */,
 				8636506727FF159E0084BFF6 /* UIView+storyobardProperties.swift in Sources */,

@@ -19,15 +19,19 @@ class AuthorizationViewController: UIViewController {
     
     @IBAction func onClickLoginButton(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let profileViewController = storyboard.instantiateViewController(withIdentifier: ProfileViewController.className) as? ProfileViewController {
-            navigationController?.show(profileViewController, sender: nil)
+        if let tabBarController = storyboard.instantiateViewController(withIdentifier: TabBarController.className) as? TabBarController {
+            tabBarController.modalPresentationStyle = .fullScreen
+            tabBarController.modalTransitionStyle = .crossDissolve
+            show(tabBarController, sender: nil)
         }
     }
     
     @IBAction func onClickRegistrationButton(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let registrationViewController = storyboard.instantiateViewController(withIdentifier: RegistrationViewController.className) as? RegistrationViewController {
-            navigationController?.show(registrationViewController, sender: nil)
+            registrationViewController.modalPresentationStyle = .fullScreen
+            registrationViewController.modalTransitionStyle = .crossDissolve
+            show(registrationViewController, sender: nil)
         }
     }
     

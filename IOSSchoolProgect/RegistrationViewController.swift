@@ -18,8 +18,10 @@ class RegistrationViewController: UIViewController {
     
     @IBAction func onClickDoneButton(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let profileViewController = storyboard.instantiateViewController(withIdentifier: ProfileViewController.className) as? ProfileViewController {
-            navigationController?.show(profileViewController, sender: nil)
+        if let tabBarController = storyboard.instantiateViewController(withIdentifier: TabBarController.className) as? TabBarController {
+            tabBarController.modalPresentationStyle = .fullScreen
+            tabBarController.modalTransitionStyle = .crossDissolve
+            show(tabBarController, sender: nil)
         }
     }
     

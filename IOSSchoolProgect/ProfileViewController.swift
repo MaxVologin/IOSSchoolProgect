@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        navigationController?.setNavigationBarHidden(true, animated: false)
         registerCells()
     }
     
