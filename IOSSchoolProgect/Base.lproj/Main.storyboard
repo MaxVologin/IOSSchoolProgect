@@ -349,19 +349,15 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
-                    <connections>
-                        <segue destination="lZo-kJ-eG9" kind="relationship" relationship="viewControllers" id="XmH-Ol-VCp"/>
-                        <segue destination="kbd-X9-A9F" kind="relationship" relationship="viewControllers" id="XTL-sh-UMS"/>
-                    </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Qt-Op-uwZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1146" y="256"/>
         </scene>
-        <!--View Controller-->
+        <!--Planet View Controller-->
         <scene sceneID="NTN-n2-0pl">
             <objects>
-                <viewController id="Jbc-wU-wPn" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlanetViewController" id="Jbc-wU-wPn" customClass="PlanetViewController" customModule="IOSSchoolProgect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jLg-qN-E6M">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -372,7 +368,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AWZ-8t-vTd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2968.115942028986" y="597.99107142857144"/>
+            <point key="canvasLocation" x="1954" y="597"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="gWe-yg-WBj">
@@ -383,7 +379,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SCM-bR-CAc">
-                                <rect key="frame" x="0.0" y="207" width="414" height="517"/>
+                                <rect key="frame" x="0.0" y="207" width="414" height="566"/>
                                 <color key="backgroundColor" red="0.40780633690000001" green="0.40786755079999998" blue="0.40778696539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7kV-s6-ZcP">
@@ -418,7 +414,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJ6-sz-BKr" customClass="CustomButton" customModule="IOSSchoolProgect" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="724" width="414" height="51"/>
+                                <rect key="frame" x="0.0" y="773" width="414" height="51"/>
                                 <color key="backgroundColor" red="0.19215686269999999" green="0.40784313729999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="JS2-nR-7Yv"/>
@@ -454,51 +450,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ydl-xx-cEB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2968.115942028986" y="-52.232142857142854"/>
-        </scene>
-        <!--Выбор планеты-->
-        <scene sceneID="SiS-YY-woh">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lZo-kJ-eG9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Выбор планеты" image="planet" id="bny-Dt-Ts8"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tF9-gY-Kvw">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Jbc-wU-wPn" kind="relationship" relationship="rootViewController" id="H9L-n5-A5J"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Qd-aa-s1x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2057.971014492754" y="597.99107142857144"/>
-        </scene>
-        <!--Профиль-->
-        <scene sceneID="KDN-XY-Aib">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kbd-X9-A9F" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Профиль" image="contact" id="Sxa-1a-xpn"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HF0-O0-UrF">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="2z7-TM-f7X" kind="relationship" relationship="rootViewController" id="Zca-A1-Ype"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gn0-xo-cT0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2057.971014492754" y="-52.232142857142854"/>
+            <point key="canvasLocation" x="1955" y="-50"/>
         </scene>
     </scenes>
     <resources>
         <image name="avatar" width="57" height="77"/>
-        <image name="contact" width="43" height="30"/>
-        <image name="planet" width="30.333333969116211" height="30"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
