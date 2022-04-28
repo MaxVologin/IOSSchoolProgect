@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CMg-I4-yjR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2z7-TM-f7X">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -385,6 +385,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7kV-s6-ZcP">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="207"/>
                                 <color key="backgroundColor" red="0.49411764705882355" green="0.53333333333333333" blue="0.91764705882352937" alpha="0.51000000000000001" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="207" id="GJ8-EU-tcg"/>
                                 </constraints>
@@ -394,6 +395,7 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="BF6-bg-MJu">
                                         <rect key="frame" x="-22" y="-25.333333333333329" width="213" height="225"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="225" id="Qn3-7a-DdG"/>
                                             <constraint firstAttribute="width" constant="213" id="nnS-a3-Ic6"/>
@@ -401,6 +403,7 @@
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.76862745098039209" green="0.76862745098039209" blue="0.76862745098039209" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="174" id="A0X-JC-Tfq"/>
                                     <constraint firstAttribute="height" constant="174" id="Di6-IE-s7o"/>
@@ -412,6 +415,9 @@
                                         <integer key="value" value="87"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="MHw-93-O4I" appends="YES" id="7V8-U2-v0b"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJ6-sz-BKr" customClass="CustomButton" customModule="IOSSchoolProgect" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="773" width="414" height="51"/>
@@ -445,10 +451,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="Iwt-Y7-Tnm"/>
                     <connections>
+                        <outlet property="photoImageView" destination="BF6-bg-MJu" id="yZn-Vg-7i9"/>
                         <outlet property="tableView" destination="SCM-bR-CAc" id="e68-ow-Vrw"/>
+                        <outlet property="tapGestureRecognizerForPhotoImageView" destination="MHw-93-O4I" id="a70-GS-AlO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ydl-xx-cEB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="MHw-93-O4I"/>
             </objects>
             <point key="canvasLocation" x="1955" y="-50"/>
         </scene>
