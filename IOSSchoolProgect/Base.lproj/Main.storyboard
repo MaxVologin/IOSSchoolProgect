@@ -378,18 +378,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.51000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mzg-OO-3q5">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="207"/>
+                                <color key="backgroundColor" red="0.49411764705882355" green="0.53333333333333333" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="207" id="u1Z-Pi-SbF"/>
+                                </constraints>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SCM-bR-CAc">
                                 <rect key="frame" x="0.0" y="207" width="414" height="566"/>
                                 <color key="backgroundColor" red="0.40780633690000001" green="0.40786755079999998" blue="0.40778696539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7kV-s6-ZcP">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="207"/>
-                                <color key="backgroundColor" red="0.49411764705882355" green="0.53333333333333333" blue="0.91764705882352937" alpha="0.51000000000000001" colorSpace="calibratedRGB"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="207" id="GJ8-EU-tcg"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MUL-Li-JQN">
                                 <rect key="frame" x="120" y="103" width="174" height="174"/>
                                 <subviews>
@@ -435,23 +434,24 @@
                         <viewLayoutGuide key="safeArea" id="epx-DL-M9I"/>
                         <color key="backgroundColor" red="0.40780633690000001" green="0.40786755079999998" blue="0.40778696539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="mzg-OO-3q5" firstAttribute="leading" secondItem="epx-DL-M9I" secondAttribute="leading" id="6EV-3p-07q"/>
+                            <constraint firstItem="mzg-OO-3q5" firstAttribute="top" secondItem="QWM-pY-cUK" secondAttribute="top" id="6nq-G2-Iwj"/>
                             <constraint firstItem="gJ6-sz-BKr" firstAttribute="trailing" secondItem="epx-DL-M9I" secondAttribute="trailing" id="7FG-MM-Fe3"/>
                             <constraint firstItem="MUL-Li-JQN" firstAttribute="top" secondItem="QWM-pY-cUK" secondAttribute="top" constant="103" id="7oG-et-olM"/>
                             <constraint firstItem="SCM-bR-CAc" firstAttribute="leading" secondItem="epx-DL-M9I" secondAttribute="leading" id="8nC-dT-JYC"/>
                             <constraint firstItem="epx-DL-M9I" firstAttribute="trailing" secondItem="SCM-bR-CAc" secondAttribute="trailing" id="DES-E4-r1J"/>
                             <constraint firstItem="epx-DL-M9I" firstAttribute="bottom" secondItem="gJ6-sz-BKr" secondAttribute="bottom" constant="38" id="E6J-YV-eVN"/>
-                            <constraint firstItem="epx-DL-M9I" firstAttribute="trailing" secondItem="7kV-s6-ZcP" secondAttribute="trailing" id="PLr-YL-mVF"/>
-                            <constraint firstItem="7kV-s6-ZcP" firstAttribute="top" secondItem="QWM-pY-cUK" secondAttribute="top" id="SU8-7E-qhh"/>
                             <constraint firstItem="MUL-Li-JQN" firstAttribute="centerX" secondItem="epx-DL-M9I" secondAttribute="centerX" id="Shf-Py-uB2"/>
+                            <constraint firstItem="epx-DL-M9I" firstAttribute="trailing" secondItem="mzg-OO-3q5" secondAttribute="trailing" id="ba6-J1-2PW"/>
                             <constraint firstItem="gJ6-sz-BKr" firstAttribute="top" secondItem="SCM-bR-CAc" secondAttribute="bottom" id="bcc-TT-IE3"/>
                             <constraint firstItem="gJ6-sz-BKr" firstAttribute="leading" secondItem="epx-DL-M9I" secondAttribute="leading" id="cGA-tY-ACV"/>
-                            <constraint firstItem="7kV-s6-ZcP" firstAttribute="leading" secondItem="epx-DL-M9I" secondAttribute="leading" id="gJv-7j-aT0"/>
-                            <constraint firstItem="SCM-bR-CAc" firstAttribute="top" secondItem="7kV-s6-ZcP" secondAttribute="bottom" id="lDW-39-z7R"/>
+                            <constraint firstItem="SCM-bR-CAc" firstAttribute="top" secondItem="mzg-OO-3q5" secondAttribute="bottom" id="wOz-R5-Y0L"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Iwt-Y7-Tnm"/>
                     <connections>
-                        <outlet property="photoImageView" destination="BF6-bg-MJu" id="yZn-Vg-7i9"/>
+                        <outlet property="backImageView" destination="mzg-OO-3q5" id="EFU-kw-xN2"/>
+                        <outlet property="profileImageView" destination="BF6-bg-MJu" id="yZn-Vg-7i9"/>
                         <outlet property="tableView" destination="SCM-bR-CAc" id="e68-ow-Vrw"/>
                         <outlet property="tapGestureRecognizerForPhotoImageView" destination="MHw-93-O4I" id="a70-GS-AlO"/>
                     </connections>
@@ -459,7 +459,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ydl-xx-cEB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="MHw-93-O4I"/>
             </objects>
-            <point key="canvasLocation" x="1955" y="-50"/>
+            <point key="canvasLocation" x="1953.6231884057972" y="-50.223214285714285"/>
         </scene>
     </scenes>
     <resources>

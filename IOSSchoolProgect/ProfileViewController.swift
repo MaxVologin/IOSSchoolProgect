@@ -10,7 +10,8 @@ import UIKit
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var backImageView: UIImageView!
     @IBOutlet var tapGestureRecognizerForPhotoImageView: UITapGestureRecognizer!
     
     override func viewDidLoad() {
@@ -73,10 +74,16 @@ extension ProfileViewController: UITableViewDataSource {
 
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        photoImageView.image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
-        photoImageView.contentMode = .scaleAspectFill
-        photoImageView.layer.frame = .init(x: 5, y: 5, width: 164, height: 164)
-        photoImageView.layer.cornerRadius = 82
+        let profileImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
+        setupProfileImages(image: profileImage)
         dismiss(animated: true, completion: nil)
+    }
+    
+    func setupProfileImages(image: UIImage?) {
+        profileImageView.image = image
+        profileImageView.contentMode = .scaleAspectFill
+        profileImageView.layer.frame = .init(x: 5, y: 5, width: 164, height: 164)
+        profileImageView.layer.cornerRadius = 82
+        backImageView.image = image
     }
 }
