@@ -9,6 +9,8 @@ import UIKit
 
 class CompositionalCollectionViewController: UIViewController {
 
+    let networkManager = NetworkManager()
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -20,6 +22,10 @@ class CompositionalCollectionViewController: UIViewController {
         let nib = UINib(nibName: TestCollectionViewCell.className, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: TestCollectionViewCell.className)
         collectionView.collectionViewLayout = layout()
+        
+//        networkManager.performRequest(url: <#T##String#>,
+//                                      method: .get,
+//                                      onRequestCompleted: <#T##((Decodable?, Error?) -> ())?##((Decodable?, Error?) -> ())?##(Decodable?, Error?) -> ()#>)
     }
     
     

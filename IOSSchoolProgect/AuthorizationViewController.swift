@@ -19,6 +19,18 @@ class AuthorizationViewController: UIViewController {
         super.viewDidLoad()
         settingInputTextFields(textFields: loginTextField, passwordTextField)
         tapGestureRecognizer.addTarget(self, action: #selector(hideKeyboard))
+        
+        UserDefaults.standard.set(true, forKey: "123")
+        UserDefaults.standard.bool(forKey: "123")
+        // coreData
+        // Realm
+        // file
+        // keyChain
+        
+        //менеджеры зависимостей
+        // cocoapods самое старое
+        // cartage заебешься настривать
+        // swiftPackatmanager
     }
     
     func printString(_ string: String) {
