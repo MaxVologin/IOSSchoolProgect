@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2z7-TM-f7X">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CMg-I4-yjR">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -326,6 +326,7 @@
                             <constraint firstItem="mfT-0m-DS0" firstAttribute="top" secondItem="qM9-lX-wwS" secondAttribute="top" id="qYc-OC-TL6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="If3-3h-nPX"/>
                     <connections>
                         <outlet property="loginTextField" destination="o2i-Rz-UY5" id="7t8-yr-H1y"/>
                         <outlet property="passwordTextField" destination="1U1-El-kmn" id="WQ6-Rw-jAe"/>
@@ -344,6 +345,7 @@
         <scene sceneID="4tH-gJ-Eu1">
             <objects>
                 <tabBarController storyboardIdentifier="TabBarController" id="pdB-mO-Y7W" customClass="TabBarController" customModule="IOSSchoolProgect" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="9eh-1q-jjD"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eeW-KT-5Z5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -21,8 +21,7 @@ class AuthorizationViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let tabBarController = storyboard.instantiateViewController(withIdentifier: TabBarController.className) as? TabBarController {
             tabBarController.modalPresentationStyle = .fullScreen
-            tabBarController.modalTransitionStyle = .crossDissolve
-            show(tabBarController, sender: nil)
+            present(tabBarController, animated: true, completion: nil)
         }
     }
     
@@ -30,8 +29,7 @@ class AuthorizationViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let registrationViewController = storyboard.instantiateViewController(withIdentifier: RegistrationViewController.className) as? RegistrationViewController {
             registrationViewController.modalPresentationStyle = .fullScreen
-            registrationViewController.modalTransitionStyle = .crossDissolve
-            show(registrationViewController, sender: nil)
+            present(registrationViewController, animated: true, completion: nil)
         }
     }
     
