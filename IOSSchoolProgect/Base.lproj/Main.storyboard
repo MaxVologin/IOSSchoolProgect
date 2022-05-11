@@ -11,7 +11,7 @@
         <!--Authorization View Controller-->
         <scene sceneID="jJJ-en-DnE">
             <objects>
-                <viewController id="CMg-I4-yjR" customClass="AuthorizationViewController" customModule="IOSSchoolProgect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthorizationViewController" id="CMg-I4-yjR" customClass="AuthorizationViewController" customModule="IOSSchoolProgect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="its-md-3AV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,6 +95,9 @@
                                                 <state key="normal" title="Зарегистрироваться">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onClickRegistrationButton:" destination="CMg-I4-yjR" eventType="touchUpInside" id="HpE-Yy-5cZ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8u-gH-7F3" customClass="CustomButton" customModule="IOSSchoolProgect" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="741" width="414" height="51"/>
@@ -107,6 +110,9 @@
                                                 <state key="normal" title="Войти">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onClickLoginButton:" destination="CMg-I4-yjR" eventType="touchUpInside" id="Mp4-Gz-lbc"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <gestureRecognizers/>
@@ -166,7 +172,7 @@
         <!--Registration View Controller-->
         <scene sceneID="1qk-kq-D6L">
             <objects>
-                <viewController id="0c7-t2-uMK" customClass="RegistrationViewController" customModule="IOSSchoolProgect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegistrationViewController" id="0c7-t2-uMK" customClass="RegistrationViewController" customModule="IOSSchoolProgect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qM9-lX-wwS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -268,6 +274,9 @@
                                                 <state key="normal" title="Готово">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onClickDoneButton:" destination="0c7-t2-uMK" eventType="touchUpInside" id="xr4-18-JXu"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <gestureRecognizers/>
@@ -317,6 +326,7 @@
                             <constraint firstItem="mfT-0m-DS0" firstAttribute="top" secondItem="qM9-lX-wwS" secondAttribute="top" id="qYc-OC-TL6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="If3-3h-nPX"/>
                     <connections>
                         <outlet property="loginTextField" destination="o2i-Rz-UY5" id="7t8-yr-H1y"/>
                         <outlet property="passwordTextField" destination="1U1-El-kmn" id="WQ6-Rw-jAe"/>
@@ -329,11 +339,133 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n5B-ac-B5H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="wBH-IF-AIN"/>
             </objects>
-            <point key="canvasLocation" x="387" y="258"/>
+            <point key="canvasLocation" x="343" y="258"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="4tH-gJ-Eu1">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" id="pdB-mO-Y7W" customClass="TabBarController" customModule="IOSSchoolProgect" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="9eh-1q-jjD"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eeW-KT-5Z5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Qt-Op-uwZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1146" y="256"/>
+        </scene>
+        <!--Planet View Controller-->
+        <scene sceneID="NTN-n2-0pl">
+            <objects>
+                <viewController storyboardIdentifier="PlanetViewController" id="Jbc-wU-wPn" customClass="PlanetViewController" customModule="IOSSchoolProgect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jLg-qN-E6M">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Z5U-7E-POF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="WRV-RV-8jV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AWZ-8t-vTd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1954" y="597"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="gWe-yg-WBj">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" id="2z7-TM-f7X" customClass="ProfileViewController" customModule="IOSSchoolProgect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QWM-pY-cUK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.51000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mzg-OO-3q5">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="207"/>
+                                <color key="backgroundColor" red="0.49411764705882355" green="0.53333333333333333" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="207" id="u1Z-Pi-SbF"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SCM-bR-CAc">
+                                <rect key="frame" x="0.0" y="207" width="414" height="566"/>
+                                <color key="backgroundColor" red="0.40780633690000001" green="0.40786755079999998" blue="0.40778696539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MUL-Li-JQN">
+                                <rect key="frame" x="120" y="103" width="174" height="174"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="BF6-bg-MJu">
+                                        <rect key="frame" x="-22" y="-25.333333333333329" width="213" height="225"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="225" id="Qn3-7a-DdG"/>
+                                            <constraint firstAttribute="width" constant="213" id="nnS-a3-Ic6"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.76862745098039209" green="0.76862745098039209" blue="0.76862745098039209" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="174" id="A0X-JC-Tfq"/>
+                                    <constraint firstAttribute="height" constant="174" id="Di6-IE-s7o"/>
+                                    <constraint firstItem="BF6-bg-MJu" firstAttribute="centerX" secondItem="MUL-Li-JQN" secondAttribute="centerX" constant="-2.5" id="Sih-e9-Dng"/>
+                                    <constraint firstItem="BF6-bg-MJu" firstAttribute="centerY" secondItem="MUL-Li-JQN" secondAttribute="centerY" id="TKM-WF-5tG"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="87"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="MHw-93-O4I" appends="YES" id="7V8-U2-v0b"/>
+                                </connections>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJ6-sz-BKr" customClass="CustomButton" customModule="IOSSchoolProgect" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="773" width="414" height="51"/>
+                                <color key="backgroundColor" red="0.19215686269999999" green="0.40784313729999999" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="JS2-nR-7Yv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="tintColor" systemColor="linkColor"/>
+                                <state key="normal" title="Выйти">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="epx-DL-M9I"/>
+                        <color key="backgroundColor" red="0.40780633690000001" green="0.40786755079999998" blue="0.40778696539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="mzg-OO-3q5" firstAttribute="leading" secondItem="epx-DL-M9I" secondAttribute="leading" id="6EV-3p-07q"/>
+                            <constraint firstItem="mzg-OO-3q5" firstAttribute="top" secondItem="QWM-pY-cUK" secondAttribute="top" id="6nq-G2-Iwj"/>
+                            <constraint firstItem="gJ6-sz-BKr" firstAttribute="trailing" secondItem="epx-DL-M9I" secondAttribute="trailing" id="7FG-MM-Fe3"/>
+                            <constraint firstItem="MUL-Li-JQN" firstAttribute="top" secondItem="QWM-pY-cUK" secondAttribute="top" constant="103" id="7oG-et-olM"/>
+                            <constraint firstItem="SCM-bR-CAc" firstAttribute="leading" secondItem="epx-DL-M9I" secondAttribute="leading" id="8nC-dT-JYC"/>
+                            <constraint firstItem="epx-DL-M9I" firstAttribute="trailing" secondItem="SCM-bR-CAc" secondAttribute="trailing" id="DES-E4-r1J"/>
+                            <constraint firstItem="epx-DL-M9I" firstAttribute="bottom" secondItem="gJ6-sz-BKr" secondAttribute="bottom" constant="38" id="E6J-YV-eVN"/>
+                            <constraint firstItem="MUL-Li-JQN" firstAttribute="centerX" secondItem="epx-DL-M9I" secondAttribute="centerX" id="Shf-Py-uB2"/>
+                            <constraint firstItem="epx-DL-M9I" firstAttribute="trailing" secondItem="mzg-OO-3q5" secondAttribute="trailing" id="ba6-J1-2PW"/>
+                            <constraint firstItem="gJ6-sz-BKr" firstAttribute="top" secondItem="SCM-bR-CAc" secondAttribute="bottom" id="bcc-TT-IE3"/>
+                            <constraint firstItem="gJ6-sz-BKr" firstAttribute="leading" secondItem="epx-DL-M9I" secondAttribute="leading" id="cGA-tY-ACV"/>
+                            <constraint firstItem="SCM-bR-CAc" firstAttribute="top" secondItem="mzg-OO-3q5" secondAttribute="bottom" id="wOz-R5-Y0L"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Iwt-Y7-Tnm"/>
+                    <connections>
+                        <outlet property="backImageView" destination="mzg-OO-3q5" id="EFU-kw-xN2"/>
+                        <outlet property="profileImageView" destination="BF6-bg-MJu" id="yZn-Vg-7i9"/>
+                        <outlet property="tableView" destination="SCM-bR-CAc" id="e68-ow-Vrw"/>
+                        <outlet property="tapGestureRecognizerForPhotoImageView" destination="MHw-93-O4I" id="a70-GS-AlO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ydl-xx-cEB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="MHw-93-O4I"/>
+            </objects>
+            <point key="canvasLocation" x="1953.6231884057972" y="-50.223214285714285"/>
         </scene>
     </scenes>
     <resources>
-        <image name="avatar" width="69.333335876464844" height="75"/>
+        <image name="avatar" width="57" height="77"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
