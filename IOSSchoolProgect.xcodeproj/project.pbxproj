@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		8636506727FF159E0084BFF6 /* UIView+storyobardProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8636506627FF159E0084BFF6 /* UIView+storyobardProperties.swift */; };
+		8662A00B282BACEC00769392 /* ParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8662A00A282BACEC00769392 /* ParentViewController.swift */; };
+		8662A00E282BB24700769392 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8662A00D282BB24700769392 /* ExampleViewController.swift */; };
+		8662A013282CB78400769392 /* ExampleXibTableViewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8662A011282CB78400769392 /* ExampleXibTableViewCellData.swift */; };
+		8662A014282CB78400769392 /* ExampleXibTableViewCellData.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8662A012282CB78400769392 /* ExampleXibTableViewCellData.xib */; };
+		8662A018282CB7A000769392 /* ExampleTableViewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8662A017282CB7A000769392 /* ExampleTableViewCellData.swift */; };
 		8684A30427FDF7BF00FB2465 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684A30327FDF7BF00FB2465 /* AppDelegate.swift */; };
 		8684A30627FDF7BF00FB2465 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684A30527FDF7BF00FB2465 /* SceneDelegate.swift */; };
 		8684A30827FDF7BF00FB2465 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684A30727FDF7BF00FB2465 /* AuthorizationViewController.swift */; };
@@ -31,6 +36,11 @@
 
 /* Begin PBXFileReference section */
 		8636506627FF159E0084BFF6 /* UIView+storyobardProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+storyobardProperties.swift"; sourceTree = "<group>"; };
+		8662A00A282BACEC00769392 /* ParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentViewController.swift; sourceTree = "<group>"; };
+		8662A00D282BB24700769392 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
+		8662A011282CB78400769392 /* ExampleXibTableViewCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleXibTableViewCellData.swift; sourceTree = "<group>"; };
+		8662A012282CB78400769392 /* ExampleXibTableViewCellData.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExampleXibTableViewCellData.xib; sourceTree = "<group>"; };
+		8662A017282CB7A000769392 /* ExampleTableViewCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTableViewCellData.swift; sourceTree = "<group>"; };
 		8684A30027FDF7BF00FB2465 /* IOSSchoolProgect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSSchoolProgect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8684A30327FDF7BF00FB2465 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8684A30527FDF7BF00FB2465 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +85,26 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		8662A009282BACC300769392 /* TaskWithForms */ = {
+			isa = PBXGroup;
+			children = (
+				8662A010282CB68000769392 /* Rows */,
+				8662A00A282BACEC00769392 /* ParentViewController.swift */,
+				8662A00D282BB24700769392 /* ExampleViewController.swift */,
+			);
+			path = TaskWithForms;
+			sourceTree = "<group>";
+		};
+		8662A010282CB68000769392 /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				8662A011282CB78400769392 /* ExampleXibTableViewCellData.swift */,
+				8662A012282CB78400769392 /* ExampleXibTableViewCellData.xib */,
+				8662A017282CB7A000769392 /* ExampleTableViewCellData.swift */,
+			);
+			path = Rows;
+			sourceTree = "<group>";
+		};
 		8684A2F727FDF7BF00FB2465 = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +124,7 @@
 		8684A30227FDF7BF00FB2465 /* IOSSchoolProgect */ = {
 			isa = PBXGroup;
 			children = (
+				8662A009282BACC300769392 /* TaskWithForms */,
 				86C7824A2816748D00A20DEF /* Rows */,
 				8684A30327FDF7BF00FB2465 /* AppDelegate.swift */,
 				8684A30527FDF7BF00FB2465 /* SceneDelegate.swift */,
@@ -209,6 +240,7 @@
 				86C78266281678E200A20DEF /* RegistrationDateTableViewCell.xib in Resources */,
 				8684A31027FDF7CB00FB2465 /* LaunchScreen.storyboard in Resources */,
 				8684A30D27FDF7CB00FB2465 /* Assets.xcassets in Resources */,
+				8662A014282CB78400769392 /* ExampleXibTableViewCellData.xib in Resources */,
 				86C7826C28167ADD00A20DEF /* ProfileColorTableViewCell.xib in Resources */,
 				8684A30B27FDF7BF00FB2465 /* Main.storyboard in Resources */,
 				86C7825F2816776100A20DEF /* UserLoginTableViewCell.xib in Resources */,
@@ -223,9 +255,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8684A30827FDF7BF00FB2465 /* AuthorizationViewController.swift in Sources */,
+				8662A00E282BB24700769392 /* ExampleViewController.swift in Sources */,
 				86C782802817267B00A20DEF /* TabBarController.swift in Sources */,
 				86B181D1281996D900B9BBB2 /* PlanetViewController.swift in Sources */,
+				8662A018282CB7A000769392 /* ExampleTableViewCellData.swift in Sources */,
 				86B889472809C6860089B609 /* UITextField+indent.swift in Sources */,
+				8662A013282CB78400769392 /* ExampleXibTableViewCellData.swift in Sources */,
 				8684A30427FDF7BF00FB2465 /* AppDelegate.swift in Sources */,
 				8636506727FF159E0084BFF6 /* UIView+storyobardProperties.swift in Sources */,
 				86C7826B28167ADD00A20DEF /* ProfileColorTableViewCell.swift in Sources */,
@@ -233,6 +268,7 @@
 				86C782482816731F00A20DEF /* NSObject+ClassName.swift in Sources */,
 				8684A30627FDF7BF00FB2465 /* SceneDelegate.swift in Sources */,
 				86C7825E2816776100A20DEF /* UserLoginTableViewCell.swift in Sources */,
+				8662A00B282BACEC00769392 /* ParentViewController.swift in Sources */,
 				86C78265281678E200A20DEF /* RegistrationDateTableViewCell.swift in Sources */,
 				86C7827028167C9900A20DEF /* ProfileViewController.swift in Sources */,
 				86B8893A2808B9370089B609 /* CustomButton.swift in Sources */,
