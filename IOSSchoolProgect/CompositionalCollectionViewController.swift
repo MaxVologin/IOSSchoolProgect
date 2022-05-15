@@ -9,7 +9,8 @@ import UIKit
 
 class CompositionalCollectionViewController: UIViewController {
 
-    let networkManager = NetworkManager()
+    let networkManager: CharacterNetworManager = NetworkManager()
+    let storageManager = StorageManager()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -23,9 +24,44 @@ class CompositionalCollectionViewController: UIViewController {
         collectionView.register(nib, forCellWithReuseIdentifier: TestCollectionViewCell.className)
         collectionView.collectionViewLayout = layout()
         
-//        networkManager.performRequest(url: <#T##String#>,
-//                                      method: .get,
-//                                      onRequestCompleted: <#T##((Decodable?, Error?) -> ())?##((Decodable?, Error?) -> ())?##(Decodable?, Error?) -> ()#>)
+        
+        
+//        let completion: (Character?, Error?) -> () = { character, error in
+//
+//            let gender = Gender(rawValue: "ololo")
+//            let gender2 = Gender(rawValue: "Male")
+//
+//            if let error = error {
+//                print(error)
+//            } else {
+//                print(character?.id as Any)
+//                print(character?.name as Any)
+//                print(character?.gender.representedValue as Any)
+//                print(character?.species as Any)
+//                print(character?.status.representedValue as Any)
+//            }
+//        }
+        //        networkManager.performRequest(url: "https://rickandmortyapi.com/api/character/2", method: .get, onRequestCompleted: completion)
+        networkManager.getCharacter(id: 2, completion: { character, error in
+            
+            if let error = error {
+//                print(error)
+            } else {
+//                print(character?.id as Any)
+//                print(character?.name as Any)
+//                print(character?.gender.representedValue as Any)
+//                print(character?.species as Any)
+//                print(character?.status.representedValue as Any)
+            }
+        }
+        )
+        
+        let oldToken = storageManager.loadFromKeychein(key: .token)
+        print(oldToken as Any)
+        storageManager.saveToKeychein("ololo", key: .token)
+        let newToken = storageManager.loadFromKeychein(key: .token)
+        print(newToken as Any)
+        
     }
     
     
@@ -48,7 +84,7 @@ class CompositionalCollectionViewController: UIViewController {
             if int == 0 {
                 let spacing: CGFloat = 10
                 let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                       heightDimension: .fractionalHeight(1))
+                                                      heightDimension: .fractionalHeight(1))
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                                        heightDimension: .fractionalWidth(0.5))

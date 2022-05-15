@@ -10,6 +10,12 @@
 		8636506727FF159E0084BFF6 /* UIView+storyobardProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8636506627FF159E0084BFF6 /* UIView+storyobardProperties.swift */; };
 		864C0FCA281C298B00F76763 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 864C0FC9281C298B00F76763 /* Alamofire */; };
 		864C0FCE281C29F200F76763 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864C0FCD281C29F200F76763 /* NetworkManager.swift */; };
+		8662A01D282E93C000769392 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 8662A01C282E93C000769392 /* KeychainAccess */; };
+		8662A021282E949000769392 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 8662A020282E949000769392 /* JGProgressHUD */; };
+		8662A024282E972400769392 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8662A023282E972400769392 /* Character.swift */; };
+		8662A027282E97B700769392 /* CharacterStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8662A026282E97B700769392 /* CharacterStatus.swift */; };
+		8662A02A282E996300769392 /* CharacterGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8662A029282E996300769392 /* CharacterGender.swift */; };
+		8662A030282EA59F00769392 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8662A02F282EA59F00769392 /* StorageManager.swift */; };
 		8684A30427FDF7BF00FB2465 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684A30327FDF7BF00FB2465 /* AppDelegate.swift */; };
 		8684A30627FDF7BF00FB2465 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684A30527FDF7BF00FB2465 /* SceneDelegate.swift */; };
 		8684A30827FDF7BF00FB2465 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684A30727FDF7BF00FB2465 /* AuthorizationViewController.swift */; };
@@ -37,6 +43,10 @@
 /* Begin PBXFileReference section */
 		8636506627FF159E0084BFF6 /* UIView+storyobardProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+storyobardProperties.swift"; sourceTree = "<group>"; };
 		864C0FCD281C29F200F76763 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		8662A023282E972400769392 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		8662A026282E97B700769392 /* CharacterStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStatus.swift; sourceTree = "<group>"; };
+		8662A029282E996300769392 /* CharacterGender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterGender.swift; sourceTree = "<group>"; };
+		8662A02F282EA59F00769392 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		8684A30027FDF7BF00FB2465 /* IOSSchoolProgect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSSchoolProgect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8684A30327FDF7BF00FB2465 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8684A30527FDF7BF00FB2465 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8662A01D282E93C000769392 /* KeychainAccess in Frameworks */,
+				8662A021282E949000769392 /* JGProgressHUD in Frameworks */,
 				864C0FCA281C298B00F76763 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,9 +99,21 @@
 		864C0FCC281C29DB00F76763 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				8662A02C282E997000769392 /* Response */,
 				864C0FCD281C29F200F76763 /* NetworkManager.swift */,
+				8662A02F282EA59F00769392 /* StorageManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		8662A02C282E997000769392 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				8662A023282E972400769392 /* Character.swift */,
+				8662A026282E97B700769392 /* CharacterStatus.swift */,
+				8662A029282E996300769392 /* CharacterGender.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		8684A2F727FDF7BF00FB2465 = {
@@ -205,6 +229,8 @@
 			name = IOSSchoolProgect;
 			packageProductDependencies = (
 				864C0FC9281C298B00F76763 /* Alamofire */,
+				8662A01C282E93C000769392 /* KeychainAccess */,
+				8662A020282E949000769392 /* JGProgressHUD */,
 			);
 			productName = IOSSchoolProgect;
 			productReference = 8684A30027FDF7BF00FB2465 /* IOSSchoolProgect.app */;
@@ -235,6 +261,8 @@
 			mainGroup = 8684A2F727FDF7BF00FB2465;
 			packageReferences = (
 				864C0FC8281C298B00F76763 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				8662A01B282E93C000769392 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				8662A01F282E949000769392 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 			);
 			productRefGroup = 8684A30127FDF7BF00FB2465 /* Products */;
 			projectDirPath = "";
@@ -267,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				864C0FCE281C29F200F76763 /* NetworkManager.swift in Sources */,
+				8662A02A282E996300769392 /* CharacterGender.swift in Sources */,
 				86F0BAB42812DECA00F5F466 /* CollectionViewController.swift in Sources */,
 				8684A30827FDF7BF00FB2465 /* AuthorizationViewController.swift in Sources */,
 				86B889472809C6860089B609 /* UITextField+indent.swift in Sources */,
@@ -278,12 +307,15 @@
 				8684A30627FDF7BF00FB2465 /* SceneDelegate.swift in Sources */,
 				86F0BABF2812E2AB00F5F466 /* PLCollectionViewCell.swift in Sources */,
 				86F0BA992812A03A00F5F466 /* UITableViewCell+NibName.swift in Sources */,
+				8662A030282EA59F00769392 /* StorageManager.swift in Sources */,
 				86F0BABA2812E25700F5F466 /* TestCollectionViewCell.swift in Sources */,
 				86F0BAAE2812A66D00F5F466 /* PlanetTableViewController.swift in Sources */,
 				86F0BAC42812E7CE00F5F466 /* NSObject+ClassName.swift in Sources */,
 				86F0BAA22812A19800F5F466 /* LocationTableViewController.swift in Sources */,
 				86F0BACB2812F2D500F5F466 /* CompositionalCollectionViewController.swift in Sources */,
+				8662A027282E97B700769392 /* CharacterStatus.swift in Sources */,
 				86B8893A2808B9370089B609 /* CustomButton.swift in Sources */,
+				8662A024282E972400769392 /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +527,22 @@
 				minimumVersion = 5.6.1;
 			};
 		};
+		8662A01B282E93C000769392 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.2;
+			};
+		};
+		8662A01F282E949000769392 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -502,6 +550,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 864C0FC8281C298B00F76763 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		8662A01C282E93C000769392 /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8662A01B282E93C000769392 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+		8662A020282E949000769392 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8662A01F282E949000769392 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
