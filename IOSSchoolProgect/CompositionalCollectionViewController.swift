@@ -9,10 +9,12 @@ import UIKit
 
 class CompositionalCollectionViewController: UIViewController {
 
-    let networkManager: CharacterNetworManager = NetworkManager()
+    let networkManager = ServiceLocator.characterNetworkManager()
     let storageManager = StorageManager()
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var tapA: UIButton!
+    @IBOutlet weak var aButtontrailingConstreint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,13 +68,28 @@ class CompositionalCollectionViewController: UIViewController {
     
     
     @IBAction func tapA(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main",
-                                      bundle: nil)
-        if let targetVC = storyboard.instantiateViewController(withIdentifier: AuthorizationViewController.className) as? AuthorizationViewController {
-            targetVC.title = "через шоу"
-            targetVC.printString(Self.className)
-            navigationController?.show(targetVC, sender: nil)
+        
+        UIView.animate(
+            withDuration: 0.3,
+            delay: 0,
+            options: .curveEaseInOut) {
+            [weak self] in
+            self?.tapA.layer.cornerRadius = (self?.tapA.frame.size.width ?? 0) / 2.0
+            self?.aButtontrailingConstreint.constant = 100
+            self?.view.setNeedsLayout()
+            self?.view.layoutIfNeeded()
+        } completion: { [ weak self ] _ in
+            self?.aButtontrailingConstreint.constant = 16
         }
+
+        
+//        let storyboard = UIStoryboard(name: "Main",
+//                                      bundle: nil)
+//        if let targetVC = storyboard.instantiateViewController(withIdentifier: AuthorizationViewController.className) as? AuthorizationViewController {
+//            targetVC.title = "через шоу"
+//            targetVC.printString(Self.className)
+//            navigationController?.show(targetVC, sender: nil)
+//        }
     }
     
     func layout() -> UICollectionViewLayout {

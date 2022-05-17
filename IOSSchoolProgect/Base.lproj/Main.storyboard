@@ -365,6 +365,7 @@
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ORT-Dh-49D">
                                 <rect key="frame" x="348" y="747" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="mGW-0g-WCi"/>
                                     <constraint firstAttribute="height" constant="50" id="qa9-tq-bVa"/>
@@ -395,7 +396,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="aButtontrailingConstreint" destination="tPU-fs-UnW" id="nPc-14-ga2"/>
                         <outlet property="collectionView" destination="9H0-ha-HuE" id="wML-U2-bZd"/>
+                        <outlet property="tapA" destination="ORT-Dh-49D" id="Jv7-Kf-k3N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZMe-Dg-u5S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

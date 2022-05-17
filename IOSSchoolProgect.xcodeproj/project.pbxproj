@@ -16,6 +16,7 @@
 		8662A027282E97B700769392 /* CharacterStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8662A026282E97B700769392 /* CharacterStatus.swift */; };
 		8662A02A282E996300769392 /* CharacterGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8662A029282E996300769392 /* CharacterGender.swift */; };
 		8662A030282EA59F00769392 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8662A02F282EA59F00769392 /* StorageManager.swift */; };
+		86742B722833E63E004B04EE /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86742B712833E63E004B04EE /* ServiceLocator.swift */; };
 		8684A30427FDF7BF00FB2465 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684A30327FDF7BF00FB2465 /* AppDelegate.swift */; };
 		8684A30627FDF7BF00FB2465 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684A30527FDF7BF00FB2465 /* SceneDelegate.swift */; };
 		8684A30827FDF7BF00FB2465 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684A30727FDF7BF00FB2465 /* AuthorizationViewController.swift */; };
@@ -47,6 +48,7 @@
 		8662A026282E97B700769392 /* CharacterStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStatus.swift; sourceTree = "<group>"; };
 		8662A029282E996300769392 /* CharacterGender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterGender.swift; sourceTree = "<group>"; };
 		8662A02F282EA59F00769392 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		86742B712833E63E004B04EE /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		8684A30027FDF7BF00FB2465 /* IOSSchoolProgect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSSchoolProgect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8684A30327FDF7BF00FB2465 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8684A30527FDF7BF00FB2465 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				8662A02C282E997000769392 /* Response */,
 				864C0FCD281C29F200F76763 /* NetworkManager.swift */,
 				8662A02F282EA59F00769392 /* StorageManager.swift */,
+				86742B712833E63E004B04EE /* ServiceLocator.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				86F0BA9E2812A07C00F5F466 /* LocationTableViewCell.swift in Sources */,
 				8636506727FF159E0084BFF6 /* UIView+storyobardProperties.swift in Sources */,
 				86B8894B280B12C40089B609 /* RegistrationViewController.swift in Sources */,
+				86742B722833E63E004B04EE /* ServiceLocator.swift in Sources */,
 				8684A30627FDF7BF00FB2465 /* SceneDelegate.swift in Sources */,
 				86F0BABF2812E2AB00F5F466 /* PLCollectionViewCell.swift in Sources */,
 				86F0BA992812A03A00F5F466 /* UITableViewCell+NibName.swift in Sources */,
