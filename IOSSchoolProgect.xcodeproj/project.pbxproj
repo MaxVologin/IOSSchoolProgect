@@ -3,11 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		8636506727FF159E0084BFF6 /* UIView+storyobardProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8636506627FF159E0084BFF6 /* UIView+storyobardProperties.swift */; };
+		86742B362830EABD004B04EE /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 86742B352830EABD004B04EE /* KeychainAccess */; };
+		86742B3A2830EB02004B04EE /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 86742B392830EB02004B04EE /* JGProgressHUD */; };
+		86742B3D2830EB4A004B04EE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 86742B3C2830EB4A004B04EE /* Alamofire */; };
+		86742B412830ECA7004B04EE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86742B402830ECA7004B04EE /* NetworkManager.swift */; };
+		86742B452830ED00004B04EE /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86742B442830ED00004B04EE /* StorageManager.swift */; };
+		86742B4B2830F7E1004B04EE /* SnackBar in Frameworks */ = {isa = PBXBuildFile; productRef = 86742B4A2830F7E1004B04EE /* SnackBar */; };
+		86742B55283115C7004B04EE /* CheckUsername.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86742B54283115C7004B04EE /* CheckUsername.swift */; };
+		86742B5828312BA6004B04EE /* ResponsesCheckUsername.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86742B5728312BA6004B04EE /* ResponsesCheckUsername.swift */; };
+		86742B5C283144D9004B04EE /* AppSnackBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86742B5B283144D9004B04EE /* AppSnackBar.swift */; };
+		86742B5F28321146004B04EE /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86742B5E28321146004B04EE /* TokenResponse.swift */; };
 		8684A30427FDF7BF00FB2465 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684A30327FDF7BF00FB2465 /* AppDelegate.swift */; };
 		8684A30627FDF7BF00FB2465 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684A30527FDF7BF00FB2465 /* SceneDelegate.swift */; };
 		8684A30827FDF7BF00FB2465 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684A30727FDF7BF00FB2465 /* AuthorizationViewController.swift */; };
@@ -31,6 +41,12 @@
 
 /* Begin PBXFileReference section */
 		8636506627FF159E0084BFF6 /* UIView+storyobardProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+storyobardProperties.swift"; sourceTree = "<group>"; };
+		86742B402830ECA7004B04EE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		86742B442830ED00004B04EE /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		86742B54283115C7004B04EE /* CheckUsername.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUsername.swift; sourceTree = "<group>"; };
+		86742B5728312BA6004B04EE /* ResponsesCheckUsername.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponsesCheckUsername.swift; sourceTree = "<group>"; };
+		86742B5B283144D9004B04EE /* AppSnackBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSnackBar.swift; sourceTree = "<group>"; };
+		86742B5E28321146004B04EE /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		8684A30027FDF7BF00FB2465 /* IOSSchoolProgect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSSchoolProgect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8684A30327FDF7BF00FB2465 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8684A30527FDF7BF00FB2465 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +75,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86742B3D2830EB4A004B04EE /* Alamofire in Frameworks */,
+				86742B4B2830F7E1004B04EE /* SnackBar in Frameworks */,
+				86742B3A2830EB02004B04EE /* JGProgressHUD in Frameworks */,
+				86742B362830EABD004B04EE /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +93,26 @@
 				86C782472816731F00A20DEF /* NSObject+ClassName.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		86742B3F2830EC09004B04EE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				86742B472830ED15004B04EE /* Response */,
+				86742B402830ECA7004B04EE /* NetworkManager.swift */,
+				86742B442830ED00004B04EE /* StorageManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		86742B472830ED15004B04EE /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				86742B54283115C7004B04EE /* CheckUsername.swift */,
+				86742B5728312BA6004B04EE /* ResponsesCheckUsername.swift */,
+				86742B5E28321146004B04EE /* TokenResponse.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		8684A2F727FDF7BF00FB2465 = {
@@ -94,6 +134,7 @@
 		8684A30227FDF7BF00FB2465 /* IOSSchoolProgect */ = {
 			isa = PBXGroup;
 			children = (
+				86742B3F2830EC09004B04EE /* Services */,
 				86C7824A2816748D00A20DEF /* Rows */,
 				8684A30327FDF7BF00FB2465 /* AppDelegate.swift */,
 				8684A30527FDF7BF00FB2465 /* SceneDelegate.swift */,
@@ -103,6 +144,7 @@
 				86B181D0281996D900B9BBB2 /* PlanetViewController.swift */,
 				86C7827F2817267B00A20DEF /* TabBarController.swift */,
 				86B889392808B9360089B609 /* CustomButton.swift */,
+				86742B5B283144D9004B04EE /* AppSnackBar.swift */,
 				8684A30927FDF7BF00FB2465 /* Main.storyboard */,
 				8636506527FF15200084BFF6 /* Extensions */,
 				8684A30C27FDF7CB00FB2465 /* Assets.xcassets */,
@@ -165,6 +207,12 @@
 			dependencies = (
 			);
 			name = IOSSchoolProgect;
+			packageProductDependencies = (
+				86742B352830EABD004B04EE /* KeychainAccess */,
+				86742B392830EB02004B04EE /* JGProgressHUD */,
+				86742B3C2830EB4A004B04EE /* Alamofire */,
+				86742B4A2830F7E1004B04EE /* SnackBar */,
+			);
 			productName = IOSSchoolProgect;
 			productReference = 8684A30027FDF7BF00FB2465 /* IOSSchoolProgect.app */;
 			productType = "com.apple.product-type.application";
@@ -192,6 +240,12 @@
 				Base,
 			);
 			mainGroup = 8684A2F727FDF7BF00FB2465;
+			packageReferences = (
+				86742B342830EABD004B04EE /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				86742B382830EB02004B04EE /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
+				86742B3B2830EB4A004B04EE /* XCRemoteSwiftPackageReference "Alamofire" */,
+				86742B492830F7E1004B04EE /* XCRemoteSwiftPackageReference "SnackBar" */,
+			);
 			productRefGroup = 8684A30127FDF7BF00FB2465 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -223,19 +277,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				8684A30827FDF7BF00FB2465 /* AuthorizationViewController.swift in Sources */,
+				86742B5828312BA6004B04EE /* ResponsesCheckUsername.swift in Sources */,
 				86C782802817267B00A20DEF /* TabBarController.swift in Sources */,
+				86742B412830ECA7004B04EE /* NetworkManager.swift in Sources */,
 				86B181D1281996D900B9BBB2 /* PlanetViewController.swift in Sources */,
 				86B889472809C6860089B609 /* UITextField+indent.swift in Sources */,
 				8684A30427FDF7BF00FB2465 /* AppDelegate.swift in Sources */,
 				8636506727FF159E0084BFF6 /* UIView+storyobardProperties.swift in Sources */,
 				86C7826B28167ADD00A20DEF /* ProfileColorTableViewCell.swift in Sources */,
+				86742B5C283144D9004B04EE /* AppSnackBar.swift in Sources */,
 				86B8894B280B12C40089B609 /* RegistrationViewController.swift in Sources */,
+				86742B55283115C7004B04EE /* CheckUsername.swift in Sources */,
 				86C782482816731F00A20DEF /* NSObject+ClassName.swift in Sources */,
 				8684A30627FDF7BF00FB2465 /* SceneDelegate.swift in Sources */,
 				86C7825E2816776100A20DEF /* UserLoginTableViewCell.swift in Sources */,
+				86742B5F28321146004B04EE /* TokenResponse.swift in Sources */,
 				86C78265281678E200A20DEF /* RegistrationDateTableViewCell.swift in Sources */,
 				86C7827028167C9900A20DEF /* ProfileViewController.swift in Sources */,
 				86B8893A2808B9370089B609 /* CustomButton.swift in Sources */,
+				86742B452830ED00004B04EE /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +497,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		86742B342830EABD004B04EE /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.2;
+			};
+		};
+		86742B382830EB02004B04EE /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
+		86742B3B2830EB4A004B04EE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.1;
+			};
+		};
+		86742B492830F7E1004B04EE /* XCRemoteSwiftPackageReference "SnackBar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ahmedAlmasri/SnackBar.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		86742B352830EABD004B04EE /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86742B342830EABD004B04EE /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+		86742B392830EB02004B04EE /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86742B382830EB02004B04EE /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
+		86742B3C2830EB4A004B04EE /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86742B3B2830EB4A004B04EE /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		86742B4A2830F7E1004B04EE /* SnackBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86742B492830F7E1004B04EE /* XCRemoteSwiftPackageReference "SnackBar" */;
+			productName = SnackBar;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8684A2F827FDF7BF00FB2465 /* Project object */;
 }
