@@ -9,8 +9,11 @@ import UIKit
 
 class ExampleTableViewCellData: UITableViewCell {
     
-    func configure(title: String) -> UITableViewCell {
-        textLabel?.text = title
-        return self
-    }
+//    func configure(title: String) -> UITableViewCell {
+//        textLabel?.text = title
+//        return self
+//    }
 }
+
+
+структурка которая конфигурит ячейку, подписанная на протокол CellData

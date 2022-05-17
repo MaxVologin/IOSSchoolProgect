@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+                                
 class ExampleXibTableViewCellData: UITableViewCell {
 
     @IBOutlet weak var title: UILabel!

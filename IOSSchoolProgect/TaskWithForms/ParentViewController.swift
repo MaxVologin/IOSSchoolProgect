@@ -11,14 +11,22 @@ class ParentViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var dataList: [SectionData] = []
+    var dataList: [SectionData] = [] {
+        didSet {
+            registerAll()
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-//        tableView.register(ExampleTableViewCellData.self, forCellReuseIdentifier: ExampleTableViewCellData.className)
-        let nib = UINib(nibName: ExampleXibTableViewCellData.className, bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: ExampleXibTableViewCellData.className)
+        tableView.delegate = self
+        
+    }
+    
+    func registerAll() {
+        // пробежаться по всем ячейкам и посмотреть есть ниб файл или нет
     }
 }
 
@@ -41,10 +49,16 @@ extension ParentViewController: UITableViewDataSource {
     }
 }
 
-class SectionData {
-    var cells: [UITableViewCell] = []
+struct SectionData {
+    var cells: [CellData] = []
     
-    init(cells: [UITableViewCell]) {
-        self.cells = cells
-    }
+}
+
+protocol CellData {
+    //что могут ячейки
+    //берет таблицу и возвращает строку
+}
+
+extension CellData {
+    // идентифайр
 }

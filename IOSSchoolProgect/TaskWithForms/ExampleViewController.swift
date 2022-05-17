@@ -29,6 +29,5 @@ class ExampleViewController: ParentViewController {
                 ]
             )
         ]
-//        tableView.reloadData()
     }
 }
