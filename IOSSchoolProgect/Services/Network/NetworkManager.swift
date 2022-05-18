@@ -48,14 +48,17 @@ class NetworkManager {
     }
 }
 
-protocol ProfileNetworManager {
-    func checkUsername(username: String?, completion:((CheckUsername?, Error?) -> ())?)
-    func register(username: String?, password: String?, completion:((TokenResponse?, Error?) -> ())?)
-    func login(username: String?, password: String?, completion:((TokenResponse?, Error?) -> ())?)
+extension NetworkManager: AuthorizationNetworkManager {
+    func login(username: String?, password: String?, completion:((TokenResponse?, Error?) -> ())?) {
+        guard let username = username,
+              let password = password else { return }
+        performRequest(url: "\(Constants.baseURL)/api/auth/login?username=\(username)&password=\(password)",
+                       method: .get,
+                       onRequestCompleted: completion)
+    }
 }
 
-extension NetworkManager: ProfileNetworManager {
-    
+extension NetworkManager: RegistrationNetworkManager {
     func checkUsername(username: String?, completion: ((CheckUsername?, Error?) -> ())?) {
         guard let username = username else { return }
         performRequest(url: "\(Constants.baseURL)/api/auth/checkUsername?username=\(username)",
@@ -72,14 +75,6 @@ extension NetworkManager: ProfileNetworManager {
                        method: .post,
                        parameters: parametrs,
                        headers: nil,
-                       onRequestCompleted: completion)
-    }
-    
-    func login(username: String?, password: String?, completion:((TokenResponse?, Error?) -> ())?) {
-        guard let username = username,
-              let password = password else { return }
-        performRequest(url: "\(Constants.baseURL)/api/auth/login?username=\(username)&password=\(password)",
-                       method: .get,
                        onRequestCompleted: completion)
     }
 }

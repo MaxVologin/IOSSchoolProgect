@@ -10,7 +10,7 @@ import JGProgressHUD
 
 class AuthorizationViewController: UIViewController {
     
-    let networkManager = NetworkManager()
+    let networkManager: AuthorizationNetworkManager = NetworkManager()
     let storageManager = StorageManager()
     let progressHUD = JGProgressHUD()
 
@@ -23,18 +23,7 @@ class AuthorizationViewController: UIViewController {
     @IBOutlet weak var tapGestureRecognizer: UITapGestureRecognizer!
     
     @IBAction func onClickLoginButton(_ sender: Any) {
-        progressHUD.show(in: self.view)
-        networkManager.login(username: loginTextField.text,
-                             password: passwordTextField.text) { (tokenResponse, error) in
-            if let _ = error {
-                AppSnackBar.make(in: self.view, message: "Ошибка ввода данных", duration: .lengthLong).show()
-                self.progressHUD.dismiss()
-            } else {
-                self.storageManager.saveTokenResponseToKeychein(tokenResponse: tokenResponse)
-                self.progressHUD.dismiss()
-                self.transitionToTabBarController()
-            }
-        }
+        checkedTransitionToTabBarController()
     }
     
     @IBAction func onClickRegistrationButton(_ sender: Any) {
@@ -117,6 +106,21 @@ class AuthorizationViewController: UIViewController {
     
     @objc func hideKeyboard() {
         view.endEditing(true)
+    }
+    
+    func checkedTransitionToTabBarController() {
+        progressHUD.show(in: self.view)
+        networkManager.login(username: loginTextField.text,
+                             password: passwordTextField.text) { [ weak self ] (tokenResponse, error) in
+            if let _ = error {
+                AppSnackBar.make(in: self?.view ?? UIView(), message: "Ошибка ввода данных", duration: .lengthLong).show()
+                self?.progressHUD.dismiss()
+            } else {
+                self?.storageManager.saveTokenResponseToKeychein(tokenResponse: tokenResponse)
+                self?.progressHUD.dismiss()
+                self?.transitionToTabBarController()
+            }
+        }
     }
     
     func transitionToTabBarController() {
