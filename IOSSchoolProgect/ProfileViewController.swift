@@ -68,7 +68,7 @@ class ProfileViewController: UIViewController {
     func changeTintBackImage() {
         tintBackImageView.alpha = 0.51
         if let colorHex = storageManager.loadColorProfileFromUserDefaults(key: .profileColor) {
-            tintBackImageView.backgroundColor = UIColor(hexForProfileColor: colorHex)
+            tintBackImageView.backgroundColor = UIColor(hex: colorHex)
         }
     }
 }
@@ -95,7 +95,7 @@ extension ProfileViewController: UITableViewDataSource {
            let cell = tableView.dequeueReusableCell(withIdentifier: ProfileColorTableViewCell.className) as? ProfileColorTableViewCell {
             cell.colorChoiseButton.addTarget(self, action: #selector(openColorPicker), for: .touchUpInside)
             if let colorHex = storageManager.loadColorProfileFromUserDefaults(key: .profileColor) {
-                cell.colorChoiseButton.backgroundColor = UIColor(hexForProfileColor: colorHex)
+                cell.colorChoiseButton.backgroundColor = UIColor(hex: colorHex)
             }
             return cell
         }
@@ -134,7 +134,7 @@ extension ProfileViewController: EFColorSelectionViewControllerDelegate {
         colorSelectionController.view.backgroundColor = view.backgroundColor
         colorSelectionController.delegate = self
         if let colorProfile = storageManager.loadColorProfileFromUserDefaults(key: .profileColor) {
-            colorSelectionController.color = UIColor(hexForProfileColor: colorProfile) ?? UIColor.white
+            colorSelectionController.color = UIColor(hex: colorProfile) ?? UIColor.white
             print(colorProfile)
         }
         colorSelectionController.setMode(mode: .rgb)

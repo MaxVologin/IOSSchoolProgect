@@ -9,8 +9,8 @@ import UIKit
 
 extension UIColor {
     
-    convenience init?(hexForProfileColor: String) {
-        var hexSanitized = hexForProfileColor.trimmingCharacters(in: .whitespacesAndNewlines)
+    convenience init?(hex: String) {
+        var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
         hexSanitized = hexSanitized.replacingOccurrences(of: "#", with: "")
         var rgb: UInt64 = 0
         var r: CGFloat = 0.0
