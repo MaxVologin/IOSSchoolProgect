@@ -78,3 +78,13 @@ extension NetworkManager: RegistrationNetworkManager {
                        onRequestCompleted: completion)
     }
 }
+
+extension NetworkManager: ProfileNetworkManager {
+    func profile(userId: String, completion: ((Profile?, Error?) -> ())?) {
+        performRequest(url: "\(Constants.baseURL)/api/v1/profile/max",
+                       method: .get,
+                       parameters: nil,
+                       headers: nil,
+                       onRequestCompleted: completion)
+    }
+}

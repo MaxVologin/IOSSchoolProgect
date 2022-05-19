@@ -8,6 +8,9 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    
+    let networkManager: ProfileNetworkManager = NetworkManager()
+    let storageManager = StorageManager()
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -47,6 +50,17 @@ class ProfileViewController: UIViewController {
         let nib = UINib(nibName: identifire, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: identifire)
     }
+    
+    func profileUsername(completion: @escaping (String?)->()) {
+        guard let userId = storageManager.loadTokenResponseFromKeychein()?.userId else { return }
+        networkManager.profile(userId: userId) { (profile, error) in
+            if let error = error {
+                print(error)
+            } else {
+                completion(profile?.username)
+            }
+        }
+    }
 }
 
 extension ProfileViewController: UITableViewDataSource {
@@ -62,6 +76,9 @@ extension ProfileViewController: UITableViewDataSource {
         }
         if indexPath.row == 1,
            let cell = tableView.dequeueReusableCell(withIdentifier: RegistrationDateTableViewCell.className) as? RegistrationDateTableViewCell {
+            profileUsername(completion: { (username) in
+                cell.dateRegistration.text = username
+            })
             return cell
         }
         if indexPath.row == 2,
