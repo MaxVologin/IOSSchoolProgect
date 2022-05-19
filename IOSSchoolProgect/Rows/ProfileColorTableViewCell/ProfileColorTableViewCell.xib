@@ -22,32 +22,41 @@
                         <color key="textColor" red="0.33725490196078434" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ume-QK-87r">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRn-g0-WDD">
                         <rect key="frame" x="282" y="18" width="22" height="22"/>
-                        <color key="backgroundColor" red="0.49411764705882355" green="0.53333333333333333" blue="0.91764705882352937" alpha="0.51000000000000001" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="22" id="R90-uZ-hAz"/>
-                            <constraint firstAttribute="width" constant="22" id="mou-g7-g8b"/>
+                            <constraint firstAttribute="height" constant="22" id="Me9-xV-3r8"/>
+                            <constraint firstAttribute="width" constant="22" id="WcG-kX-o34"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="8"/>
                             </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
-                    </view>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" red="0.76862745098039209" green="0.76862745098039209" blue="0.76862745098039209" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="9mn-Ma-AsD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="EJF-q8-jTs"/>
-                    <constraint firstItem="ume-QK-87r" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="Erz-0p-E1Z"/>
-                    <constraint firstAttribute="trailing" secondItem="ume-QK-87r" secondAttribute="trailing" constant="16" id="GFu-yO-Wmi"/>
+                    <constraint firstAttribute="trailing" secondItem="LRn-g0-WDD" secondAttribute="trailing" constant="16" id="OgJ-je-rda"/>
                     <constraint firstItem="9mn-Ma-AsD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="cpJ-44-tZh"/>
-                    <constraint firstItem="ume-QK-87r" firstAttribute="leading" secondItem="9mn-Ma-AsD" secondAttribute="trailing" constant="16" id="hhZ-gC-r9w"/>
+                    <constraint firstAttribute="bottom" secondItem="LRn-g0-WDD" secondAttribute="bottom" constant="18" id="dvK-Tr-nkj"/>
+                    <constraint firstItem="LRn-g0-WDD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="faU-Yf-T7D"/>
                     <constraint firstAttribute="bottom" secondItem="9mn-Ma-AsD" secondAttribute="bottom" constant="21" id="mdf-Fn-xxf"/>
-                    <constraint firstAttribute="bottom" secondItem="ume-QK-87r" secondAttribute="bottom" constant="18" id="yzf-4s-DjB"/>
+                    <constraint firstItem="LRn-g0-WDD" firstAttribute="leading" secondItem="9mn-Ma-AsD" secondAttribute="trailing" constant="16" id="ngh-HR-31r"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="colorChoiseButton" destination="LRn-g0-WDD" id="uo8-Xo-9oG"/>
+            </connections>
             <point key="canvasLocation" x="-52.173913043478265" y="94.754464285714278"/>
         </tableViewCell>
     </objects>

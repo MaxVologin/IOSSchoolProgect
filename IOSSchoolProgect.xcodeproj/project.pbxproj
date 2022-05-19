@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8636506727FF159E0084BFF6 /* UIView+storyobardProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8636506627FF159E0084BFF6 /* UIView+storyobardProperties.swift */; };
+		863D914028363D6400431105 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863D913F28363D6400431105 /* UIColor+hex.swift */; };
 		863E0F8C2834D44E003A11F2 /* AuthorizationNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863E0F8B2834D44E003A11F2 /* AuthorizationNetworkManager.swift */; };
 		863E0F8F2834D7B5003A11F2 /* RegistrationNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863E0F8E2834D7B5003A11F2 /* RegistrationNetworkManager.swift */; };
-		863E0F962834DA95003A11F2 /* UIImage+tintImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863E0F952834DA95003A11F2 /* UIImage+tintImage.swift */; };
 		863E0F992834DE1F003A11F2 /* ProfileNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863E0F982834DE1F003A11F2 /* ProfileNetworkManager.swift */; };
 		863E0F9D2834E285003A11F2 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863E0F9C2834E285003A11F2 /* Profile.swift */; };
 		86742B362830EABD004B04EE /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 86742B352830EABD004B04EE /* KeychainAccess */; };
@@ -42,13 +42,14 @@
 		86C7826C28167ADD00A20DEF /* ProfileColorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C7826A28167ADD00A20DEF /* ProfileColorTableViewCell.xib */; };
 		86C7827028167C9900A20DEF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C7826F28167C9900A20DEF /* ProfileViewController.swift */; };
 		86C782802817267B00A20DEF /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C7827F2817267B00A20DEF /* TabBarController.swift */; };
+		86F8624628361501002916A4 /* EFColorPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 86F8624528361501002916A4 /* EFColorPicker */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8636506627FF159E0084BFF6 /* UIView+storyobardProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+storyobardProperties.swift"; sourceTree = "<group>"; };
+		863D913F28363D6400431105 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		863E0F8B2834D44E003A11F2 /* AuthorizationNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationNetworkManager.swift; sourceTree = "<group>"; };
 		863E0F8E2834D7B5003A11F2 /* RegistrationNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationNetworkManager.swift; sourceTree = "<group>"; };
-		863E0F952834DA95003A11F2 /* UIImage+tintImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+tintImage.swift"; sourceTree = "<group>"; };
 		863E0F982834DE1F003A11F2 /* ProfileNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNetworkManager.swift; sourceTree = "<group>"; };
 		863E0F9C2834E285003A11F2 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		86742B402830ECA7004B04EE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -87,6 +88,7 @@
 			files = (
 				86742B3D2830EB4A004B04EE /* Alamofire in Frameworks */,
 				86742B4B2830F7E1004B04EE /* SnackBar in Frameworks */,
+				86F8624628361501002916A4 /* EFColorPicker in Frameworks */,
 				86742B3A2830EB02004B04EE /* JGProgressHUD in Frameworks */,
 				86742B362830EABD004B04EE /* KeychainAccess in Frameworks */,
 			);
@@ -101,7 +103,7 @@
 				8636506627FF159E0084BFF6 /* UIView+storyobardProperties.swift */,
 				86B889462809C6860089B609 /* UITextField+indent.swift */,
 				86C782472816731F00A20DEF /* NSObject+ClassName.swift */,
-				863E0F952834DA95003A11F2 /* UIImage+tintImage.swift */,
+				863D913F28363D6400431105 /* UIColor+hex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -243,6 +245,7 @@
 				86742B392830EB02004B04EE /* JGProgressHUD */,
 				86742B3C2830EB4A004B04EE /* Alamofire */,
 				86742B4A2830F7E1004B04EE /* SnackBar */,
+				86F8624528361501002916A4 /* EFColorPicker */,
 			);
 			productName = IOSSchoolProgect;
 			productReference = 8684A30027FDF7BF00FB2465 /* IOSSchoolProgect.app */;
@@ -276,6 +279,7 @@
 				86742B382830EB02004B04EE /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				86742B3B2830EB4A004B04EE /* XCRemoteSwiftPackageReference "Alamofire" */,
 				86742B492830F7E1004B04EE /* XCRemoteSwiftPackageReference "SnackBar" */,
+				86F8624428361501002916A4 /* XCRemoteSwiftPackageReference "EFColorPicker" */,
 			);
 			productRefGroup = 8684A30127FDF7BF00FB2465 /* Products */;
 			projectDirPath = "";
@@ -329,7 +333,7 @@
 				86C78265281678E200A20DEF /* RegistrationDateTableViewCell.swift in Sources */,
 				86C7827028167C9900A20DEF /* ProfileViewController.swift in Sources */,
 				863E0F992834DE1F003A11F2 /* ProfileNetworkManager.swift in Sources */,
-				863E0F962834DA95003A11F2 /* UIImage+tintImage.swift in Sources */,
+				863D914028363D6400431105 /* UIColor+hex.swift in Sources */,
 				86B8893A2808B9370089B609 /* CustomButton.swift in Sources */,
 				86742B452830ED00004B04EE /* StorageManager.swift in Sources */,
 			);
@@ -567,6 +571,14 @@
 				minimumVersion = 0.1.2;
 			};
 		};
+		86F8624428361501002916A4 /* XCRemoteSwiftPackageReference "EFColorPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/EFPrefix/EFColorPicker.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -589,6 +601,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 86742B492830F7E1004B04EE /* XCRemoteSwiftPackageReference "SnackBar" */;
 			productName = SnackBar;
+		};
+		86F8624528361501002916A4 /* EFColorPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86F8624428361501002916A4 /* XCRemoteSwiftPackageReference "EFColorPicker" */;
+			productName = EFColorPicker;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

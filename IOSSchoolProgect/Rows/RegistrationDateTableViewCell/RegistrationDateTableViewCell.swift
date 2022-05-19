@@ -8,6 +8,4 @@
 import UIKit
 
 class RegistrationDateTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var dateRegistration: UILabel!
 }

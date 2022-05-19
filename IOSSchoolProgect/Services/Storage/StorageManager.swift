@@ -14,6 +14,7 @@ class StorageManager {
         case token
         case userId
         case notFirstLaunch
+        case profileColor
     }
     
     private struct Constants {
@@ -54,11 +55,19 @@ class StorageManager {
         return nil
     }
     
-    func saveToUserDefaults(bool: Bool, key: StorageManagerKey) {
+    func saveNotFirstLaunchToUserDefaults(bool: Bool, key: StorageManagerKey) {
         UserDefaults.standard.set(bool, forKey: key.rawValue)
     }
     
-    func userDefaultsBool(key: StorageManagerKey) -> Bool {
+    func notFirstLaunchFromUserDefaults(key: StorageManagerKey) -> Bool {
         UserDefaults.standard.bool(forKey: key.rawValue)
+    }
+    
+    func saveColorProfiletoUserDefaults(colorProfileHEX: String, key: StorageManagerKey) {
+        UserDefaults.standard.setValue(colorProfileHEX, forKey: key.rawValue)
+    }
+    
+    func loadColorProfileFromUserDefaults(key: StorageManagerKey) -> String? {
+        UserDefaults.standard.string(forKey: key.rawValue)
     }
 }

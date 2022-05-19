@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import EFColorPicker
 
 class ProfileViewController: UIViewController {
     
@@ -15,6 +16,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var backImageView: UIImageView!
+    @IBOutlet weak var tintBackImageView: UIView!
     @IBOutlet var tapGestureRecognizerForPhotoImageView: UITapGestureRecognizer!
     
     override func viewDidLoad() {
@@ -23,6 +25,7 @@ class ProfileViewController: UIViewController {
         tapGestureRecognizerForPhotoImageView.addTarget(self, action: #selector(alertImage))
         tableView.dataSource = self
         registerCells()
+        changeTintBackImage()
     }
     
     @objc func alertImage() {
@@ -61,6 +64,13 @@ class ProfileViewController: UIViewController {
             }
         }
     }
+    
+    func changeTintBackImage() {
+        tintBackImageView.alpha = 0.51
+        if let colorHex = storageManager.loadColorProfileFromUserDefaults(key: .profileColor) {
+            tintBackImageView.backgroundColor = UIColor(hexForProfileColor: colorHex)
+        }
+    }
 }
 
 extension ProfileViewController: UITableViewDataSource {
@@ -72,17 +82,21 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0,
            let cell = tableView.dequeueReusableCell(withIdentifier: UserLoginTableViewCell.className) as? UserLoginTableViewCell {
+            profileUsername(completion: { (username) in
+                cell.usernameLabel.text = username
+            })
             return cell
         }
         if indexPath.row == 1,
            let cell = tableView.dequeueReusableCell(withIdentifier: RegistrationDateTableViewCell.className) as? RegistrationDateTableViewCell {
-            profileUsername(completion: { (username) in
-                cell.dateRegistration.text = username
-            })
             return cell
         }
         if indexPath.row == 2,
            let cell = tableView.dequeueReusableCell(withIdentifier: ProfileColorTableViewCell.className) as? ProfileColorTableViewCell {
+            cell.colorChoiseButton.addTarget(self, action: #selector(openColorPicker), for: .touchUpInside)
+            if let colorHex = storageManager.loadColorProfileFromUserDefaults(key: .profileColor) {
+                cell.colorChoiseButton.backgroundColor = UIColor(hexForProfileColor: colorHex)
+            }
             return cell
         }
         return UITableViewCell()
@@ -101,6 +115,43 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         profileImageView.contentMode = .scaleAspectFill
         profileImageView.layer.frame = .init(x: 5, y: 5, width: 164, height: 164)
         profileImageView.layer.cornerRadius = 82
+        changeTintBackImage()
         backImageView.image = image
+    }
+}
+
+extension ProfileViewController: EFColorSelectionViewControllerDelegate {
+    func colorViewController(_ colorViewCntroller: EFColorSelectionViewController, didChangeColor color: UIColor) {
+        storageManager.saveColorProfiletoUserDefaults(colorProfileHEX: color.toHexString(), key: .profileColor)
+        changeTintBackImage()
+        tableView.reloadData()
+    }
+    
+    @objc func openColorPicker() {
+        let colorSelectionController = EFColorSelectionViewController()
+        let navigationController = UINavigationController(rootViewController: colorSelectionController)
+        navigationController.navigationBar.backgroundColor = view.backgroundColor
+        colorSelectionController.view.backgroundColor = view.backgroundColor
+        colorSelectionController.delegate = self
+        if let colorProfile = storageManager.loadColorProfileFromUserDefaults(key: .profileColor) {
+            colorSelectionController.color = UIColor(hexForProfileColor: colorProfile) ?? UIColor.white
+            print(colorProfile)
+        }
+        colorSelectionController.setMode(mode: .rgb)
+
+        if UIUserInterfaceSizeClass.compact == self.traitCollection.horizontalSizeClass {
+            let doneButton: UIBarButtonItem = UIBarButtonItem(
+                title: NSLocalizedString("Done", comment: ""),
+                style: UIBarButtonItem.Style.done,
+                target: self,
+                action: #selector(dismissViewController)
+            )
+            colorSelectionController.navigationItem.rightBarButtonItem = doneButton
+        }
+        self.present(navigationController, animated: true, completion: nil)
+    }
+    
+    @objc func dismissViewController() {
+        dismiss(animated: true, completion: nil)
     }
 }

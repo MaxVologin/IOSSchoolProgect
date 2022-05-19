@@ -12,9 +12,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let storageManager = StorageManager()
-        if !storageManager.userDefaultsBool(key: .notFirstLaunch) {
+        if !storageManager.notFirstLaunchFromUserDefaults(key: .notFirstLaunch) {
             storageManager.claenKeychain()
-            storageManager.saveToUserDefaults(bool: true, key: .notFirstLaunch)
+            storageManager.saveNotFirstLaunchToUserDefaults(bool: true, key: .notFirstLaunch)
         }
         return true
     }
