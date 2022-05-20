@@ -104,7 +104,7 @@ class RegistrationViewController: UIViewController {
             progressHUD.dismiss()
             return
         }
-        networkManager.checkUsername(username: loginTextField.text) { [ weak self ] (checkResponse, error) in
+        networkManager.checkUsername(username: loginTextField.text ?? "") { [ weak self ] (checkResponse, error) in
             if let error = error?.localizedDescription {
                 self?.showSnackBar(in: self?.view, message: error)
                 self?.progressHUD.dismiss()
@@ -124,8 +124,8 @@ class RegistrationViewController: UIViewController {
     }
     
     func registerProfile() {
-        networkManager.register(username: loginTextField.text,
-                                     password: passwordTextField.text) { [ weak self ] (tokenResponse, error) in
+        networkManager.register(username: loginTextField.text ?? "",
+                                     password: passwordTextField.text ?? "") { [ weak self ] (tokenResponse, error) in
             self?.progressHUD.dismiss()
             if let error = error?.localizedDescription {
                 self?.showSnackBar(in: self?.view, message: error)

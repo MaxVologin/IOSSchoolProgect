@@ -49,12 +49,7 @@ class NetworkManager {
 }
 
 extension NetworkManager: AuthorizationNetworkManager {
-    func login(username: String?, password: String?, completion:((TokenResponse?, Error?) -> ())?) {
-        guard let username = username,
-              let password = password else {
-            
-            return
-        }
+    func login(username: String, password: String, completion: ((TokenResponse?, Error?) -> ())?) {
         performRequest(url: "\(Constants.baseURL)/api/auth/login?username=\(username)&password=\(password)",
                        method: .get,
                        onRequestCompleted: completion)
@@ -62,16 +57,13 @@ extension NetworkManager: AuthorizationNetworkManager {
 }
 
 extension NetworkManager: RegistrationNetworkManager {
-    func checkUsername(username: String?, completion: ((CheckUsername?, Error?) -> ())?) {
-        guard let username = username else { return }
+    func checkUsername(username: String, completion: ((CheckUsername?, Error?) -> ())?) {
         performRequest(url: "\(Constants.baseURL)/api/auth/checkUsername?username=\(username)",
                        method: .get,
                        onRequestCompleted: completion)
     }
     
-    func register(username: String?, password: String?, completion:((TokenResponse?, Error?) -> ())?) {
-        guard let username = username,
-              let password = password else { return }
+    func register(username: String, password: String, completion: ((TokenResponse?, Error?) -> ())?) {
         let parametrs: [String: String] = ["username": username,
                                            "password": password]
         performRequest(url: "\(Constants.baseURL)/api/auth/register",

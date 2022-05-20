@@ -110,8 +110,8 @@ class AuthorizationViewController: UIViewController {
     
     func checkedTransitionToTabBarController() {
         progressHUD.show(in: self.view)
-        networkManager.login(username: loginTextField.text,
-                             password: passwordTextField.text) { [ weak self ] (tokenResponse, error) in
+        networkManager.login(username: loginTextField.text ?? "",
+                             password: passwordTextField.text ?? "") { [ weak self ] (tokenResponse, error) in
             self?.progressHUD.dismiss()
             if let _ = error {
                 self?.showSnackBar(in: self?.view, message: "Ошибка ввода даннных")

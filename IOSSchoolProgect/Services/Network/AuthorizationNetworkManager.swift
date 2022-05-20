@@ -8,5 +8,5 @@
 import Foundation
 
 protocol AuthorizationNetworkManager {
-    func login(username: String?, password: String?, completion:((TokenResponse?, Error?) -> ())?)
+    func login(username: String, password: String, completion:((TokenResponse?, Error?) -> ())?)
 }

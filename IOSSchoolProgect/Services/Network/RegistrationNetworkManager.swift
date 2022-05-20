@@ -8,6 +8,6 @@
 import Foundation
 
 protocol RegistrationNetworkManager {
-    func checkUsername(username: String?, completion:((CheckUsername?, Error?) -> ())?)
-    func register(username: String?, password: String?, completion:((TokenResponse?, Error?) -> ())?)
+    func checkUsername(username: String, completion: ((CheckUsername?, Error?) -> ())?)
+    func register(username: String, password: String, completion: ((TokenResponse?, Error?) -> ())?)
 }
