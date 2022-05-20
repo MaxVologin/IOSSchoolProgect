@@ -55,7 +55,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="colorChoiseButton" destination="LRn-g0-WDD" id="uo8-Xo-9oG"/>
+                <outlet property="colorChoiseButton" destination="LRn-g0-WDD" id="I8J-x7-K2g"/>
             </connections>
             <point key="canvasLocation" x="-52.173913043478265" y="94.754464285714278"/>
         </tableViewCell>

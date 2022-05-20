@@ -19,13 +19,21 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var tintBackImageView: UIView!
     @IBOutlet var tapGestureRecognizerForPhotoImageView: UITapGestureRecognizer!
     
+    var profile: Profile?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: false)
         tapGestureRecognizerForPhotoImageView.addTarget(self, action: #selector(alertImage))
         tableView.dataSource = self
+        tableView.delegate = self
         registerCells()
         changeTintBackImage()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        requestUsername()
     }
     
     @objc func alertImage() {
@@ -54,20 +62,21 @@ class ProfileViewController: UIViewController {
         tableView.register(nib, forCellReuseIdentifier: identifire)
     }
     
-    func profileUsername(completion: @escaping (String?)->()) {
+    func requestUsername() {
         guard let userId = storageManager.loadTokenResponseFromKeychein()?.userId else { return }
         networkManager.profile(userId: userId) { (profile, error) in
             if let error = error {
-                print(error)
+                AppSnackBar(contextView: self.view, message: error.localizedDescription, duration: .lengthLong).show()
             } else {
-                completion(profile?.username)
+                self.profile = profile
+                self.tableView.reloadData()
             }
         }
     }
     
     func changeTintBackImage() {
         tintBackImageView.alpha = 0.51
-        if let colorHex = storageManager.loadColorProfileFromUserDefaults(key: .profileColor) {
+        if let colorHex = storageManager.loadColorProfileFromUserDefaults() {
             tintBackImageView.backgroundColor = UIColor(hex: colorHex)
         }
     }
@@ -82,9 +91,7 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0,
            let cell = tableView.dequeueReusableCell(withIdentifier: UserLoginTableViewCell.className) as? UserLoginTableViewCell {
-            profileUsername(completion: { (username) in
-                cell.usernameLabel.text = username
-            })
+            cell.usernameLabel.text = profile?.username
             return cell
         }
         if indexPath.row == 1,
@@ -93,13 +100,20 @@ extension ProfileViewController: UITableViewDataSource {
         }
         if indexPath.row == 2,
            let cell = tableView.dequeueReusableCell(withIdentifier: ProfileColorTableViewCell.className) as? ProfileColorTableViewCell {
-            cell.colorChoiseButton.addTarget(self, action: #selector(openColorPicker), for: .touchUpInside)
-            if let colorHex = storageManager.loadColorProfileFromUserDefaults(key: .profileColor) {
+            if let colorHex = storageManager.loadColorProfileFromUserDefaults() {
                 cell.colorChoiseButton.backgroundColor = UIColor(hex: colorHex)
             }
             return cell
         }
         return UITableViewCell()
+    }
+}
+
+extension ProfileViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 2 {
+            openColorPicker()
+        }
     }
 }
 
@@ -122,20 +136,19 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 
 extension ProfileViewController: EFColorSelectionViewControllerDelegate {
     func colorViewController(_ colorViewCntroller: EFColorSelectionViewController, didChangeColor color: UIColor) {
-        storageManager.saveColorProfiletoUserDefaults(colorProfileHEX: color.toHexString(), key: .profileColor)
+        storageManager.saveColorProfiletoUserDefaults(colorProfileHEX: color.toHexString())
         changeTintBackImage()
         tableView.reloadData()
     }
     
-    @objc func openColorPicker() {
+    func openColorPicker() {
         let colorSelectionController = EFColorSelectionViewController()
         let navigationController = UINavigationController(rootViewController: colorSelectionController)
         navigationController.navigationBar.backgroundColor = view.backgroundColor
         colorSelectionController.view.backgroundColor = view.backgroundColor
         colorSelectionController.delegate = self
-        if let colorProfile = storageManager.loadColorProfileFromUserDefaults(key: .profileColor) {
-            colorSelectionController.color = UIColor(hex: colorProfile) ?? UIColor.white
-            print(colorProfile)
+        if let colorProfile = storageManager.loadColorProfileFromUserDefaults() {
+            colorSelectionController.color = UIColor(hex: colorProfile) ?? .white
         }
         colorSelectionController.setMode(mode: .rgb)
 

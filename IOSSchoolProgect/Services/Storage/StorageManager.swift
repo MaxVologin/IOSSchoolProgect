@@ -55,19 +55,19 @@ class StorageManager {
         return nil
     }
     
-    func saveNotFirstLaunchToUserDefaults(bool: Bool, key: StorageManagerKey) {
-        UserDefaults.standard.set(bool, forKey: key.rawValue)
+    func saveNotFirstLaunchToUserDefaults(bool: Bool) {
+        UserDefaults.standard.set(bool, forKey: StorageManagerKey.notFirstLaunch.rawValue)
     }
     
-    func notFirstLaunchFromUserDefaults(key: StorageManagerKey) -> Bool {
-        UserDefaults.standard.bool(forKey: key.rawValue)
+    func notFirstLaunchFromUserDefaults() -> Bool {
+        UserDefaults.standard.bool(forKey: StorageManagerKey.notFirstLaunch.rawValue)
     }
     
-    func saveColorProfiletoUserDefaults(colorProfileHEX: String, key: StorageManagerKey) {
-        UserDefaults.standard.setValue(colorProfileHEX, forKey: key.rawValue)
+    func saveColorProfiletoUserDefaults(colorProfileHEX: String) {
+        UserDefaults.standard.setValue(colorProfileHEX, forKey: StorageManagerKey.profileColor.rawValue)
     }
     
-    func loadColorProfileFromUserDefaults(key: StorageManagerKey) -> String? {
-        UserDefaults.standard.string(forKey: key.rawValue)
+    func loadColorProfileFromUserDefaults() -> String? {
+        UserDefaults.standard.string(forKey: StorageManagerKey.profileColor.rawValue)
     }
 }

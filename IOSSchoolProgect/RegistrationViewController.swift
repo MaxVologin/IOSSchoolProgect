@@ -32,7 +32,7 @@ class RegistrationViewController: UIViewController {
         scrollView.delegate = self
         settingInputTextFields(textFields: loginTextField, passwordTextField, repeatPasswordTextField)
         tapGestureRecognizer.addTarget(self, action: #selector(hideKeyboard))
-        settingHUD()
+        setHUD()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,7 +53,7 @@ class RegistrationViewController: UIViewController {
         }
     }
     
-    func settingHUD() {
+    func setHUD() {
         progressHUD.textLabel.text = "Loading"
         progressHUD.style = JGProgressHUDStyle.dark
     }
@@ -99,34 +99,46 @@ class RegistrationViewController: UIViewController {
     
     func checkedTransitionToTabBarController() {
         progressHUD.show(in: self.view)
+        if passwordTextField.text != repeatPasswordTextField.text {
+            showSnackBar(in: self.view, message: "Пароли не совпадают")
+            progressHUD.dismiss()
+            return
+        }
         networkManager.checkUsername(username: loginTextField.text) { [ weak self ] (checkResponse, error) in
+            if let error = error?.localizedDescription {
+                self?.showSnackBar(in: self?.view, message: error)
+                self?.progressHUD.dismiss()
+                return
+            }
             guard let result = checkResponse?.result else {
-                print(error as Any)
                 self?.progressHUD.dismiss()
                 return
             }
-            if result.rawValue != ResponsesCheckUsername.free.rawValue {
-                AppSnackBar.make(in: self?.view ?? UIView(), message: result.representedValue, duration: .lengthLong).show()
+            if result != ResponsesCheckUsername.free {
+                self?.showSnackBar(in: self?.view, message: result.representedValue)
                 self?.progressHUD.dismiss()
                 return
             }
-            if self?.passwordTextField.text != self?.repeatPasswordTextField.text {
-                AppSnackBar.make(in: self?.view ?? UIView(), message: "Пароли не совпадают", duration: .lengthLong).show()
-                self?.progressHUD.dismiss()
-                return
-            }
-            self?.networkManager.register(username: self?.loginTextField.text,
-                                         password: self?.passwordTextField.text) { [ weak self ] (tokenResponse, error) in
-                if let error = error {
-                    print(error)
-                    self?.progressHUD.dismiss()
-                    return
-                }
+            self?.registerProfile()
+        }
+    }
+    
+    func registerProfile() {
+        networkManager.register(username: loginTextField.text,
+                                     password: passwordTextField.text) { [ weak self ] (tokenResponse, error) in
+            self?.progressHUD.dismiss()
+            if let error = error?.localizedDescription {
+                self?.showSnackBar(in: self?.view, message: error)
+            } else {
                 self?.storageManager.saveTokenResponseToKeychein(tokenResponse: tokenResponse)
-                self?.progressHUD.dismiss()
                 self?.transitionToTabBarController()
             }
         }
+    }
+    
+    func showSnackBar(in view: UIView?, message: String) {
+        guard let view = view else { return }
+        AppSnackBar.make(in: view, message: message, duration: .lengthLong).show()
     }
     
     func transitionToTabBarController() {

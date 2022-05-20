@@ -51,7 +51,10 @@ class NetworkManager {
 extension NetworkManager: AuthorizationNetworkManager {
     func login(username: String?, password: String?, completion:((TokenResponse?, Error?) -> ())?) {
         guard let username = username,
-              let password = password else { return }
+              let password = password else {
+            
+            return
+        }
         performRequest(url: "\(Constants.baseURL)/api/auth/login?username=\(username)&password=\(password)",
                        method: .get,
                        onRequestCompleted: completion)

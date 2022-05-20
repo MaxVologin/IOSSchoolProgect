@@ -38,7 +38,7 @@ class AuthorizationViewController: UIViewController {
         settingInputTextFields(textFields: loginTextField, passwordTextField)
         tapGestureRecognizer.addTarget(self, action: #selector(hideKeyboard))
         settingCustomSpacingsInStackView()
-        settingHUD()
+        setHUD()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,7 +64,7 @@ class AuthorizationViewController: UIViewController {
         }
     }
     
-    func settingHUD() {
+    func setHUD() {
         progressHUD.textLabel.text = "Loading"
         progressHUD.style = JGProgressHUDStyle.dark
     }
@@ -112,15 +112,19 @@ class AuthorizationViewController: UIViewController {
         progressHUD.show(in: self.view)
         networkManager.login(username: loginTextField.text,
                              password: passwordTextField.text) { [ weak self ] (tokenResponse, error) in
+            self?.progressHUD.dismiss()
             if let _ = error {
-                AppSnackBar.make(in: self?.view ?? UIView(), message: "Ошибка ввода данных", duration: .lengthLong).show()
-                self?.progressHUD.dismiss()
+                self?.showSnackBar(in: self?.view, message: "Ошибка ввода даннных")
             } else {
                 self?.storageManager.saveTokenResponseToKeychein(tokenResponse: tokenResponse)
-                self?.progressHUD.dismiss()
                 self?.transitionToTabBarController()
             }
         }
+    }
+    
+    func showSnackBar(in view: UIView?, message: String) {
+        guard let view = view else { return }
+        AppSnackBar.make(in: view, message: message, duration: .lengthLong).show()
     }
     
     func transitionToTabBarController() {
