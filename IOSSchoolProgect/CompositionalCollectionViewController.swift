@@ -16,7 +16,47 @@ class CompositionalCollectionViewController: UIViewController {
     @IBOutlet weak var tapA: UIButton!
     @IBOutlet weak var aButtontrailingConstreint: NSLayoutConstraint!
     
+    
+    func oloPrint(string: String, completion:
+                    () -> ()) {
+        print(string)
+        completion()
+    }
+    
     override func viewDidLoad() {
+        
+//        let group = DispatchGroup()
+//
+//            group.enter()
+//
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1)
+//            oloPrint(string: "stringOne", completion: {})
+//            oloPrint(string: "stringTwo", completion: {
+//                group.leave()
+//            })
+//
+//
+//        group.enter()
+//        print("loloolol")
+//        group.leave()
+//        group.notify(queue: <#T##DispatchQueue#>, execute: <#T##() -> Void#>)
+        
+        
+        let semaphore = DispatchSemaphore(value: 1)
+        let dispatchQueue = DispatchQueue(label: "123")
+        dispatchQueue.async {
+            semaphore.wait()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.oloPrint(string: "123457") {
+                    semaphore.signal()
+                }
+            }
+        }
+        
+        dispatchQueue.async {
+            print("dispatch2")
+        }
+        
         super.viewDidLoad()
         title = "Это титл"
         collectionView.delegate = self
@@ -27,8 +67,15 @@ class CompositionalCollectionViewController: UIViewController {
         collectionView.collectionViewLayout = layout()
         
         
+//        let 123 = DispatchQueue(label: "213")
+//        let group = DispatchGroup()
+//        group.enter()
+//        group.wait()
+//        group.leave()
+//        group.notify(queue: <#T##DispatchQueue#>, execute: <#T##() -> Void#>)
         
-//        let completion: (Character?, Error?) -> () = { character, error in
+        
+        //        let completion: (Character?, Error?) -> () = { character, error in
 //
 //            let gender = Gender(rawValue: "ololo")
 //            let gender2 = Gender(rawValue: "Male")
