@@ -137,8 +137,9 @@ class RegistrationViewController: UIViewController {
     }
     
     func showSnackBar(in view: UIView?, message: String) {
-        guard let view = view else { return }
-        AppSnackBar.make(in: view, message: message, duration: .lengthLong).show()
+        if let view = view {
+            AppSnackBar.make(in: view, message: message, duration: .lengthLong).show()
+        }
     }
     
     func transitionToTabBarController() {
