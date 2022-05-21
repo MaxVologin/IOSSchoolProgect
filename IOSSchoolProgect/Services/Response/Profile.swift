@@ -10,4 +10,5 @@ import Foundation
 struct Profile: Decodable {
     let id: String
     let username: String
+    let subscribersCount: Int
 }

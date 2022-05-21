@@ -100,13 +100,13 @@ class RegistrationViewController: UIViewController {
     func checkedTransitionToTabBarController() {
         progressHUD.show(in: self.view)
         if passwordTextField.text != repeatPasswordTextField.text {
-            showSnackBar(in: self.view, message: "Пароли не совпадают")
+            AppSnackBar.showSnackBar(in: self.view, message: "Пароли не совпадают")
             progressHUD.dismiss()
             return
         }
         networkManager.checkUsername(username: loginTextField.text ?? "") { [ weak self ] (checkResponse, error) in
             if let error = error?.localizedDescription {
-                self?.showSnackBar(in: self?.view, message: error)
+                AppSnackBar.showSnackBar(in: self?.view, message: error)
                 self?.progressHUD.dismiss()
                 return
             }
@@ -114,8 +114,8 @@ class RegistrationViewController: UIViewController {
                 self?.progressHUD.dismiss()
                 return
             }
-            if result != ResponsesCheckUsername.free {
-                self?.showSnackBar(in: self?.view, message: result.representedValue)
+            if result != .free {
+                AppSnackBar.showSnackBar(in: self?.view, message: result.representedValue)
                 self?.progressHUD.dismiss()
                 return
             }
@@ -128,17 +128,11 @@ class RegistrationViewController: UIViewController {
                                      password: passwordTextField.text ?? "") { [ weak self ] (tokenResponse, error) in
             self?.progressHUD.dismiss()
             if let error = error?.localizedDescription {
-                self?.showSnackBar(in: self?.view, message: error)
+                AppSnackBar.showSnackBar(in: self?.view, message: error)
             } else {
                 self?.storageManager.saveTokenResponseToKeychein(tokenResponse: tokenResponse)
                 self?.transitionToTabBarController()
             }
-        }
-    }
-    
-    func showSnackBar(in view: UIView?, message: String) {
-        if let view = view {
-            AppSnackBar.make(in: view, message: message, duration: .lengthLong).show()
         }
     }
     

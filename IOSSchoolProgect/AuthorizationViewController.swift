@@ -114,17 +114,11 @@ class AuthorizationViewController: UIViewController {
                              password: passwordTextField.text ?? "") { [ weak self ] (tokenResponse, error) in
             self?.progressHUD.dismiss()
             if let _ = error {
-                self?.showSnackBar(in: self?.view, message: "Ошибка ввода даннных")
+                AppSnackBar.showSnackBar(in: self?.view, message: "Ошибка ввода даннных")
             } else {
                 self?.storageManager.saveTokenResponseToKeychein(tokenResponse: tokenResponse)
                 self?.transitionToTabBarController()
             }
-        }
-    }
-    
-    func showSnackBar(in view: UIView?, message: String) {
-        if let view = view {
-            AppSnackBar.make(in: view, message: message, duration: .lengthLong).show()
         }
     }
     

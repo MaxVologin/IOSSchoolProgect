@@ -64,7 +64,7 @@ class ProfileViewController: UIViewController {
     
     func requestUsername() {
         guard let userId = storageManager.loadTokenResponseFromKeychein()?.userId else { return }
-        networkManager.profile(userId: userId) { (profile, error) in
+        networkManager.verification(userId: userId) { (profile, error) in
             if let error = error {
                 AppSnackBar(contextView: self.view, message: error.localizedDescription, duration: .lengthLong).show()
             } else {
@@ -91,17 +91,19 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0,
            let cell = tableView.dequeueReusableCell(withIdentifier: UserLoginTableViewCell.className) as? UserLoginTableViewCell {
-            cell.usernameLabel.text = profile?.username
+            if let name = profile?.username {
+                cell.usernameLabel.text = name
+            }
             return cell
         }
         if indexPath.row == 1,
            let cell = tableView.dequeueReusableCell(withIdentifier: RegistrationDateTableViewCell.className) as? RegistrationDateTableViewCell {
-            return cell
+            return cell.configure(profile: profile)
         }
         if indexPath.row == 2,
            let cell = tableView.dequeueReusableCell(withIdentifier: ProfileColorTableViewCell.className) as? ProfileColorTableViewCell {
             if let colorHex = storageManager.loadColorProfileFromUserDefaults() {
-                cell.colorChoiseButton.backgroundColor = UIColor(hex: colorHex)
+                cell.colorChoiseLabel.backgroundColor = UIColor(hex: colorHex)
             }
             return cell
         }

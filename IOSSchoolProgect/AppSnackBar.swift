@@ -17,4 +17,10 @@ class AppSnackBar: SnackBar {
         style.font = UIFont.systemFont(ofSize: UIFontMetrics.default.scaledValue(for: 24))
         return style
     }
+    
+    static func showSnackBar(in view: UIView?, message: String) {
+        if let view = view {
+            AppSnackBar.make(in: view, message: message, duration: .lengthLong).show()
+        }
+    }
 }

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol ProfileNetworkManager {
-    func profile(userId: String, completion:((Profile?, Error?) -> ())?)
+    func verification(userId: String, completion:((Profile?, Error?) -> ())?)
 }

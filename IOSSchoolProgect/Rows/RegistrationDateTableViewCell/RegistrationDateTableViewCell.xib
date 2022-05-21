@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Дата Регистрации" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UyS-8l-SdL">
-                        <rect key="frame" x="16" y="21" width="192" height="16"/>
+                        <rect key="frame" x="16" y="21" width="152" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="o6G-a4-BTK"/>
                         </constraints>
@@ -26,9 +26,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.12.2024" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CU5-4b-ObA">
-                        <rect key="frame" x="224" y="21" width="80" height="17"/>
+                        <rect key="frame" x="184" y="21" width="120" height="17"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="80" id="l6W-1z-zZv"/>
+                            <constraint firstAttribute="width" constant="120" id="nMb-gp-e4a"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
@@ -47,6 +47,9 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="dateRegistration" destination="CU5-4b-ObA" id="uA6-ov-YsP"/>
+            </connections>
             <point key="canvasLocation" x="-52.173913043478265" y="98.102678571428569"/>
         </tableViewCell>
     </objects>

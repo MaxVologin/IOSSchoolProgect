@@ -32,7 +32,7 @@ class StorageManager {
         }
     }
     
-    func claenKeychain() {
+    func cleanKeychain() {
         let keychain = Keychain(service: Constants.serviceId)
         do {
             try keychain.removeAll()

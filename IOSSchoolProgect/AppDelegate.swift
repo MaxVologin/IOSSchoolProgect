@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let storageManager = StorageManager()
         if !storageManager.notFirstLaunchFromUserDefaults() {
-            storageManager.claenKeychain()
+            storageManager.cleanKeychain()
             storageManager.saveNotFirstLaunchToUserDefaults(bool: true)
         }
         return true
