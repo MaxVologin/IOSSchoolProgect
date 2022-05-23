@@ -33,7 +33,7 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        requestUsername()
+        requestProfile()
     }
     
     @objc func alertImage() {
@@ -62,7 +62,7 @@ class ProfileViewController: UIViewController {
         tableView.register(nib, forCellReuseIdentifier: identifire)
     }
     
-    func requestUsername() {
+    func requestProfile() {
         guard let userId = storageManager.loadTokenResponseFromKeychein()?.userId else { return }
         networkManager.profile(userId: userId) { [ weak self ] (profile, error) in
             if let error = error {
