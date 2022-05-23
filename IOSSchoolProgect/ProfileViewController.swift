@@ -64,12 +64,12 @@ class ProfileViewController: UIViewController {
     
     func requestUsername() {
         guard let userId = storageManager.loadTokenResponseFromKeychein()?.userId else { return }
-        networkManager.verification(userId: userId) { (profile, error) in
+        networkManager.profile(userId: userId) { [ weak self ] (profile, error) in
             if let error = error {
-                AppSnackBar(contextView: self.view, message: error.localizedDescription, duration: .lengthLong).show()
+                AppSnackBar.showSnackBar(in: self?.view, message: error.localizedDescription)
             } else {
-                self.profile = profile
-                self.tableView.reloadData()
+                self?.profile = profile
+                self?.tableView.reloadData()
             }
         }
     }

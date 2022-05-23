@@ -75,7 +75,7 @@ extension NetworkManager: RegistrationNetworkManager {
 }
 
 extension NetworkManager: ProfileNetworkManager {
-    func verification(userId: String, completion: ((Profile?, Error?) -> ())?) {
+    func profile(userId: String, completion: ((Profile?, Error?) -> ())?) {
         performRequest(url: "\(Constants.baseURL)/api/v1/profile/\(userId)",
                        method: .get,
                        parameters: nil,
