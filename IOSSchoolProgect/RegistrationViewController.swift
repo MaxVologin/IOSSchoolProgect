@@ -6,9 +6,14 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 class RegistrationViewController: UIViewController {
 
+    let networkManager: RegistrationNetworkManager = NetworkManager()
+    let storageManager = StorageManager()
+    let progressHUD = JGProgressHUD()
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var registrationLabel: UILabel!
     @IBOutlet weak var loginTextField: UITextField!
@@ -17,11 +22,7 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var tapGestureRecognizer: UITapGestureRecognizer!
     
     @IBAction func onClickDoneButton(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        if let tabBarController = storyboard.instantiateViewController(withIdentifier: TabBarController.className) as? TabBarController {
-            tabBarController.modalPresentationStyle = .fullScreen
-            present(tabBarController, animated: true, completion: nil)
-        }
+        checkedTransitionToTabBarController()
     }
     
     var inputTextFields: [UITextField] = []
@@ -31,6 +32,7 @@ class RegistrationViewController: UIViewController {
         scrollView.delegate = self
         settingInputTextFields(textFields: loginTextField, passwordTextField, repeatPasswordTextField)
         tapGestureRecognizer.addTarget(self, action: #selector(hideKeyboard))
+        setHUD()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +51,11 @@ class RegistrationViewController: UIViewController {
             textField.indent(size: 24)
             inputTextFields.append(textField)
         }
+    }
+    
+    func setHUD() {
+        progressHUD.textLabel.text = "Loading"
+        progressHUD.style = JGProgressHUDStyle.dark
     }
     
     func registerForKeyboardNotifications() {
@@ -88,6 +95,53 @@ class RegistrationViewController: UIViewController {
     
     @objc func hideKeyboard() {
         view.endEditing(true)
+    }
+    
+    func checkedTransitionToTabBarController() {
+        progressHUD.show(in: self.view)
+        if passwordTextField.text != repeatPasswordTextField.text {
+            AppSnackBar.showSnackBar(in: self.view, message: "Пароли не совпадают")
+            progressHUD.dismiss()
+            return
+        }
+        networkManager.checkUsername(username: loginTextField.text ?? "") { [ weak self ] (checkResponse, error) in
+            if let error = error?.localizedDescription {
+                AppSnackBar.showSnackBar(in: self?.view, message: error)
+                self?.progressHUD.dismiss()
+                return
+            }
+            guard let result = checkResponse?.result else {
+                self?.progressHUD.dismiss()
+                return
+            }
+            if result != .free {
+                AppSnackBar.showSnackBar(in: self?.view, message: result.representedValue)
+                self?.progressHUD.dismiss()
+                return
+            }
+            self?.registerProfile()
+        }
+    }
+    
+    func registerProfile() {
+        networkManager.register(username: loginTextField.text ?? "",
+                                     password: passwordTextField.text ?? "") { [ weak self ] (tokenResponse, error) in
+            self?.progressHUD.dismiss()
+            if let error = error?.localizedDescription {
+                AppSnackBar.showSnackBar(in: self?.view, message: error)
+            } else {
+                self?.storageManager.saveTokenResponseToKeychein(tokenResponse: tokenResponse)
+                self?.transitionToTabBarController()
+            }
+        }
+    }
+    
+    func transitionToTabBarController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let tabBarController = storyboard.instantiateViewController(withIdentifier: TabBarController.className) as? TabBarController {
+            tabBarController.modalPresentationStyle = .fullScreen
+            present(tabBarController, animated: true, completion: nil)
+        }
     }
 }
 

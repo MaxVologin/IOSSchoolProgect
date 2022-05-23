@@ -8,5 +8,5 @@
 import UIKit
 
 class ProfileColorTableViewCell: UITableViewCell {
-    
+    @IBOutlet weak var colorChoiseLabel: UIView!
 }
