@@ -11,13 +11,17 @@ class LocationTableViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var source: [(String, String)] = [
-        ("oneTitle", "oneSubTitle"),
-        ("FCKY", "BLABLA"),
-        ("123124", "efwedfdfsfwf")
-    ]
+    var source: [(String, String, String)] = []
+    let imageService = ServiceLocator.imageService()
+    
+    
 
     override func viewDidLoad() {
+        
+        for i in 10..<81 {
+            source.append(("Character: \(i)", "123", "https://rickandmortyapi.com/api/character/avatar/\(i).jpeg"))
+        }
+        
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
@@ -31,20 +35,17 @@ class LocationTableViewController: UIViewController {
 }
 
 extension LocationTableViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        3
-    }
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        3
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        }
         return source.count
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        String(section)
-    }
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        String(section)
+//    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: LocationTableViewCell.nibName) as? LocationTableViewCell else {
@@ -53,6 +54,14 @@ extension LocationTableViewController: UITableViewDataSource {
         let carthage = source[indexPath.row]
         cell.titleLabel.text = carthage.0
         cell.subTitleLabel.text = carthage.1
+        cell.id = carthage.2
+        imageService.getImage(urlString: carthage.2) { (image) in
+            if cell.id == carthage.2 {
+                DispatchQueue.main.async {
+                    cell.personIcon.image = image
+                }
+            }
+        }
         return cell
     }
 }

@@ -6,9 +6,19 @@
 //
 
 import Foundation
-// сервис локатор
+
 struct ServiceLocator {
     static func characterNetworkManager() -> CharacterNetworManager {
         NetworkManager()
+    }
+    
+    static func imageNetworkManager() -> ImageNetworkManager {
+        NetworkManager()
+    }
+    
+    static let imageLoadingService = ImageService(networkManager: imageNetworkManager())
+    
+    static func imageService() -> ImageLoadingService {
+        imageLoadingService
     }
 }

@@ -16,6 +16,7 @@
 		8662A027282E97B700769392 /* CharacterStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8662A026282E97B700769392 /* CharacterStatus.swift */; };
 		8662A02A282E996300769392 /* CharacterGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8662A029282E996300769392 /* CharacterGender.swift */; };
 		8662A030282EA59F00769392 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8662A02F282EA59F00769392 /* StorageManager.swift */; };
+		86734117283D178300B34404 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86734116283D178300B34404 /* ImageService.swift */; };
 		86742B722833E63E004B04EE /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86742B712833E63E004B04EE /* ServiceLocator.swift */; };
 		8684A30427FDF7BF00FB2465 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684A30327FDF7BF00FB2465 /* AppDelegate.swift */; };
 		8684A30627FDF7BF00FB2465 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8684A30527FDF7BF00FB2465 /* SceneDelegate.swift */; };
@@ -48,6 +49,7 @@
 		8662A026282E97B700769392 /* CharacterStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStatus.swift; sourceTree = "<group>"; };
 		8662A029282E996300769392 /* CharacterGender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterGender.swift; sourceTree = "<group>"; };
 		8662A02F282EA59F00769392 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		86734116283D178300B34404 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		86742B712833E63E004B04EE /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		8684A30027FDF7BF00FB2465 /* IOSSchoolProgect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOSSchoolProgect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8684A30327FDF7BF00FB2465 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				864C0FCD281C29F200F76763 /* NetworkManager.swift */,
 				8662A02F282EA59F00769392 /* StorageManager.swift */,
 				86742B712833E63E004B04EE /* ServiceLocator.swift */,
+				86734116283D178300B34404 /* ImageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				86F0BAA22812A19800F5F466 /* LocationTableViewController.swift in Sources */,
 				86F0BACB2812F2D500F5F466 /* CompositionalCollectionViewController.swift in Sources */,
 				8662A027282E97B700769392 /* CharacterStatus.swift in Sources */,
+				86734117283D178300B34404 /* ImageService.swift in Sources */,
 				86B8893A2808B9370089B609 /* CustomButton.swift in Sources */,
 				8662A024282E972400769392 /* Character.swift in Sources */,
 			);
