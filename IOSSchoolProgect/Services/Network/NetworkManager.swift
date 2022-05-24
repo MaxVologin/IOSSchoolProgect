@@ -83,3 +83,11 @@ extension NetworkManager: ProfileNetworkManager {
                        onRequestCompleted: completion)
     }
 }
+
+extension NetworkManager: LocationNetworkManager {
+    func requestDataLocations(url: String, completion:((LocationsInfo?, Error?) -> ())?) {
+        performRequest(url: url,
+                       method: .get,
+                       onRequestCompleted: completion)
+    }
+}

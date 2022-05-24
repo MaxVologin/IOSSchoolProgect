@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CMg-I4-yjR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pdB-mO-Y7W">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -363,14 +363,44 @@
                     <view key="view" contentMode="scaleToFill" id="jLg-qN-E6M">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ko1-Uh-MvE">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Z5U-7E-POF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Z5U-7E-POF" firstAttribute="trailing" secondItem="Ko1-Uh-MvE" secondAttribute="trailing" id="Ot4-uC-w4i"/>
+                            <constraint firstItem="Ko1-Uh-MvE" firstAttribute="top" secondItem="Z5U-7E-POF" secondAttribute="top" id="hut-GU-fDJ"/>
+                            <constraint firstItem="Z5U-7E-POF" firstAttribute="bottom" secondItem="Ko1-Uh-MvE" secondAttribute="bottom" id="iAM-RU-7p4"/>
+                            <constraint firstItem="Ko1-Uh-MvE" firstAttribute="leading" secondItem="Z5U-7E-POF" secondAttribute="leading" id="qk9-Lb-bld"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WRV-RV-8jV"/>
+                    <connections>
+                        <outlet property="tableView" destination="Ko1-Uh-MvE" id="4m0-u5-MFC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AWZ-8t-vTd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1954" y="597"/>
+        </scene>
+        <!--Residents View Controller-->
+        <scene sceneID="Z9k-uD-uM1">
+            <objects>
+                <viewController storyboardIdentifier="ResidentsViewController" id="a0I-3N-77h" customClass="ResidentsViewController" customModule="IOSSchoolProgect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vom-PD-6oL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="YVp-ak-rfn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hl5-hb-eez" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2807" y="597"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="gWe-yg-WBj">

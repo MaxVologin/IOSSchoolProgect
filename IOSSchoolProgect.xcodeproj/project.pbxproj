@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86011611283CA4D60079D195 /* LocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86011610283CA4D60079D195 /* LocationInfo.swift */; };
+		86011616283CA53F0079D195 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86011614283CA53F0079D195 /* LocationTableViewCell.swift */; };
+		86011617283CA53F0079D195 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86011615283CA53F0079D195 /* LocationTableViewCell.xib */; };
+		8601161A283CA8A10079D195 /* LocationNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86011619283CA8A10079D195 /* LocationNetworkManager.swift */; };
+		8601161D283CAB5D0079D195 /* ResidentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8601161C283CAB5D0079D195 /* ResidentsViewController.swift */; };
+		86011620283CAC8D0079D195 /* Resident.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8601161F283CAC8D0079D195 /* Resident.swift */; };
+		86011626283CAD140079D195 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86011625283CAD140079D195 /* Gender.swift */; };
+		8601162B283CE4DA0079D195 /* ServiceLokator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8601162A283CE4DA0079D195 /* ServiceLokator.swift */; };
 		8636506727FF159E0084BFF6 /* UIView+storyobardProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8636506627FF159E0084BFF6 /* UIView+storyobardProperties.swift */; };
 		863D914028363D6400431105 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863D913F28363D6400431105 /* UIColor+hex.swift */; };
 		863E0F8C2834D44E003A11F2 /* AuthorizationNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863E0F8B2834D44E003A11F2 /* AuthorizationNetworkManager.swift */; };
@@ -46,6 +54,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		86011610283CA4D60079D195 /* LocationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfo.swift; sourceTree = "<group>"; };
+		86011614283CA53F0079D195 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
+		86011615283CA53F0079D195 /* LocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
+		86011619283CA8A10079D195 /* LocationNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNetworkManager.swift; sourceTree = "<group>"; };
+		8601161C283CAB5D0079D195 /* ResidentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentsViewController.swift; sourceTree = "<group>"; };
+		8601161F283CAC8D0079D195 /* Resident.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resident.swift; sourceTree = "<group>"; };
+		86011625283CAD140079D195 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		8601162A283CE4DA0079D195 /* ServiceLokator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLokator.swift; sourceTree = "<group>"; };
 		8636506627FF159E0084BFF6 /* UIView+storyobardProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+storyobardProperties.swift"; sourceTree = "<group>"; };
 		863D913F28363D6400431105 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		863E0F8B2834D44E003A11F2 /* AuthorizationNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationNetworkManager.swift; sourceTree = "<group>"; };
@@ -97,6 +113,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86011613283CA51D0079D195 /* LocationTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				86011614283CA53F0079D195 /* LocationTableViewCell.swift */,
+				86011615283CA53F0079D195 /* LocationTableViewCell.xib */,
+			);
+			path = LocationTableViewCell;
+			sourceTree = "<group>";
+		};
+		86011629283CE4C50079D195 /* ServiceLocator */ = {
+			isa = PBXGroup;
+			children = (
+				8601162A283CE4DA0079D195 /* ServiceLokator.swift */,
+			);
+			path = ServiceLocator;
+			sourceTree = "<group>";
+		};
 		8636506527FF15200084BFF6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +148,7 @@
 				863E0F8B2834D44E003A11F2 /* AuthorizationNetworkManager.swift */,
 				863E0F8E2834D7B5003A11F2 /* RegistrationNetworkManager.swift */,
 				863E0F982834DE1F003A11F2 /* ProfileNetworkManager.swift */,
+				86011619283CA8A10079D195 /* LocationNetworkManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -130,6 +164,7 @@
 		86742B3F2830EC09004B04EE /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				86011629283CE4C50079D195 /* ServiceLocator */,
 				863E0F922834D85F003A11F2 /* Storage */,
 				863E0F912834D832003A11F2 /* Network */,
 				86742B472830ED15004B04EE /* Response */,
@@ -144,6 +179,9 @@
 				86742B5728312BA6004B04EE /* ResponsesCheckUsername.swift */,
 				86742B5E28321146004B04EE /* TokenResponse.swift */,
 				863E0F9C2834E285003A11F2 /* Profile.swift */,
+				86011610283CA4D60079D195 /* LocationInfo.swift */,
+				8601161F283CAC8D0079D195 /* Resident.swift */,
+				86011625283CAD140079D195 /* Gender.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -175,6 +213,7 @@
 				86B8894A280B12C40089B609 /* RegistrationViewController.swift */,
 				86C7826F28167C9900A20DEF /* ProfileViewController.swift */,
 				86B181D0281996D900B9BBB2 /* PlanetViewController.swift */,
+				8601161C283CAB5D0079D195 /* ResidentsViewController.swift */,
 				86C7827F2817267B00A20DEF /* TabBarController.swift */,
 				86B889392808B9360089B609 /* CustomButton.swift */,
 				86742B5B283144D9004B04EE /* AppSnackBar.swift */,
@@ -190,6 +229,7 @@
 		86C7824A2816748D00A20DEF /* Rows */ = {
 			isa = PBXGroup;
 			children = (
+				86011613283CA51D0079D195 /* LocationTableViewCell */,
 				86C7825B2816771200A20DEF /* UserLoginTableViewCell */,
 				86C78262281678B000A20DEF /* RegistrationDateTableViewCell */,
 				86C7826828167AAB00A20DEF /* ProfileColorTableViewCell */,
@@ -297,6 +337,7 @@
 			files = (
 				86C78266281678E200A20DEF /* RegistrationDateTableViewCell.xib in Resources */,
 				8684A31027FDF7CB00FB2465 /* LaunchScreen.storyboard in Resources */,
+				86011617283CA53F0079D195 /* LocationTableViewCell.xib in Resources */,
 				8684A30D27FDF7CB00FB2465 /* Assets.xcassets in Resources */,
 				86C7826C28167ADD00A20DEF /* ProfileColorTableViewCell.xib in Resources */,
 				8684A30B27FDF7BF00FB2465 /* Main.storyboard in Resources */,
@@ -317,23 +358,30 @@
 				86742B412830ECA7004B04EE /* NetworkManager.swift in Sources */,
 				86B181D1281996D900B9BBB2 /* PlanetViewController.swift in Sources */,
 				86B889472809C6860089B609 /* UITextField+indent.swift in Sources */,
+				86011611283CA4D60079D195 /* LocationInfo.swift in Sources */,
 				863E0F8F2834D7B5003A11F2 /* RegistrationNetworkManager.swift in Sources */,
 				8684A30427FDF7BF00FB2465 /* AppDelegate.swift in Sources */,
 				8636506727FF159E0084BFF6 /* UIView+storyobardProperties.swift in Sources */,
 				86C7826B28167ADD00A20DEF /* ProfileColorTableViewCell.swift in Sources */,
 				86742B5C283144D9004B04EE /* AppSnackBar.swift in Sources */,
 				86B8894B280B12C40089B609 /* RegistrationViewController.swift in Sources */,
+				8601161A283CA8A10079D195 /* LocationNetworkManager.swift in Sources */,
+				8601161D283CAB5D0079D195 /* ResidentsViewController.swift in Sources */,
 				86742B55283115C7004B04EE /* CheckUsername.swift in Sources */,
 				863E0F8C2834D44E003A11F2 /* AuthorizationNetworkManager.swift in Sources */,
+				86011620283CAC8D0079D195 /* Resident.swift in Sources */,
 				86C782482816731F00A20DEF /* NSObject+ClassName.swift in Sources */,
 				8684A30627FDF7BF00FB2465 /* SceneDelegate.swift in Sources */,
 				863E0F9D2834E285003A11F2 /* Profile.swift in Sources */,
 				86C7825E2816776100A20DEF /* UserLoginTableViewCell.swift in Sources */,
 				86742B5F28321146004B04EE /* TokenResponse.swift in Sources */,
 				86C78265281678E200A20DEF /* RegistrationDateTableViewCell.swift in Sources */,
+				86011616283CA53F0079D195 /* LocationTableViewCell.swift in Sources */,
 				86C7827028167C9900A20DEF /* ProfileViewController.swift in Sources */,
 				863E0F992834DE1F003A11F2 /* ProfileNetworkManager.swift in Sources */,
 				863D914028363D6400431105 /* UIColor+hex.swift in Sources */,
+				8601162B283CE4DA0079D195 /* ServiceLokator.swift in Sources */,
+				86011626283CAD140079D195 /* Gender.swift in Sources */,
 				86B8893A2808B9370089B609 /* CustomButton.swift in Sources */,
 				86742B452830ED00004B04EE /* StorageManager.swift in Sources */,
 			);
