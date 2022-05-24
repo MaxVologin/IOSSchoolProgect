@@ -84,7 +84,7 @@ extension NetworkManager: ProfileNetworkManager {
     }
 }
 
-extension NetworkManager: LocationNetworkManager {
+extension NetworkManager: LocationsNetworkManager {
     func requestDataLocations(url: String, completion:((LocationsInfo?, Error?) -> ())?) {
         performRequest(url: url,
                        method: .get,

@@ -42,7 +42,7 @@ class TabBarController: UITabBarController {
         viewControllers = tabBarItems.enumerated().map { (index, tabBarItem) in
             switch tabBarItem {
             case .planet:
-                guard let planetViewController = storyboard?.instantiateViewController(withIdentifier: PlanetViewController.className) as? PlanetViewController else { return UIViewController() }
+                guard let planetViewController = storyboard?.instantiateViewController(withIdentifier: LocationsViewController.className) as? LocationsViewController else { return UIViewController() }
                 planetViewController.title = tabBarItems[index].title
                 planetViewController.tabBarItem.title = tabBarItems[index].title
                 planetViewController.tabBarItem.image = UIImage(named: tabBarItems[index].iconName)

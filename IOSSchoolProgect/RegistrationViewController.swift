@@ -10,8 +10,8 @@ import JGProgressHUD
 
 class RegistrationViewController: UIViewController {
 
-    let networkManager: RegistrationNetworkManager = NetworkManager()
-    let storageManager = StorageManager()
+    let networkManager = ServiceLocator.registrationNetworkManager()
+    let keycheinStorageManager = ServiceLocator.keycheinStorageManager()
     let progressHUD = JGProgressHUD()
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -130,7 +130,7 @@ class RegistrationViewController: UIViewController {
             if let error = error?.localizedDescription {
                 AppSnackBar.showSnackBar(in: self?.view, message: error)
             } else {
-                self?.storageManager.saveTokenResponseToKeychein(tokenResponse: tokenResponse)
+                self?.keycheinStorageManager.saveTokenResponseToKeychein(tokenResponse: tokenResponse)
                 self?.transitionToTabBarController()
             }
         }

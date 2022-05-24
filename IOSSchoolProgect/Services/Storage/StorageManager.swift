@@ -16,6 +16,9 @@ class StorageManager {
         case notFirstLaunch
         case profileColor
     }
+}
+
+extension StorageManager: KeycheinStorageManager {
     
     private struct Constants {
         static let serviceId = "StorageManagerKeychein.Service.Id"
@@ -54,7 +57,9 @@ class StorageManager {
         }
         return nil
     }
-    
+}
+
+extension StorageManager: UserDefaultsStorageManager {
     func saveNotFirstLaunchToUserDefaults(bool: Bool) {
         UserDefaults.standard.set(bool, forKey: StorageManagerKey.notFirstLaunch.rawValue)
     }

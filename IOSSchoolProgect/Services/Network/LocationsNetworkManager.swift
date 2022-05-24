@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol LocationNetworkManager {
+protocol LocationsNetworkManager {
     func requestDataLocations(url: String, completion:((LocationsInfo?, Error?) -> ())?)
 }

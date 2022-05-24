@@ -7,9 +7,9 @@
 
 import UIKit
 
-class PlanetViewController: UIViewController {
+class LocationsViewController: UIViewController {
     
-    let networkManager: LocationNetworkManager = NetworkManager()
+    let networkManager = ServiceLocator.locationsNetworkManager()
     
     var info: Info?
     var locations: [Location] = []
@@ -53,7 +53,7 @@ class PlanetViewController: UIViewController {
     }
 }
 
-extension PlanetViewController: UITableViewDataSource {
+extension LocationsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         locations.count
     }
@@ -67,7 +67,7 @@ extension PlanetViewController: UITableViewDataSource {
     }
 }
 
-extension PlanetViewController: UITableViewDelegate {
+extension LocationsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let nextPageLocation = info?.next else { return }
         if indexPath.row+2 == locations.count {

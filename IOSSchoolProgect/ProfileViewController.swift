@@ -10,8 +10,9 @@ import EFColorPicker
 
 class ProfileViewController: UIViewController {
     
-    let networkManager: ProfileNetworkManager = NetworkManager()
-    let storageManager = StorageManager()
+    let networkManager = ServiceLocator.profileNetworkManager()
+    let keycheinStorageManager = ServiceLocator.keycheinStorageManager()
+    let userDefaultsStorageManager = ServiceLocator.userDefaultsStorageManager()
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -63,7 +64,7 @@ class ProfileViewController: UIViewController {
     }
     
     func requestProfile() {
-        guard let userId = storageManager.loadTokenResponseFromKeychein()?.userId else { return }
+        guard let userId = keycheinStorageManager.loadTokenResponseFromKeychein()?.userId else { return }
         networkManager.profile(userId: userId) { [ weak self ] (profile, error) in
             if let error = error {
                 AppSnackBar.showSnackBar(in: self?.view, message: error.localizedDescription)
@@ -76,7 +77,7 @@ class ProfileViewController: UIViewController {
     
     func changeTintBackImage() {
         tintBackImageView.alpha = 0.51
-        if let colorHex = storageManager.loadColorProfileFromUserDefaults() {
+        if let colorHex = userDefaultsStorageManager.loadColorProfileFromUserDefaults() {
             tintBackImageView.backgroundColor = UIColor(hex: colorHex)
         }
     }
@@ -102,7 +103,7 @@ extension ProfileViewController: UITableViewDataSource {
         }
         if indexPath.row == 2,
            let cell = tableView.dequeueReusableCell(withIdentifier: ProfileColorTableViewCell.className) as? ProfileColorTableViewCell {
-            if let colorHex = storageManager.loadColorProfileFromUserDefaults() {
+            if let colorHex = userDefaultsStorageManager.loadColorProfileFromUserDefaults() {
                 cell.colorChoiseLabel.backgroundColor = UIColor(hex: colorHex)
             }
             return cell
@@ -138,7 +139,7 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
 
 extension ProfileViewController: EFColorSelectionViewControllerDelegate {
     func colorViewController(_ colorViewCntroller: EFColorSelectionViewController, didChangeColor color: UIColor) {
-        storageManager.saveColorProfiletoUserDefaults(colorProfileHEX: color.toHexString())
+        userDefaultsStorageManager.saveColorProfiletoUserDefaults(colorProfileHEX: color.toHexString())
         changeTintBackImage()
         tableView.reloadData()
     }
@@ -149,7 +150,7 @@ extension ProfileViewController: EFColorSelectionViewControllerDelegate {
         navigationController.navigationBar.backgroundColor = view.backgroundColor
         colorSelectionController.view.backgroundColor = view.backgroundColor
         colorSelectionController.delegate = self
-        if let colorProfile = storageManager.loadColorProfileFromUserDefaults() {
+        if let colorProfile = userDefaultsStorageManager.loadColorProfileFromUserDefaults() {
             colorSelectionController.color = UIColor(hex: colorProfile) ?? .white
         }
         colorSelectionController.setMode(mode: .rgb)
