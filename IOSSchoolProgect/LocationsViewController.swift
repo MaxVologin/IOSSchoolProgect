@@ -17,6 +17,7 @@ class LocationsViewController: UIViewController {
     
     var info: Info?
     var locations: [Location] = []
+    var loadedLocationPages: [String] = []
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,7 +27,7 @@ class LocationsViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        requestDataLocations(url: Constants.baseURL)
+        requestNextLocations(url: Constants.baseURL)
         registerCell()
         setRefreshBarButtonItem()
     }
@@ -45,24 +46,70 @@ class LocationsViewController: UIViewController {
     @objc func refreshLocations() {
         info = nil
         locations.removeAll()
+        loadedLocationPages.removeAll()
         tableView.reloadData()
-        requestDataLocations(url: Constants.baseURL)
+        requestNextLocations(url: Constants.baseURL)
     }
     
-    func requestDataLocations(url: String) {
+    func requestDataLocations(url: String, completion: @escaping ([Location], Info)->()) {
         networkManager.requestDataLocations(url: url) { [ weak self ] (locationsInfo, error) in
             if let error = error {
-                print(error)
+                AppSnackBar.showSnackBar(in: self?.view, message: error.localizedDescription)
                 return
             }
-            self?.info = locationsInfo?.info
-            guard let locations = locationsInfo?.locations else {
+            
+            guard let info = locationsInfo?.info,
+                let locations = locationsInfo?.locations else {
                 return
             }
-            self?.locations.append(contentsOf: locations)
-            self?.tableView.reloadData()
+            self?.info = info
+            completion(locations, info)
         }
     }
+    
+    func requestNextLocations(url: String) {
+        requestDataLocations(url: url) { [ weak self ] (locations, info) in
+            guard let self = self,
+                  let nextPageLocations = info.next else { return }
+            if self.loadedLocationPages.contains(nextPageLocations) {
+                return
+            } else {
+                self.loadedLocationPages.append(url)
+                self.locations.append(contentsOf: locations)
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    func requestPrevLocations(url: String) {
+        requestDataLocations(url: url) { [ weak self ] (locations, info) in
+            self?.loadedLocationPages.insert(url, at: 0)
+            self?.locations.insert(contentsOf: locations, at: 0)
+        }
+    }
+
+    func deleteFirstLocations() {
+        var deletedLocations: [IndexPath] = []
+        for index in 0..<20 {
+            locations.removeFirst()
+            let deletedLocation = IndexPath(item: index, section: 0)
+            deletedLocations.append(deletedLocation)
+        }
+        loadedLocationPages.removeFirst()
+        tableView.deleteRows(at: deletedLocations, with: .automatic)
+    }
+    
+    func deleteLastLocations() {
+        var deletedLocations: [IndexPath] = []
+        for index in 60..<80 {
+            locations.removeLast()
+            let deletedLocation = IndexPath(item: index, section: 0)
+            deletedLocations.append(deletedLocation)
+        }
+        loadedLocationPages.removeLast()
+        tableView.deleteRows(at: deletedLocations, with: .automatic)
+    }
+
     
     func transitionToResidentsViewController(index: Int) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -89,10 +136,12 @@ extension LocationsViewController: UITableViewDataSource {
 
 extension LocationsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        print(indexPath.row)
         guard let nextPageLocation = info?.next else { return }
         if indexPath.row+2 == locations.count {
-            requestDataLocations(url: nextPageLocation)
+            requestNextLocations(url: nextPageLocation)
         }
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -104,14 +153,14 @@ extension LocationsViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == tableView {
             let contentOffset = scrollView.contentOffset.y
-            print("contentOffset: ", contentOffset)
             if (contentOffset > self.lastKnowContentOfsset) {
-                
-                print("scrolling Down")
-                print("dragging Up")
+                if locations.count == 80 {
+                    deleteFirstLocations()
+                }
             } else {
-                print("scrolling Up")
-                print("dragging Down")
+                if locations.count == 80 {
+                    deleteLastLocations()
+                }
             }
         }
     }
@@ -119,8 +168,6 @@ extension LocationsViewController: UITableViewDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView == tableView {
             self.lastKnowContentOfsset = scrollView.contentOffset.y
-            print("lastKnowContentOfsset: ", scrollView.contentOffset.y)
         }
     }
-    
 }
