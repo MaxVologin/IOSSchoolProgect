@@ -18,7 +18,7 @@ class LocationTableViewController: UIViewController {
 
     override func viewDidLoad() {
         
-        for i in 10..<81 {
+        for i in 10..<250 {
             source.append(("Character: \(i)", "123", "https://rickandmortyapi.com/api/character/avatar/\(i).jpeg"))
         }
         
@@ -55,10 +55,13 @@ extension LocationTableViewController: UITableViewDataSource {
         cell.titleLabel.text = carthage.0
         cell.subTitleLabel.text = carthage.1
         cell.id = carthage.2
-        imageService.getImage(urlString: carthage.2) { (image) in
-            if cell.id == carthage.2 {
-                DispatchQueue.main.async {
-                    cell.personIcon.image = image
+        cell.personIcon.image = nil
+        DispatchQueue.global().async {
+            self.imageService.getImage(urlString: carthage.2) { (image) in
+                if cell.id == carthage.2 {
+                    DispatchQueue.main.async {
+                        cell.personIcon.image = image
+                    }
                 }
             }
         }
