@@ -13,6 +13,5 @@ class ResidentsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(residents as Any)
     }
 }
