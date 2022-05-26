@@ -20,6 +20,8 @@ class LocationsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var lastKnowContentOfsset: CGFloat = 0.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -98,4 +100,27 @@ extension LocationsViewController: UITableViewDelegate {
             transitionToResidentsViewController(index: indexPath.row)
         }
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == tableView {
+            let contentOffset = scrollView.contentOffset.y
+            print("contentOffset: ", contentOffset)
+            if (contentOffset > self.lastKnowContentOfsset) {
+                
+                print("scrolling Down")
+                print("dragging Up")
+            } else {
+                print("scrolling Up")
+                print("dragging Down")
+            }
+        }
+    }
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if scrollView == tableView {
+            self.lastKnowContentOfsset = scrollView.contentOffset.y
+            print("lastKnowContentOfsset: ", scrollView.contentOffset.y)
+        }
+    }
+    
 }
