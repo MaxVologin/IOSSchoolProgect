@@ -50,7 +50,7 @@ class LocationsViewController: UIViewController {
     func requestDataLocations(url: String) {
         networkManager.requestDataLocations(url: url) { [ weak self ] (locationsInfo, error) in
             if let error = error {
-                print(error)
+                AppSnackBar.showSnackBar(in: self?.view, message: error.localizedDescription)
                 return
             }
             self?.info = locationsInfo?.info
