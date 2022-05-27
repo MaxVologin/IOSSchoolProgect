@@ -11,7 +11,7 @@ import JGProgressHUD
 class RegistrationViewController: UIViewController {
 
     let networkManager = ServiceLocator.registrationNetworkManager()
-    let keycheinStorageManager = ServiceLocator.keycheinStorageManager()
+    let storageManager = ServiceLocator.storageManager()
     let progressHUD = JGProgressHUD()
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -98,6 +98,7 @@ class RegistrationViewController: UIViewController {
     }
     
     func checkedTransitionToTabBarController() {
+        hideKeyboard()
         progressHUD.show(in: self.view)
         if passwordTextField.text != repeatPasswordTextField.text {
             AppSnackBar.showSnackBar(in: self.view, message: "Пароли не совпадают")
@@ -130,7 +131,7 @@ class RegistrationViewController: UIViewController {
             if let error = error?.localizedDescription {
                 AppSnackBar.showSnackBar(in: self?.view, message: error)
             } else {
-                self?.keycheinStorageManager.saveTokenResponseToKeychein(tokenResponse: tokenResponse)
+                self?.storageManager.saveToken(tokenResponse: tokenResponse)
                 self?.transitionToTabBarController()
             }
         }

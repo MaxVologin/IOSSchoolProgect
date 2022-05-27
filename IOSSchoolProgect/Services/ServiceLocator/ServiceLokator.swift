@@ -24,11 +24,7 @@ struct ServiceLocator {
         NetworkManager()
     }
     
-    static func keycheinStorageManager() -> KeycheinStorageManager {
-        StorageManager()
-    }
-    
-    static func userDefaultsStorageManager() -> UserDefaultsStorageManager {
-        StorageManager()
+    static func storageManager() -> StorageManager {
+        StorageService()
     }
 }

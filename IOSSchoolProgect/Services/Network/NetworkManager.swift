@@ -11,7 +11,7 @@ import Alamofire
 class NetworkManager {
     
     private struct Constants {
-        static let baseURL = "https://nanopost.evolitist.com"
+        static let profileURL = "https://nanopost.evolitist.com"
     }
     
     func performRequest<ResponseType: Decodable>(
@@ -50,7 +50,7 @@ class NetworkManager {
 
 extension NetworkManager: AuthorizationNetworkManager {
     func login(username: String, password: String, completion: ((TokenResponse?, Error?) -> ())?) {
-        performRequest(url: "\(Constants.baseURL)/api/auth/login?username=\(username)&password=\(password)",
+        performRequest(url: "\(Constants.profileURL)/api/auth/login?username=\(username)&password=\(password)",
                        method: .get,
                        onRequestCompleted: completion)
     }
@@ -58,7 +58,7 @@ extension NetworkManager: AuthorizationNetworkManager {
 
 extension NetworkManager: RegistrationNetworkManager {
     func checkUsername(username: String, completion: ((CheckUsername?, Error?) -> ())?) {
-        performRequest(url: "\(Constants.baseURL)/api/auth/checkUsername?username=\(username)",
+        performRequest(url: "\(Constants.profileURL)/api/auth/checkUsername?username=\(username)",
                        method: .get,
                        onRequestCompleted: completion)
     }
@@ -66,7 +66,7 @@ extension NetworkManager: RegistrationNetworkManager {
     func register(username: String, password: String, completion: ((TokenResponse?, Error?) -> ())?) {
         let parametrs: [String: String] = ["username": username,
                                            "password": password]
-        performRequest(url: "\(Constants.baseURL)/api/auth/register",
+        performRequest(url: "\(Constants.profileURL)/api/auth/register",
                        method: .post,
                        parameters: parametrs,
                        headers: nil,
@@ -76,7 +76,7 @@ extension NetworkManager: RegistrationNetworkManager {
 
 extension NetworkManager: ProfileNetworkManager {
     func profile(userId: String, completion: ((Profile?, Error?) -> ())?) {
-        performRequest(url: "\(Constants.baseURL)/api/v1/profile/\(userId)",
+        performRequest(url: "\(Constants.profileURL)/api/v1/profile/\(userId)",
                        method: .get,
                        parameters: nil,
                        headers: nil,

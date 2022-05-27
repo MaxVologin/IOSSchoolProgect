@@ -11,11 +11,10 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let keycheinStorageManager = ServiceLocator.keycheinStorageManager()
-        let userDefaultsStorageManager = ServiceLocator.userDefaultsStorageManager()
-        if !userDefaultsStorageManager.notFirstLaunchFromUserDefaults() {
-            keycheinStorageManager.cleanKeychain()
-            userDefaultsStorageManager.saveNotFirstLaunchToUserDefaults(bool: true)
+        let appDelegateStorageManager = ServiceLocator.storageManager()
+        if !appDelegateStorageManager.notFirstLaunch() {
+            appDelegateStorageManager.cleanKeychain()
+            appDelegateStorageManager.saveNotFirstLaunch(bool: true)
         }
         return true
     }

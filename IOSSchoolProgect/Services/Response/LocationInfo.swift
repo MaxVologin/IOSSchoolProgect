@@ -16,17 +16,3 @@ struct LocationsInfo: Decodable {
         case locations = "results"
     }
 }
-
-struct Info: Decodable {
-    let count: Int
-    let pages: Int
-    let next: String?
-    let prev: String?
-}
-
-struct Location: Decodable {
-    let id: Int
-    let name: String
-    let type: String
-    let residents: [URL]
-}

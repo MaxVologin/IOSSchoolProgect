@@ -18,6 +18,8 @@ class LocationTableViewCell: UITableViewCell {
         typeLabel.text = location.type
         if location.residents.count == 0 {
             residentsLabel.alpha = 0.6
+        } else {
+            residentsLabel.alpha = 1
         }
         residentsLabel.text = "Население: \(location.residents.count)"
     }

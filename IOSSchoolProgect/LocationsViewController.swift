@@ -9,10 +9,6 @@ import UIKit
 
 class LocationsViewController: UIViewController {
     
-    private struct Constants {
-        static let baseURL = "https://rickandmortyapi.com/api/location"
-    }
-    
     let networkManager = ServiceLocator.locationsNetworkManager()
     
     var info: Info?
@@ -24,7 +20,7 @@ class LocationsViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        requestDataLocations(url: Constants.baseURL)
+        requestDataLocations(url: String.locationsRickAndMortyURL)
         registerCell()
         setRefreshBarButtonItem()
     }
@@ -44,7 +40,7 @@ class LocationsViewController: UIViewController {
         info = nil
         locations.removeAll()
         tableView.reloadData()
-        requestDataLocations(url: Constants.baseURL)
+        requestDataLocations(url: String.locationsRickAndMortyURL)
     }
     
     func requestDataLocations(url: String) {
@@ -88,7 +84,7 @@ extension LocationsViewController: UITableViewDataSource {
 extension LocationsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let nextPageLocation = info?.next else { return }
-        if indexPath.row+2 == locations.count {
+        if indexPath.row+5 == locations.count {
             requestDataLocations(url: nextPageLocation)
         }
     }
