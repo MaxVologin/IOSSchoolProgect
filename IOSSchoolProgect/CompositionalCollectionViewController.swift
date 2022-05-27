@@ -24,6 +24,81 @@ class CompositionalCollectionViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let array = [
+            "1",
+            "2",
+            "ololo",
+            "4",
+            "5"
+        ]
+        print(array)
+        let intArray = array.map { string in
+            return Int(string) ?? 0
+        }
+        print(intArray)
+        
+        let intArray2 = array.compactMap { string in
+            Int(string)
+        }
+        print(intArray2)
+        
+        let filtered = array.first { string in
+            Int(string) == nil
+        }
+        print(filtered)
+        
+        let filtered2 = array.filter { string in
+            Int(string) == nil
+        }
+        print(filtered2)
+        
+        let sorted = array.sorted() { stringOne, stringTwo in
+            if Int(stringOne) == nil && Int(stringTwo) != nil {
+                return false
+            }
+            if Int(stringOne) != nil && Int(stringTwo) == nil {
+                return true
+            }
+            return (Int(stringOne) ?? 0) < (Int(stringTwo) ?? 0)
+        }
+        print(sorted)
+        
+        let incremented = intArray2.map {
+            $0 * 2
+        }
+        print(incremented)
+        
+        let sorted2 = array.sorted() {
+            if Int($0) == nil && Int($1) != nil {
+                return false
+            }
+            if Int($0) != nil && Int($1) == nil {
+                return true
+            }
+            return (Int($0) ?? 0) < (Int($1) ?? 0)
+        }
+        print(sorted2)
+        
+        let reduced = intArray2.reduce(into: 1) { (partialResult, nextInt) in
+            partialResult += nextInt
+        }
+        print(reduced)
+        
+        intArray2.forEach { arg in
+            print(arg * 10)
+        }
+        
+        let intArray3 = intArray2.reversed().map { int in
+            int * 3
+        }.filter({ int in
+            int%2==0
+        })
+        .compactMap {$0}
+        print(intArray3)
+        
+        
         
 //        let group = DispatchGroup()
 //
@@ -57,7 +132,7 @@ class CompositionalCollectionViewController: UIViewController {
             print("dispatch2")
         }
         
-        super.viewDidLoad()
+        
         title = "Это титл"
         collectionView.delegate = self
         collectionView.dataSource = self
