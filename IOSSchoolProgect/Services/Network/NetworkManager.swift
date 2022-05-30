@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 class NetworkManager {
-    
     private struct Constants {
         static let profileURL = "https://nanopost.evolitist.com"
     }
@@ -85,6 +84,10 @@ extension NetworkManager: ProfileNetworkManager {
 }
 
 extension NetworkManager: LocationsNetworkManager {
+    var locationsURL: String {
+        return "https://rickandmortyapi.com/api/location"
+    }
+    
     func requestDataLocations(url: String, completion:((LocationsInfo?, Error?) -> ())?) {
         performRequest(url: url,
                        method: .get,

@@ -20,7 +20,7 @@ class LocationsViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        requestDataLocations(url: String.locationsRickAndMortyURL)
+        requestDataLocations(url: networkManager.locationsURL)
         registerCell()
         setRefreshBarButtonItem()
     }
@@ -40,7 +40,7 @@ class LocationsViewController: UIViewController {
         info = nil
         locations.removeAll()
         tableView.reloadData()
-        requestDataLocations(url: String.locationsRickAndMortyURL)
+        requestDataLocations(url: networkManager.locationsURL)
     }
     
     func requestDataLocations(url: String) {

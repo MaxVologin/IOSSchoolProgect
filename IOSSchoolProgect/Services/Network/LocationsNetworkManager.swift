@@ -8,5 +8,6 @@
 import Foundation
 
 protocol LocationsNetworkManager {
+    var locationsURL: String { get }
     func requestDataLocations(url: String, completion:((LocationsInfo?, Error?) -> ())?)
 }

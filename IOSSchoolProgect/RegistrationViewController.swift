@@ -11,7 +11,7 @@ import JGProgressHUD
 class RegistrationViewController: UIViewController {
 
     let networkManager = ServiceLocator.registrationNetworkManager()
-    let storageManager = ServiceLocator.storageManager()
+    let storageManager = ServiceLocator.registrationStorageManager()
     let progressHUD = JGProgressHUD()
     
     @IBOutlet weak var scrollView: UIScrollView!

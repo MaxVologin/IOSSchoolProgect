@@ -23,8 +23,20 @@ struct ServiceLocator {
     static func locationsNetworkManager() -> LocationsNetworkManager {
         NetworkManager()
     }
+
+    static func appDelegateStorageManager() -> AppDelegateStorageManager {
+        StorageManager()
+    }
+ 
+    static func authorizationStorageManager() -> AuthorizationStorageManager {
+        StorageManager()
+    }
     
-    static func storageManager() -> StorageManager {
-        StorageService()
+    static func registrationStorageManager() -> RegistrationStorageManager {
+        StorageManager()
+    }
+    
+    static func profileStorageManager() -> ProfileStorageManager {
+        StorageManager()
     }
 }

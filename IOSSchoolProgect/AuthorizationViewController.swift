@@ -11,7 +11,7 @@ import JGProgressHUD
 class AuthorizationViewController: UIViewController {
     
     let networkManager = ServiceLocator.authorizationNetworkManager()
-    let storageManager = ServiceLocator.storageManager()
+    let storageManager = ServiceLocator.authorizationStorageManager()
     let progressHUD = JGProgressHUD()
 
     @IBOutlet weak var scrollView: UIScrollView!

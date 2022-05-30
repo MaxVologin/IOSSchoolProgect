@@ -11,7 +11,7 @@ import EFColorPicker
 class ProfileViewController: UIViewController {
     
     let networkManager = ServiceLocator.profileNetworkManager()
-    let storageManager = ServiceLocator.storageManager()
+    let storageManager = ServiceLocator.profileStorageManager()
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileImageView: UIImageView!
