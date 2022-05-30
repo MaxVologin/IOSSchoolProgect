@@ -14,7 +14,7 @@
 		8601161D283CAB5D0079D195 /* ResidentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8601161C283CAB5D0079D195 /* ResidentsViewController.swift */; };
 		86011620283CAC8D0079D195 /* Resident.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8601161F283CAC8D0079D195 /* Resident.swift */; };
 		86011626283CAD140079D195 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86011625283CAD140079D195 /* Gender.swift */; };
-		8601162B283CE4DA0079D195 /* ServiceLokator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8601162A283CE4DA0079D195 /* ServiceLokator.swift */; };
+		8601162B283CE4DA0079D195 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8601162A283CE4DA0079D195 /* ServiceLocator.swift */; };
 		8636506727FF159E0084BFF6 /* UIView+storyobardProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8636506627FF159E0084BFF6 /* UIView+storyobardProperties.swift */; };
 		863D914028363D6400431105 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863D913F28363D6400431105 /* UIColor+hex.swift */; };
 		863E0F8C2834D44E003A11F2 /* AuthorizationNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863E0F8B2834D44E003A11F2 /* AuthorizationNetworkManager.swift */; };
@@ -67,7 +67,7 @@
 		8601161C283CAB5D0079D195 /* ResidentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentsViewController.swift; sourceTree = "<group>"; };
 		8601161F283CAC8D0079D195 /* Resident.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resident.swift; sourceTree = "<group>"; };
 		86011625283CAD140079D195 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
-		8601162A283CE4DA0079D195 /* ServiceLokator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLokator.swift; sourceTree = "<group>"; };
+		8601162A283CE4DA0079D195 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		8636506627FF159E0084BFF6 /* UIView+storyobardProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+storyobardProperties.swift"; sourceTree = "<group>"; };
 		863D913F28363D6400431105 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		863E0F8B2834D44E003A11F2 /* AuthorizationNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationNetworkManager.swift; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 		86011629283CE4C50079D195 /* ServiceLocator */ = {
 			isa = PBXGroup;
 			children = (
-				8601162A283CE4DA0079D195 /* ServiceLokator.swift */,
+				8601162A283CE4DA0079D195 /* ServiceLocator.swift */,
 			);
 			path = ServiceLocator;
 			sourceTree = "<group>";
@@ -403,7 +403,7 @@
 				86C7827028167C9900A20DEF /* ProfileViewController.swift in Sources */,
 				863E0F992834DE1F003A11F2 /* ProfileNetworkManager.swift in Sources */,
 				863D914028363D6400431105 /* UIColor+hex.swift in Sources */,
-				8601162B283CE4DA0079D195 /* ServiceLokator.swift in Sources */,
+				8601162B283CE4DA0079D195 /* ServiceLocator.swift in Sources */,
 				86521B3A28449C8A0042BAFC /* AppDelegateStorageManager.swift in Sources */,
 				86011626283CAD140079D195 /* Gender.swift in Sources */,
 				86B8893A2808B9370089B609 /* CustomButton.swift in Sources */,

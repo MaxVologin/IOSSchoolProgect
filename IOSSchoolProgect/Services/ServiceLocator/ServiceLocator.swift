@@ -1,5 +1,5 @@
 //
-//  ServiceLokator.swift
+//  ServiceLocator.swift
 //  IOSSchoolProgect
 //
 //  Created by maxvologin on 24.05.2022.
