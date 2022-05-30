@@ -10,8 +10,8 @@ import JGProgressHUD
 
 class AuthorizationViewController: UIViewController {
     
-    let networkManager: AuthorizationNetworkManager = NetworkManager()
-    let storageManager = StorageManager()
+    let networkManager = ServiceLocator.authorizationNetworkManager()
+    let storageManager = ServiceLocator.authorizationStorageManager()
     let progressHUD = JGProgressHUD()
 
     @IBOutlet weak var scrollView: UIScrollView!
@@ -109,6 +109,7 @@ class AuthorizationViewController: UIViewController {
     }
     
     func checkedTransitionToTabBarController() {
+        hideKeyboard()
         progressHUD.show(in: self.view)
         networkManager.login(username: loginTextField.text ?? "",
                              password: passwordTextField.text ?? "") { [ weak self ] (tokenResponse, error) in
@@ -116,7 +117,7 @@ class AuthorizationViewController: UIViewController {
             if let _ = error {
                 AppSnackBar.showSnackBar(in: self?.view, message: "Ошибка ввода даннных")
             } else {
-                self?.storageManager.saveTokenResponseToKeychein(tokenResponse: tokenResponse)
+                self?.storageManager.saveToken(tokenResponse: tokenResponse)
                 self?.transitionToTabBarController()
             }
         }

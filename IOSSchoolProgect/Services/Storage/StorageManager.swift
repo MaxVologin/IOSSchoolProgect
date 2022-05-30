@@ -18,18 +18,17 @@ class StorageManager {
     }
     
     private struct Constants {
-        static let serviceId = "StorageManagerKeychein.Service.Id"
+        static let serviceId = "StorageManagerKeychain.Service.Id"
+    }
+}
+
+extension StorageManager: AppDelegateStorageManager {
+    func saveNotFirstLaunch(bool: Bool) {
+        UserDefaults.standard.set(bool, forKey: StorageManagerKey.notFirstLaunch.rawValue)
     }
     
-    func saveTokenResponseToKeychein(tokenResponse: TokenResponse?) {
-        guard let tokenResponse = tokenResponse else { return }
-        let keychain = Keychain(service: Constants.serviceId)
-        do {
-            try keychain.set(tokenResponse.token, key: StorageManagerKey.token.rawValue)
-            try keychain.set(tokenResponse.userId, key: StorageManagerKey.userId.rawValue)
-        } catch {
-            print(error as Any)
-        }
+    func notFirstLaunch() -> Bool {
+        UserDefaults.standard.bool(forKey: StorageManagerKey.notFirstLaunch.rawValue)
     }
     
     func cleanKeychain() {
@@ -40,8 +39,23 @@ class StorageManager {
             print(error as Any)
         }
     }
-    
-    func loadTokenResponseFromKeychein() -> TokenResponse? {
+}
+
+extension StorageManager: AuthorizationStorageManager, RegistrationStorageManager {
+    func saveToken(tokenResponse: TokenResponse?) {
+        guard let tokenResponse = tokenResponse else { return }
+        let keychain = Keychain(service: Constants.serviceId)
+        do {
+            try keychain.set(tokenResponse.token, key: StorageManagerKey.token.rawValue)
+            try keychain.set(tokenResponse.userId, key: StorageManagerKey.userId.rawValue)
+        } catch {
+            print(error as Any)
+        }
+    }
+}
+
+extension StorageManager: ProfileStorageManager {
+    func token() -> TokenResponse? {
         let keychain = Keychain(service: Constants.serviceId)
         do {
             guard let token = try keychain.get(StorageManagerKey.token.rawValue),
@@ -55,19 +69,11 @@ class StorageManager {
         return nil
     }
     
-    func saveNotFirstLaunchToUserDefaults(bool: Bool) {
-        UserDefaults.standard.set(bool, forKey: StorageManagerKey.notFirstLaunch.rawValue)
-    }
-    
-    func notFirstLaunchFromUserDefaults() -> Bool {
-        UserDefaults.standard.bool(forKey: StorageManagerKey.notFirstLaunch.rawValue)
-    }
-    
-    func saveColorProfiletoUserDefaults(colorProfileHEX: String) {
+    func saveColorProfile(colorProfileHEX: String) {
         UserDefaults.standard.setValue(colorProfileHEX, forKey: StorageManagerKey.profileColor.rawValue)
     }
     
-    func loadColorProfileFromUserDefaults() -> String? {
+    func colorProfile() -> String? {
         UserDefaults.standard.string(forKey: StorageManagerKey.profileColor.rawValue)
     }
 }
