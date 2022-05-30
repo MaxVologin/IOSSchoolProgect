@@ -11,6 +11,7 @@ import Alamofire
 class NetworkManager {
     private struct Constants {
         static let profileURL = "https://nanopost.evolitist.com"
+        static let locationsURL = "https://rickandmortyapi.com/api/location"
     }
     
     func performRequest<ResponseType: Decodable>(
@@ -85,7 +86,7 @@ extension NetworkManager: ProfileNetworkManager {
 
 extension NetworkManager: LocationsNetworkManager {
     var locationsURL: String {
-        return "https://rickandmortyapi.com/api/location"
+        return Constants.locationsURL
     }
     
     func requestDataLocations(url: String, completion:((LocationsInfo?, Error?) -> ())?) {
