@@ -37,4 +37,8 @@ class PLCollectionViewCell: UICollectionViewCell {
             ]
         )
     }
+    override func layoutSublayers(of layer: CALayer) {
+        super.layoutSublayers(of: layer)
+        // выставлять тени в ячейках чтобы их не разьебывало
+    }
 }

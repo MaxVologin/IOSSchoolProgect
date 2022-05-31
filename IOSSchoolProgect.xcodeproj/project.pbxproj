@@ -27,6 +27,8 @@
 		86B8893A2808B9370089B609 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B889392808B9360089B609 /* CustomButton.swift */; };
 		86B889472809C6860089B609 /* UITextField+indent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B889462809C6860089B609 /* UITextField+indent.swift */; };
 		86B8894B280B12C40089B609 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B8894A280B12C40089B609 /* RegistrationViewController.swift */; };
+		86E103D82846484C003ADF68 /* AutoLayoutSugar in Frameworks */ = {isa = PBXBuildFile; productRef = 86E103D72846484C003ADF68 /* AutoLayoutSugar */; };
+		86E103DB28464862003ADF68 /* ConstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E103DA28464862003ADF68 /* ConstViewController.swift */; };
 		86F0BA992812A03A00F5F466 /* UITableViewCell+NibName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F0BA982812A03A00F5F466 /* UITableViewCell+NibName.swift */; };
 		86F0BA9E2812A07C00F5F466 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86F0BA9C2812A07B00F5F466 /* LocationTableViewCell.swift */; };
 		86F0BA9F2812A07C00F5F466 /* LocationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86F0BA9D2812A07B00F5F466 /* LocationTableViewCell.xib */; };
@@ -62,6 +64,7 @@
 		86B889392808B9360089B609 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		86B889462809C6860089B609 /* UITextField+indent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+indent.swift"; sourceTree = "<group>"; };
 		86B8894A280B12C40089B609 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		86E103DA28464862003ADF68 /* ConstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstViewController.swift; sourceTree = "<group>"; };
 		86F0BA982812A03A00F5F466 /* UITableViewCell+NibName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+NibName.swift"; sourceTree = "<group>"; };
 		86F0BA9C2812A07B00F5F466 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		86F0BA9D2812A07B00F5F466 /* LocationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationTableViewCell.xib; sourceTree = "<group>"; };
@@ -82,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86E103D82846484C003ADF68 /* AutoLayoutSugar in Frameworks */,
 				8662A01D282E93C000769392 /* KeychainAccess in Frameworks */,
 				8662A021282E949000769392 /* JGProgressHUD in Frameworks */,
 				864C0FCA281C298B00F76763 /* Alamofire in Frameworks */,
@@ -157,6 +161,7 @@
 				8684A30C27FDF7CB00FB2465 /* Assets.xcassets */,
 				8684A30E27FDF7CB00FB2465 /* LaunchScreen.storyboard */,
 				8684A31127FDF7CB00FB2465 /* Info.plist */,
+				86E103DA28464862003ADF68 /* ConstViewController.swift */,
 			);
 			path = IOSSchoolProgect;
 			sourceTree = "<group>";
@@ -237,6 +242,7 @@
 				864C0FC9281C298B00F76763 /* Alamofire */,
 				8662A01C282E93C000769392 /* KeychainAccess */,
 				8662A020282E949000769392 /* JGProgressHUD */,
+				86E103D72846484C003ADF68 /* AutoLayoutSugar */,
 			);
 			productName = IOSSchoolProgect;
 			productReference = 8684A30027FDF7BF00FB2465 /* IOSSchoolProgect.app */;
@@ -269,6 +275,7 @@
 				864C0FC8281C298B00F76763 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				8662A01B282E93C000769392 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				8662A01F282E949000769392 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
+				86E103D62846484B003ADF68 /* XCRemoteSwiftPackageReference "auto-layout-sugar-ios" */,
 			);
 			productRefGroup = 8684A30127FDF7BF00FB2465 /* Products */;
 			projectDirPath = "";
@@ -306,6 +313,7 @@
 				8684A30827FDF7BF00FB2465 /* AuthorizationViewController.swift in Sources */,
 				86B889472809C6860089B609 /* UITextField+indent.swift in Sources */,
 				8684A30427FDF7BF00FB2465 /* AppDelegate.swift in Sources */,
+				86E103DB28464862003ADF68 /* ConstViewController.swift in Sources */,
 				86F0BAA82812A5BF00F5F466 /* PlanetTableViewCell.swift in Sources */,
 				86F0BA9E2812A07C00F5F466 /* LocationTableViewCell.swift in Sources */,
 				8636506727FF159E0084BFF6 /* UIView+storyobardProperties.swift in Sources */,
@@ -551,6 +559,14 @@
 				minimumVersion = 2.2.0;
 			};
 		};
+		86E103D62846484B003ADF68 /* XCRemoteSwiftPackageReference "auto-layout-sugar-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Heads-and-Hands/auto-layout-sugar-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.6;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -568,6 +584,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8662A01F282E949000769392 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
 			productName = JGProgressHUD;
+		};
+		86E103D72846484C003ADF68 /* AutoLayoutSugar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 86E103D62846484B003ADF68 /* XCRemoteSwiftPackageReference "auto-layout-sugar-ios" */;
+			productName = AutoLayoutSugar;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

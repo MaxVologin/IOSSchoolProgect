@@ -8,6 +8,19 @@
 import UIKit
 
 class PlanetTableViewController: UIViewController {
+    
+    typealias VoidClosure = () -> ()
+    
+    lazy var reloadDataClosure: VoidClosure = { [weak self] in
+        self?.tableView.reloadData()
+    }
+    
+    var tapOnLabelClosure: (String?) -> ()
+    
+//    lazy var printAndReload: (String) -> () = {  [weak self] string in
+//        print(string)
+//        self.tableView.reloadData()
+//    }
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -16,6 +29,7 @@ class PlanetTableViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         registerTableViewCell()
+        reloadDataClosure()
     }
     
     func registerTableViewCell() {

@@ -9,6 +9,7 @@ import UIKit
 
 class AuthorizationViewController: UIViewController {
 
+    
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var tapGestureRecognizer: UITapGestureRecognizer!
