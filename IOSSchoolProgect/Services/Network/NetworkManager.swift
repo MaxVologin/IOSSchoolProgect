@@ -46,6 +46,17 @@ class NetworkManager {
                 }
             }
     }
+    
+    func requestImageData(url: String, completion: ((Data?) -> ())?) {
+        AF.request(url).responseData { (response) in
+            switch response.result {
+            case .success(let data):
+                completion?(data)
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
 }
 
 extension NetworkManager: AuthorizationNetworkManager {
@@ -93,5 +104,19 @@ extension NetworkManager: LocationsNetworkManager {
         performRequest(url: url,
                        method: .get,
                        onRequestCompleted: completion)
+    }
+}
+
+extension NetworkManager: ResidentNetworkManager {
+    func requestResident(url: String, completion: ((Resident?, Error?) -> ())?) {
+        performRequest(url: url,
+                       method: .get,
+                       onRequestCompleted: completion)
+    }
+}
+
+extension NetworkManager: ImageNetworkManager {
+    func getImage(urlString: String, competeion: ((Data?) -> ())?) {
+        requestImageData(url: urlString, completion: competeion)
     }
 }

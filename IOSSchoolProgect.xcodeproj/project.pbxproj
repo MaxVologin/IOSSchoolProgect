@@ -15,6 +15,12 @@
 		86011620283CAC8D0079D195 /* Resident.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8601161F283CAC8D0079D195 /* Resident.swift */; };
 		86011626283CAD140079D195 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86011625283CAD140079D195 /* Gender.swift */; };
 		8601162B283CE4DA0079D195 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8601162A283CE4DA0079D195 /* ServiceLocator.swift */; };
+		862702B82845D7BF0002ECE4 /* ImageNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862702B72845D7BF0002ECE4 /* ImageNetworkManager.swift */; };
+		862702BC2845DAA80002ECE4 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862702BB2845DAA80002ECE4 /* ImageService.swift */; };
+		862702BF2845DAD50002ECE4 /* ImageLoadingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862702BE2845DAD50002ECE4 /* ImageLoadingService.swift */; };
+		862702C22845DC110002ECE4 /* ResidentsNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862702C12845DC110002ECE4 /* ResidentsNetworkManager.swift */; };
+		862702C82845E0960002ECE4 /* ResidentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862702C62845E0960002ECE4 /* ResidentCollectionViewCell.swift */; };
+		862702C92845E0960002ECE4 /* ResidentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 862702C72845E0960002ECE4 /* ResidentCollectionViewCell.xib */; };
 		8636506727FF159E0084BFF6 /* UIView+storyobardProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8636506627FF159E0084BFF6 /* UIView+storyobardProperties.swift */; };
 		863D914028363D6400431105 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863D913F28363D6400431105 /* UIColor+hex.swift */; };
 		863E0F8C2834D44E003A11F2 /* AuthorizationNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863E0F8B2834D44E003A11F2 /* AuthorizationNetworkManager.swift */; };
@@ -68,6 +74,12 @@
 		8601161F283CAC8D0079D195 /* Resident.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resident.swift; sourceTree = "<group>"; };
 		86011625283CAD140079D195 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
 		8601162A283CE4DA0079D195 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
+		862702B72845D7BF0002ECE4 /* ImageNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNetworkManager.swift; sourceTree = "<group>"; };
+		862702BB2845DAA80002ECE4 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		862702BE2845DAD50002ECE4 /* ImageLoadingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadingService.swift; sourceTree = "<group>"; };
+		862702C12845DC110002ECE4 /* ResidentsNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentsNetworkManager.swift; sourceTree = "<group>"; };
+		862702C62845E0960002ECE4 /* ResidentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentCollectionViewCell.swift; sourceTree = "<group>"; };
+		862702C72845E0960002ECE4 /* ResidentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResidentCollectionViewCell.xib; sourceTree = "<group>"; };
 		8636506627FF159E0084BFF6 /* UIView+storyobardProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+storyobardProperties.swift"; sourceTree = "<group>"; };
 		863D913F28363D6400431105 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		863E0F8B2834D44E003A11F2 /* AuthorizationNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationNetworkManager.swift; sourceTree = "<group>"; };
@@ -142,6 +154,24 @@
 			path = ServiceLocator;
 			sourceTree = "<group>";
 		};
+		862702BA2845DA8C0002ECE4 /* ImageService */ = {
+			isa = PBXGroup;
+			children = (
+				862702BB2845DAA80002ECE4 /* ImageService.swift */,
+				862702BE2845DAD50002ECE4 /* ImageLoadingService.swift */,
+			);
+			path = ImageService;
+			sourceTree = "<group>";
+		};
+		862702C52845E0790002ECE4 /* ResidentCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				862702C62845E0960002ECE4 /* ResidentCollectionViewCell.swift */,
+				862702C72845E0960002ECE4 /* ResidentCollectionViewCell.xib */,
+			);
+			path = ResidentCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		8636506527FF15200084BFF6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +191,8 @@
 				863E0F8E2834D7B5003A11F2 /* RegistrationNetworkManager.swift */,
 				863E0F982834DE1F003A11F2 /* ProfileNetworkManager.swift */,
 				86011619283CA8A10079D195 /* LocationsNetworkManager.swift */,
+				862702C12845DC110002ECE4 /* ResidentsNetworkManager.swift */,
+				862702B72845D7BF0002ECE4 /* ImageNetworkManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -183,6 +215,7 @@
 				86011629283CE4C50079D195 /* ServiceLocator */,
 				863E0F922834D85F003A11F2 /* Storage */,
 				863E0F912834D832003A11F2 /* Network */,
+				862702BA2845DA8C0002ECE4 /* ImageService */,
 				86742B472830ED15004B04EE /* Response */,
 			);
 			path = Services;
@@ -247,6 +280,7 @@
 		86C7824A2816748D00A20DEF /* Rows */ = {
 			isa = PBXGroup;
 			children = (
+				862702C52845E0790002ECE4 /* ResidentCollectionViewCell */,
 				86011613283CA51D0079D195 /* LocationTableViewCell */,
 				86C7825B2816771200A20DEF /* UserLoginTableViewCell */,
 				86C78262281678B000A20DEF /* RegistrationDateTableViewCell */,
@@ -357,6 +391,7 @@
 				8684A31027FDF7CB00FB2465 /* LaunchScreen.storyboard in Resources */,
 				86011617283CA53F0079D195 /* LocationTableViewCell.xib in Resources */,
 				8684A30D27FDF7CB00FB2465 /* Assets.xcassets in Resources */,
+				862702C92845E0960002ECE4 /* ResidentCollectionViewCell.xib in Resources */,
 				86C7826C28167ADD00A20DEF /* ProfileColorTableViewCell.xib in Resources */,
 				8684A30B27FDF7BF00FB2465 /* Main.storyboard in Resources */,
 				86C7825F2816776100A20DEF /* UserLoginTableViewCell.xib in Resources */,
@@ -375,6 +410,7 @@
 				86742B5828312BA6004B04EE /* ResponsesCheckUsername.swift in Sources */,
 				86C782802817267B00A20DEF /* TabBarController.swift in Sources */,
 				86521B4128449EB50042BAFC /* RegistrationStorageManager.swift in Sources */,
+				862702BF2845DAD50002ECE4 /* ImageLoadingService.swift in Sources */,
 				86742B412830ECA7004B04EE /* NetworkManager.swift in Sources */,
 				86B181D1281996D900B9BBB2 /* LocationsViewController.swift in Sources */,
 				86B889472809C6860089B609 /* UITextField+indent.swift in Sources */,
@@ -399,14 +435,18 @@
 				86C7825E2816776100A20DEF /* UserLoginTableViewCell.swift in Sources */,
 				86742B5F28321146004B04EE /* TokenResponse.swift in Sources */,
 				86C78265281678E200A20DEF /* RegistrationDateTableViewCell.swift in Sources */,
+				862702B82845D7BF0002ECE4 /* ImageNetworkManager.swift in Sources */,
 				86011616283CA53F0079D195 /* LocationTableViewCell.swift in Sources */,
 				86C7827028167C9900A20DEF /* ProfileViewController.swift in Sources */,
 				863E0F992834DE1F003A11F2 /* ProfileNetworkManager.swift in Sources */,
+				862702BC2845DAA80002ECE4 /* ImageService.swift in Sources */,
 				863D914028363D6400431105 /* UIColor+hex.swift in Sources */,
 				8601162B283CE4DA0079D195 /* ServiceLocator.swift in Sources */,
 				86521B3A28449C8A0042BAFC /* AppDelegateStorageManager.swift in Sources */,
 				86011626283CAD140079D195 /* Gender.swift in Sources */,
+				862702C82845E0960002ECE4 /* ResidentCollectionViewCell.swift in Sources */,
 				86B8893A2808B9370089B609 /* CustomButton.swift in Sources */,
+				862702C22845DC110002ECE4 /* ResidentsNetworkManager.swift in Sources */,
 				86742B452830ED00004B04EE /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

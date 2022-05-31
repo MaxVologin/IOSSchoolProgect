@@ -61,7 +61,8 @@ class LocationsViewController: UIViewController {
     func transitionToResidentsViewController(index: Int) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let residentsViewController = storyboard.instantiateViewController(withIdentifier: ResidentsViewController.className) as? ResidentsViewController {
-            residentsViewController.residents = locations[index].residents
+            residentsViewController.title = "Жители локации \"\(locations[index].name)\""
+            residentsViewController.urlResidents = locations[index].residents
             navigationController?.pushViewController(residentsViewController, animated: true)
         }
     }
