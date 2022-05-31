@@ -14,14 +14,12 @@ class ResidentsViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var urlResidents: [String] = []
-    var residents: [Resident] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         registerCell()
         collectionView.collectionViewLayout = layout()
-        requestResidents()
     }
     
     func registerCell() {
@@ -35,7 +33,6 @@ class ResidentsViewController: UIViewController {
     
     func provider() -> UICollectionViewCompositionalLayoutSectionProvider {
         { int, enviroment in
-            let spacing: CGFloat = 24
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                                   heightDimension: .absolute(187))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
@@ -46,6 +43,7 @@ class ResidentsViewController: UIViewController {
                                                            count: 2)
             group.interItemSpacing = .fixed(20)
             let section = NSCollectionLayoutSection(group: group)
+            let spacing: CGFloat = 24
             section.contentInsets = .init(top: spacing,
                                           leading: spacing,
                                           bottom: spacing,
@@ -55,33 +53,37 @@ class ResidentsViewController: UIViewController {
         }
     }
     
-    func requestResidents() {
-        for urlResident in urlResidents {
-            networkManager.requestResident(url: urlResident) { [ weak self ] (resident, error) in
-                if let error = error {
-                    print(error.localizedDescription)
-                }
-                guard let resident = resident else { return }
-                self?.residents.append(resident)
-                self?.collectionView.reloadData()
+    func requestResidents(index: Int, completion: @escaping (Resident) -> ()) {
+        self.networkManager.requestResident(url: self.urlResidents[index]) { [ weak self ] (resident, error) in
+            if let error = error {
+                AppSnackBar.showSnackBar(in: self?.view, message: "Не удалось загрузить изображение: \"\(error.localizedDescription)\"")
             }
+            guard let resident = resident else { return }
+            completion(resident)
         }
     }
 }
 
 extension ResidentsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        residents.count
+        urlResidents.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ResidentCollectionViewCell.className, for: indexPath) as? ResidentCollectionViewCell {
-            let resident = residents[indexPath.row]
-            cell.configure(resident: resident)
+            cell.startCell()
             DispatchQueue.global().async {
-                self.imageService.getImage(urlString: resident.image) { (image) in
-                    if cell.id == resident.image {
-                        cell.setImage(image: image)
+                self.requestResidents(index: indexPath.row) { (resident) in
+                    cell.id = resident.image
+                    DispatchQueue.main.async {
+                        cell.configure(resident: resident)
+                    }
+                    self.imageService.getImage(urlString: resident.image) { (image) in
+                        if cell.id == resident.image {
+                            DispatchQueue.main.async {
+                                cell.setImage(image: image)
+                            }
+                        }
                     }
                 }
             }

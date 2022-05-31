@@ -19,6 +19,29 @@ class ResidentCollectionViewCell: UICollectionViewCell {
     var id: String?
     
     func configure(resident: Resident) {
+        id = resident.image
+        nameLabel.text = resident.name
+        genderLabel.text = resident.gender.rawValue
+        speciesLabel.text = resident.species
+    }
+    
+    func setImage(image: UIImage?) {
+        self.spinner.stopAnimating()
+        guard let image = image else {
+            self.imageView.alpha = 1
+            return
+        }
+        self.imageView.layer.frame = .init(x: 3, y: -4, width: 115, height: 115 )
+        self.imageView.layer.cornerRadius = self.imageView.frame.width / 2
+        self.imageView.image = image
+    }
+    
+    func startCell() {
+        imageView.image = nil
+        id = nil
+        nameLabel.text = ""
+        genderLabel.text = ""
+        speciesLabel.text = ""
         self.imageView.layer.frame = .init(x: 0, y: 0, width: 121, height: 107)
         self.imageView.layer.cornerRadius = 10
         imageView.image = UIImage(named: "placeholder")
@@ -27,22 +50,5 @@ class ResidentCollectionViewCell: UICollectionViewCell {
         spinner.startAnimating()
         spinner.hidesWhenStopped = true
         spinner.backgroundColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 0.9)
-        id = resident.image
-        nameLabel.text = resident.name
-        genderLabel.text = resident.gender.rawValue
-        speciesLabel.text = resident.species
-    }
-    
-    func setImage(image: UIImage?) {
-        DispatchQueue.main.async {
-            self.spinner.stopAnimating()
-            guard let image = image else {
-                self.imageView.alpha = 1
-                return
-            }
-            self.imageView.layer.frame = .init(x: 3, y: -4, width: 115, height: 115 )
-            self.imageView.layer.cornerRadius = self.imageView.frame.width / 2
-            self.imageView.image = image
-        }
     }
 }
