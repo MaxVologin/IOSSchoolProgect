@@ -55,7 +55,7 @@ class ResidentsViewController: UIViewController {
         }
     }
     
-    func requestResidents(index: Int, completion: @escaping (Resident) -> ()) {
+    func requestResident(index: Int, completion: @escaping (Resident) -> ()) {
         if residents.indices.contains(index) {
             completion(residents[index])
         } else {
@@ -86,7 +86,7 @@ extension ResidentsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ResidentCollectionViewCell.className, for: indexPath) as? ResidentCollectionViewCell {
             cell.startCell()
-            requestResidents(index: indexPath.row) { resident in
+            requestResident(index: indexPath.row) { resident in
                 cell.id = resident.image
                 DispatchQueue.main.async {
                     if cell.id == resident.image {
