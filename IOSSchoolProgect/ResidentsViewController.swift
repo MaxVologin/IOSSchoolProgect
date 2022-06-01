@@ -14,6 +14,7 @@ class ResidentsViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var urlResidents: [String] = []
+    var residents: [Resident] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,12 +55,19 @@ class ResidentsViewController: UIViewController {
     }
     
     func requestResidents(index: Int, completion: @escaping (Resident) -> ()) {
-        self.networkManager.requestResident(url: self.urlResidents[index]) { [ weak self ] (resident, error) in
-            if let error = error {
-                AppSnackBar.showSnackBar(in: self?.view, message: "Не удалось загрузить изображение: \"\(error.localizedDescription)\"")
+        if residents.indices.contains(index) {
+            completion(residents[index])
+        } else {
+            DispatchQueue.global().async {
+                self.networkManager.requestResident(url: self.urlResidents[index]) { [ weak self ] (resident, error) in
+                    if let error = error {
+                        AppSnackBar.showSnackBar(in: self?.view, message: "Не удалось загрузить персонажа: \"\(error.localizedDescription)\"")
+                    }
+                    guard let resident = resident else { return }
+                    self?.residents.append(resident)
+                    completion(resident)
+                }
             }
-            guard let resident = resident else { return }
-            completion(resident)
         }
     }
 }
@@ -72,12 +80,9 @@ extension ResidentsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ResidentCollectionViewCell.className, for: indexPath) as? ResidentCollectionViewCell {
             cell.startCell()
-            DispatchQueue.global().async {
-                self.requestResidents(index: indexPath.row) { (resident) in
-                    cell.id = resident.image
-                    DispatchQueue.main.async {
-                        cell.configure(resident: resident)
-                    }
+            requestResidents(index: indexPath.row) { resident in
+                cell.configure(resident: resident)
+                DispatchQueue.global().async {
                     self.imageService.getImage(urlString: resident.image) { (image) in
                         if cell.id == resident.image {
                             DispatchQueue.main.async {
