@@ -37,18 +37,11 @@ class ResidentCollectionViewCell: UICollectionViewCell {
     }
     
     func startCell() {
-        imageView.image = nil
         id = nil
-        nameLabel.text = ""
-        genderLabel.text = ""
-        speciesLabel.text = ""
-        self.imageView.layer.frame = .init(x: 0, y: 0, width: 121, height: 107)
-        self.imageView.layer.cornerRadius = 10
+        imageView.layer.frame = .init(x: 0, y: 0, width: 121, height: 107)
+        imageView.layer.cornerRadius = 10
         imageView.image = UIImage(named: "placeholder")
-        backView.clipsToBounds = true
         imageView.alpha = 0.9
         spinner.startAnimating()
-        spinner.hidesWhenStopped = true
-        spinner.backgroundColor = UIColor(red: 0.769, green: 0.769, blue: 0.769, alpha: 0.9)
     }
 }
