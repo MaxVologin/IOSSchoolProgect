@@ -15,6 +15,7 @@ class ResidentsViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var urlResidents: [String] = []
     var residents: [Resident] = []
+    let residentsRequestQueue = DispatchQueue(label: "ResidentsRequestQueue")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +59,7 @@ class ResidentsViewController: UIViewController {
         if residents.indices.contains(index) {
             completion(residents[index])
         } else {
-            DispatchQueue.global().async {
+            residentsRequestQueue.async {
                 self.networkManager.requestResident(url: self.urlResidents[index]) { [ weak self ] (resident, error) in
                     if let error = error {
                         AppSnackBar.showSnackBar(in: self?.view, message: "Не удалось загрузить персонажа: \"\(error.localizedDescription)\"")
