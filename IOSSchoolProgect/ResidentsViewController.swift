@@ -15,7 +15,7 @@ class ResidentsViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     var urlResidents: [String] = []
     var residents: [Resident] = []
-    let residentsRequestQueue = DispatchQueue(label: "ResidentsRequestQueue")
+    let updateResidentsQueue = DispatchQueue(label: "ResidentsRequestQueue")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,14 +59,16 @@ class ResidentsViewController: UIViewController {
         if residents.indices.contains(index) {
             completion(residents[index])
         } else {
-            residentsRequestQueue.async {
+            DispatchQueue.global().async {
                 self.networkManager.requestResident(url: self.urlResidents[index]) { [ weak self ] (resident, error) in
                     if let error = error {
                         AppSnackBar.showSnackBar(in: self?.view, message: "Не удалось загрузить персонажа: \"\(error.localizedDescription)\"")
                     }
                     guard let resident = resident else { return }
-                    self?.residents.append(resident)
-                    completion(resident)
+                    self?.updateResidentsQueue.async {
+                        self?.residents.append(resident)
+                        completion(resident)
+                    }
                 }
             }
         }
@@ -82,8 +84,13 @@ extension ResidentsViewController: UICollectionViewDataSource {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ResidentCollectionViewCell.className, for: indexPath) as? ResidentCollectionViewCell {
             cell.startCell()
             requestResidents(index: indexPath.row) { resident in
-                cell.configure(resident: resident)
-                DispatchQueue.global().async {
+                cell.id = resident.image
+                DispatchQueue.main.async {
+                    if cell.id == resident.image {
+                        cell.configure(resident: resident)
+                    }
+                }
+                DispatchQueue.global(qos: .background).async {
                     self.imageService.getImage(urlString: resident.image) { (image) in
                         if cell.id == resident.image {
                             DispatchQueue.main.async {
