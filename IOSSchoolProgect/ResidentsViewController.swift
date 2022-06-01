@@ -59,6 +59,8 @@ class ResidentsViewController: UIViewController {
         if residents.indices.contains(index) {
             completion(residents[index])
         } else {
+            let group = DispatchGroup()
+            group.enter()
             DispatchQueue.global().async {
                 self.networkManager.requestResident(url: self.urlResidents[index]) { [ weak self ] (resident, error) in
                     if let error = error {
@@ -68,6 +70,7 @@ class ResidentsViewController: UIViewController {
                     self?.updateResidentsQueue.async {
                         self?.residents.append(resident)
                         completion(resident)
+                        group.leave()
                     }
                 }
             }
