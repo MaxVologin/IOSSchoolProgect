@@ -34,8 +34,9 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         requestProfile()
+        profileImage()
     }
-    
+
     @objc func alertImage() {
         let alert = UIAlertController(title: nil, message: "Хотите выбрать новое изображение", preferredStyle: .alert)
         let photo = UIAlertAction(title: "Выбрать", style: .default) {_ in
@@ -72,6 +73,12 @@ class ProfileViewController: UIViewController {
                 self?.tableView.reloadData()
             }
         }
+    }
+    
+    func profileImage() {
+        storageManager.profileImage(completion: { image in
+            setupProfileImages(image: image)
+        })
     }
     
     func changeTintBackImage() {
@@ -123,13 +130,15 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let profileImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
         setupProfileImages(image: profileImage)
+        if let profileImage = profileImage {
+            storageManager.saveProfileImage(image: profileImage)
+        }
         dismiss(animated: true, completion: nil)
     }
     
     func setupProfileImages(image: UIImage?) {
         profileImageView.image = image
         profileImageView.contentMode = .scaleAspectFill
-        profileImageView.layer.frame = .init(x: 5, y: 5, width: 164, height: 164)
         profileImageView.layer.cornerRadius = 82
         changeTintBackImage()
         backImageView.image = image
