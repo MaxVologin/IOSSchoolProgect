@@ -12,4 +12,5 @@ struct Resident: Decodable {
     let name: String
     let species: String
     let gender: Gender
+    let image: String
 }

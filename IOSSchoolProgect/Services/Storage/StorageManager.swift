@@ -5,7 +5,7 @@
 //  Created by maxvologin on 15.05.2022.
 //
 
-import Foundation
+import UIKit
 import KeychainAccess
 
 class StorageManager {
@@ -15,6 +15,7 @@ class StorageManager {
         case userId
         case notFirstLaunch
         case profileColor
+        case profileImage
     }
     
     private struct Constants {
@@ -75,5 +76,18 @@ extension StorageManager: ProfileStorageManager {
     
     func colorProfile() -> String? {
         UserDefaults.standard.string(forKey: StorageManagerKey.profileColor.rawValue)
+    }
+    
+    func saveProfileImage(image: UIImage) {
+        if let imageData = image.pngData() {
+            UserDefaults.standard.setValue(imageData, forKey: StorageManagerKey.profileImage.rawValue)
+        }
+    }
+    
+    func profileImage(completion: (UIImage)->()) {
+        if let imageData = UserDefaults.standard.object(forKey: StorageManagerKey.profileImage.rawValue) as? Data,
+           let image = UIImage(data: imageData) {
+            completion(image)
+        }
     }
 }
