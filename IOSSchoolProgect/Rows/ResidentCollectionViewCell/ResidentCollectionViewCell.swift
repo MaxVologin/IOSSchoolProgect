@@ -17,6 +17,7 @@ class ResidentCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var backView: UIView!
 
     var id: String?
+    var imageId: String?
     
     func configure(resident: Resident) {
         id = resident.image
